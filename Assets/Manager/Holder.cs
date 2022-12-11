@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using MTG;
 using UnityEngine;
 
@@ -7,13 +8,17 @@ namespace MTG
     public abstract class Holder:MonoBehaviour
     {
         [SerializeField] protected Transform m_StartTransform;
+        [SerializeField] protected Transform m_EndTransform;
+        [SerializeField] protected float m_HorizontalSpacing = 1f;
+        [SerializeField] protected float m_VerticalSpacing = 1f;
         [SerializeField] protected List<CardHolder> m_Cards = new List<CardHolder>();
 
         public List<CardHolder> Cards => m_Cards;
         public void AddCard(CardHolder card)
         {
             m_Cards.Add(card);
-            UpdateCardPosition(card.transform,m_Cards.Count - 1);
+            UpdateCardPosition(card,m_Cards.Count - 1);
+            card.transform.parent = transform;
         }
 
         public void RemoveCard(CardHolder card)
@@ -26,12 +31,33 @@ namespace MTG
         {
             for (int i = 0; i < m_Cards.Count; i++)
             {
-                UpdateCardPosition(m_Cards[i].transform, i);
+                UpdateCardPosition(m_Cards[i], i);
             }
         }
 
-        protected abstract void UpdateCardPosition(Transform card, int index);
+        protected virtual void UpdateCardPosition(CardHolder card, int index)
+        {
+            card.transform.DOMove(GetPosition(card,index), 1f);
+        }
 
-        protected abstract Vector3 GetPosition(int index);
+        protected virtual Vector3 GetPosition(CardHolder card, int index)
+        {
+            Vector3 newPos = m_StartTransform.position;
+            int y = 0;
+            for (int i = 0; i < index; i++)
+            {
+                newPos.x += m_HorizontalSpacing;
+                if (newPos.x > m_EndTransform.position.x)
+                {
+                    newPos.x = m_StartTransform.position.x;
+                    y++;
+                    newPos.y -= m_VerticalSpacing;
+                }
+            }
+            
+            card.SetSpritePriority(y);
+            
+            return newPos;
+        }
     }
 }

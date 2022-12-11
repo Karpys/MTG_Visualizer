@@ -1,14 +1,10 @@
-using System;
-using System.Collections.Generic;
 using DG.Tweening;
-using Manager;
 using UnityEngine;
 
 namespace MTG
 {
-    public class DeckHolder:Holder
+    public class GraveyardHolder : Holder
     {
-
         protected override void UpdateCardPosition(CardHolder card, int index)
         {
             card.transform.DOKill();
