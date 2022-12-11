@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18aea74a444145ee87ac534d2a79bb80, type: 3}
+  m_Name: Anhelo_Deck
+  m_EditorClassIdentifier: 
+  m_Cards:
+  - {fileID: 11400000, guid: c6cb99e59dff544fda5cd375d2e4cf1d, type: 2}
+  - {fileID: 11400000, guid: c6cb99e59dff544fda5cd375d2e4cf1d, type: 2}
+  - {fileID: 11400000, guid: c6cb99e59dff544fda5cd375d2e4cf1d, type: 2}
+  - {fileID: 11400000, guid: c6cb99e59dff544fda5cd375d2e4cf1d, type: 2}
+  - {fileID: 11400000, guid: c6cb99e59dff544fda5cd375d2e4cf1d, type: 2}
+  - {fileID: 11400000, guid: c6cb99e59dff544fda5cd375d2e4cf1d, type: 2}
+  - {fileID: 11400000, guid: c6cb99e59dff544fda5cd375d2e4cf1d, type: 2}
+  - {fileID: 11400000, guid: 380c1640ec22d4635a2cc1b720a339ba, type: 2}
+  - {fileID: 11400000, guid: 380c1640ec22d4635a2cc1b720a339ba, type: 2}
+  - {fileID: 11400000, guid: 380c1640ec22d4635a2cc1b720a339ba, type: 2}
+  - {fileID: 11400000, guid: 380c1640ec22d4635a2cc1b720a339ba, type: 2}
+  - {fileID: 11400000, guid: 380c1640ec22d4635a2cc1b720a339ba, type: 2}
+  - {fileID: 11400000, guid: 5a1c4b816fbf04922a17d3e4fcc4c705, type: 2}
+  - {fileID: 11400000, guid: 5a1c4b816fbf04922a17d3e4fcc4c705, type: 2}
+  - {fileID: 11400000, guid: 5a1c4b816fbf04922a17d3e4fcc4c705, type: 2}
+  - {fileID: 11400000, guid: 5a1c4b816fbf04922a17d3e4fcc4c705, type: 2}
+  - {fileID: 11400000, guid: 5a1c4b816fbf04922a17d3e4fcc4c705, type: 2}
+  - {fileID: 11400000, guid: 5a1c4b816fbf04922a17d3e4fcc4c705, type: 2}
+  m_CardBackSprite: {fileID: 21300000, guid: afaa28f2c63d24212b8d90864a25c905, type: 3}

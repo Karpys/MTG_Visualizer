@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace MTG
@@ -22,6 +23,8 @@ namespace MTG
 
         private Sprite m_CardVisual = null;
         public BoxCollider2D Selection => m_Selection;
+        public CardState State => m_State;
+        public Sprite CardVisual => m_CardVisual;
         public void Initialize(CardScriptable cardScriptable)
         {
             m_CardVisual = cardScriptable.m_CardVisual;
@@ -55,16 +58,36 @@ namespace MTG
                     goto default;
                 default:
                     newSprite = m_CardVisual;
+                    ResetRotation();
                     break;
             }
 
             m_Visual.sprite = newSprite;
         }
 
+        private void ResetRotation()
+        {
+            transform.DORotate(new Vector3(0, 0, 0), 0.5f);
+        }
+
+        public void RotateCard()
+        {
+            if (transform.eulerAngles == new Vector3(0, 0, 270))
+            {
+                ResetRotation();
+                return;
+            }
+            transform.DORotate(new Vector3(0, 0, -90), 0.5f);
+        }
+
         public void SetSpritePriority(int newPrio)
         {
             m_Visual.sortingOrder = newPrio;
         }
-        
+
+        public int GetPriority()
+        {
+            return m_Visual.sortingOrder;
+        }
     }
 }

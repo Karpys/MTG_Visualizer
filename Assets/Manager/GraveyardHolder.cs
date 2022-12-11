@@ -1,10 +1,16 @@
 using DG.Tweening;
+using Manager;
 using UnityEngine;
 
 namespace MTG
 {
     public class GraveyardHolder : Holder
     {
+        public override void RemoveCard(CardHolder card)
+        {
+            base.RemoveCard(card);
+            CardUIDisplay.Instance.UpdateDisplay(m_Cards,CardState.Graveyard);
+        }
         protected override void UpdateCardPosition(CardHolder card, int index)
         {
             card.transform.DOKill();

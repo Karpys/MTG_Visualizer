@@ -21,7 +21,7 @@ namespace MTG
             card.transform.parent = transform;
         }
 
-        public void RemoveCard(CardHolder card)
+        public virtual void RemoveCard(CardHolder card)
         {
             m_Cards.Remove(card);
             UpdateCardsPosition();

@@ -9,6 +9,12 @@ namespace MTG
     public class DeckHolder:Holder
     {
 
+        public override void RemoveCard(CardHolder card)
+        {
+            base.RemoveCard(card);
+            CardUIDisplay.Instance.UpdateDisplay(m_Cards,CardState.Deck);
+        }
+        
         protected override void UpdateCardPosition(CardHolder card, int index)
         {
             card.transform.DOKill();
