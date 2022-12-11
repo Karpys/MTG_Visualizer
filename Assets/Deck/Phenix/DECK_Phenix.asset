@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18aea74a444145ee87ac534d2a79bb80, type: 3}
+  m_Name: DECK_Phenix
+  m_EditorClassIdentifier: 
+  m_Cards:
+  - {fileID: 11400000, guid: 86950827cc92046219237a0dfecd5fa1, type: 2}
+  - {fileID: 11400000, guid: 10505b0b3595542acbcd4bee37e5c706, type: 2}
+  - {fileID: 11400000, guid: e27603f9fdac443bdacef29c355f3994, type: 2}
+  m_CardBackSprite: {fileID: 21300000, guid: 4f0bea5dda89b4c3c8d4dadae1934d64, type: 3}
