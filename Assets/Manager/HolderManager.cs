@@ -103,6 +103,11 @@ namespace MTG
                 return;
             m_SelectedCard = InstantSelect();
         }
+
+        private CardHolder TempSelect()
+        {
+            return InstantSelect();
+        }
         
         private CardHolder InstantSelect()
         {
@@ -213,6 +218,14 @@ namespace MTG
             }else if (Input.GetKeyDown(KeyCode.J))
             {
                 CardUIDisplay.Instance.DisplayCard(GetHolder(GetState(KeyCode.J)).Cards, GetState(KeyCode.J));
+            }else if (Input.GetKeyDown(KeyCode.Equals))
+            {
+                CardHolder card = TempSelect();
+                card.ChangeCounter(1);
+            }else if (Input.GetKeyDown(KeyCode.Colon))
+            {
+                CardHolder card = TempSelect();
+                card.ChangeCounter(-1);
             }
         }
 

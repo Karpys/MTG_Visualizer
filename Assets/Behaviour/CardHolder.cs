@@ -1,4 +1,6 @@
+using System;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 namespace MTG
@@ -20,9 +22,10 @@ namespace MTG
         [SerializeField] private SpriteRenderer m_Visual = null;
         [SerializeField] private BoxCollider2D m_Selection = null;
         [SerializeField] private CardState m_State = CardState.Deck;
-
+        [SerializeField] private TextMeshProUGUI m_Counter = null;
 
         private Sprite m_CardVisual = null;
+        private int m_CurrentCount = 0;
         public BoxCollider2D Selection => m_Selection;
         public CardState State => m_State;
         public Sprite CardVisual => m_CardVisual;
@@ -108,6 +111,31 @@ namespace MTG
         public int GetPriority()
         {
             return m_Visual.sortingOrder;
+        }
+
+        public void ChangeCounter(int add)
+        {
+            m_CurrentCount += add;
+            UpdateVisualCount();
+        }
+        private void UpdateVisualCount()
+        {
+            string prefix = String.Empty;
+            if (m_CurrentCount > 0)
+            {
+                prefix = "+";
+            }
+            else if(m_CurrentCount < 0)
+            {
+                prefix = " ";
+            }
+            else
+            {
+                m_Counter.text = "";
+                return;
+            }
+
+            m_Counter.text = prefix + m_CurrentCount;
         }
     }
 }
