@@ -16,6 +16,7 @@ namespace MTG
         [SerializeField] private GraveyardHolder m_GraveyardHolder = null;
         [SerializeField] private ExileHolder m_ExileHolder = null;
         [SerializeField] private CreatureHolder m_CreatureHolder = null;
+        [SerializeField] private EnchantementHolder m_EnchantementHolder = null;
         public List<CardHolder> m_CardsOnBoards = new List<CardHolder>();
 
         private List<CardScriptable> m_CardsInDeck = new List<CardScriptable>();
@@ -26,14 +27,15 @@ namespace MTG
 
         private void Start()
         {
-            m_Deck.m_Cards.Shuffle();
 
             for (int i = 0; i < m_Deck.m_Cards.Count; i++)
             {
                 m_CardsInDeck.Add(m_Deck.m_Cards[i]);
             }
             
-            
+            m_CardsInDeck.Shuffle();
+
+
             for (int i = 0; i < m_CardsInDeck.Count; i++)
             {
                 CardHolder card = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_DeckHolder.transform);
@@ -213,7 +215,11 @@ namespace MTG
             {
                 SelectCard();
                 m_KeyPressed = KeyCode.E;
-            } 
+            }else if(Input.GetKeyDown(KeyCode.A))
+            {
+                SelectCard();
+                m_KeyPressed = KeyCode.A;
+            }
         }
 
         private CardState GetState(KeyCode inputCommand)
@@ -232,6 +238,8 @@ namespace MTG
                     return CardState.Creature;
                 case KeyCode.E:
                     return CardState.Exil;
+                case KeyCode.A:
+                    return CardState.Enchantement;
                 default:
                     return CardState.Hand;
             }
@@ -253,6 +261,8 @@ namespace MTG
                     return m_CreatureHolder;
                 case CardState.Exil:
                     return m_ExileHolder;
+                case CardState.Enchantement:
+                    return m_EnchantementHolder;
                 default:
                     return m_HandHolder;
             }

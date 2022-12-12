@@ -62,6 +62,9 @@ namespace MTG
                 case CardState.Exil:
                     m_Visual.transform.localScale = new Vector3(.5f, .5f, .5f);
                     goto default;
+                case CardState.Enchantement:
+                    m_Visual.transform.localScale = new Vector3(.6f, .6f, .6f);
+                    goto default;
                 default:
                     newSprite = m_CardVisual;
                     ResetRotation();
