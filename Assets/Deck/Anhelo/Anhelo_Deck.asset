@@ -113,4 +113,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d569c9179930141e585e6cb57560f374, type: 2}
   - {fileID: 11400000, guid: 51808d45ebcf243baa3a9f280b2f6b5b, type: 2}
   - {fileID: 11400000, guid: c00071409123e42d29bb40ee1373d2b1, type: 2}
+  m_Jetons:
+  - {fileID: 11400000, guid: b30e934e24b5441abaa09b14c460499d, type: 2}
+  - {fileID: 11400000, guid: 37f74066914a3451d9c8b120efb89464, type: 2}
+  - {fileID: 11400000, guid: 81bfe1de03b114d6495f8322cac31200, type: 2}
+  - {fileID: 11400000, guid: 1a199a3d0abaa4d818c3d50ed5beaf6b, type: 2}
+  - {fileID: 11400000, guid: 5431646de909f4af8b71668ed601c26a, type: 2}
+  - {fileID: 11400000, guid: 1f2a1515e01fb49e1ad209a94b565da1, type: 2}
   m_CardBackSprite: {fileID: 21300000, guid: afaa28f2c63d24212b8d90864a25c905, type: 3}

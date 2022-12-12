@@ -12,6 +12,7 @@ namespace MTG
         Enchantement,
         Exil,
         Graveyard,
+        Jeton,
         CommandZone,
     }
     public class CardHolder:MonoBehaviour
@@ -28,6 +29,13 @@ namespace MTG
         public void Initialize(CardScriptable cardScriptable)
         {
             m_CardVisual = cardScriptable.m_CardVisual;
+            UpdateVisual(m_State);
+        }
+
+        public void Initialize(CardHolder cardHolder)
+        {
+            m_CardVisual = cardHolder.CardVisual;
+            m_State = cardHolder.State;
             UpdateVisual(m_State);
         }
 
@@ -65,6 +73,9 @@ namespace MTG
                 case CardState.Enchantement:
                     m_Visual.transform.localScale = new Vector3(.6f, .6f, .6f);
                     goto default;
+                case CardState.Jeton:
+                    m_Visual.transform.localScale = Vector3.zero;
+                    goto default;
                 default:
                     newSprite = m_CardVisual;
                     ResetRotation();
@@ -76,7 +87,6 @@ namespace MTG
 
         public void ResetRotation()
         {
-            Debug.Log("Reset Rotation");
             transform.DORotate(new Vector3(0, 0, 0), 0.5f);
         }
 

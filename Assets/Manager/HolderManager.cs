@@ -17,9 +17,11 @@ namespace MTG
         [SerializeField] private ExileHolder m_ExileHolder = null;
         [SerializeField] private CreatureHolder m_CreatureHolder = null;
         [SerializeField] private EnchantementHolder m_EnchantementHolder = null;
+        [SerializeField] private JetonHolder m_JetonHolder = null;
         public List<CardHolder> m_CardsOnBoards = new List<CardHolder>();
 
         private List<CardScriptable> m_CardsInDeck = new List<CardScriptable>();
+        private List<CardScriptable> m_JetonsCards = new List<CardScriptable>();
         public DeckScriptable Deck => m_Deck;
         private CardHolder m_SelectedCard = null;
         private KeyCode m_KeyPressed = KeyCode.None;
@@ -32,6 +34,11 @@ namespace MTG
             {
                 m_CardsInDeck.Add(m_Deck.m_Cards[i]);
             }
+
+            for (int i = 0; i < m_Deck.m_Jetons.Count; i++)
+            {
+                m_JetonsCards.Add(m_Deck.m_Jetons[i]);
+            }
             
             m_CardsInDeck.Shuffle();
 
@@ -41,6 +48,14 @@ namespace MTG
                 CardHolder card = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_DeckHolder.transform);
                 card.Initialize(m_CardsInDeck[i]);
                 GotoCard(CardState.Deck,card);
+                m_CardsOnBoards.Add(card);
+            }
+            
+            for (int i = 0; i < m_JetonsCards.Count; i++)
+            {
+                CardHolder card = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_DeckHolder.transform);
+                card.Initialize(m_JetonsCards[i]);
+                GotoCard(CardState.Jeton,card);
                 m_CardsOnBoards.Add(card);
             }
         }
@@ -88,41 +103,6 @@ namespace MTG
                 return;
             m_SelectedCard = InstantSelect();
         }
-
-        // private void TrySelect()
-        // {
-        //     List<CardHolder> selectable = new List<CardHolder>();
-        //     if (Input.GetMouseButtonDown(0))
-        //     {
-        //         Vector3 mousePosition = Input.mousePosition;
-        //         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        //         mousePosition.z = 0;
-        //         
-        //         foreach (CardHolder card in m_CardsOnBoards)
-        //         {
-        //             if (card.Selection.bounds.Contains(mousePosition))
-        //             {
-        //                 selectable.Add(card);
-        //             }
-        //         }
-        //     }
-        //
-        //     if (selectable.Count == 0) return;
-        //     
-        //     int biggestPriority = 0;
-        //     int index = 0;
-        //
-        //     for (int i = 0; i < selectable.Count; i++)
-        //     {
-        //         if (selectable[i].GetPriority() > biggestPriority)
-        //         {
-        //             index = i;
-        //             biggestPriority = selectable[i].GetPriority();
-        //         }
-        //     }
-        //     
-        //     SetSelectableCard(selectable[index]);
-        // }
         
         private CardHolder InstantSelect()
         {
@@ -165,6 +145,7 @@ namespace MTG
 
         public void GotoCard(CardState state, CardHolder card)
         {
+            card = TryGetJeton(card);
             Holder currentHolder = card.GetComponentInParent<Holder>();
 
             card.UpdateState(state);
@@ -174,7 +155,17 @@ namespace MTG
             m_SelectedCard = null;
             m_KeyPressed = KeyCode.None;
         }
-        
+
+        private CardHolder TryGetJeton(CardHolder card)
+        {
+            if (card.State != CardState.Jeton) return card;
+            
+            CardHolder newCard = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_JetonHolder.transform);
+            newCard.Initialize(card);
+            m_CardsOnBoards.Add(newCard);
+            return newCard;
+        }
+
         private void FecthAction()
         {
             if (Input.GetKeyDown(KeyCode.R))
@@ -219,6 +210,9 @@ namespace MTG
             {
                 SelectCard();
                 m_KeyPressed = KeyCode.A;
+            }else if (Input.GetKeyDown(KeyCode.J))
+            {
+                CardUIDisplay.Instance.DisplayCard(GetHolder(GetState(KeyCode.J)).Cards, GetState(KeyCode.J));
             }
         }
 
@@ -240,6 +234,8 @@ namespace MTG
                     return CardState.Exil;
                 case KeyCode.A:
                     return CardState.Enchantement;
+                case KeyCode.J:
+                    return CardState.Jeton;
                 default:
                     return CardState.Hand;
             }
@@ -263,6 +259,8 @@ namespace MTG
                     return m_ExileHolder;
                 case CardState.Enchantement:
                     return m_EnchantementHolder;
+                case CardState.Jeton:
+                    return m_JetonHolder;
                 default:
                     return m_HandHolder;
             }
