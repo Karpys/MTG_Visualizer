@@ -14,37 +14,51 @@ namespace MTG
         [SerializeField] private HandHolder m_HandHolder = null;
         [SerializeField] private LandHolder m_LandHolder = null;
         [SerializeField] private GraveyardHolder m_GraveyardHolder = null;
+        [SerializeField] private ExileHolder m_ExileHolder = null;
         [SerializeField] private CreatureHolder m_CreatureHolder = null;
         public List<CardHolder> m_CardsOnBoards = new List<CardHolder>();
-        
+
+        private List<CardScriptable> m_CardsInDeck = new List<CardScriptable>();
         public DeckScriptable Deck => m_Deck;
         private CardHolder m_SelectedCard = null;
         private KeyCode m_KeyPressed = KeyCode.None;
+        
 
         private void Start()
         {
             m_Deck.m_Cards.Shuffle();
+
             for (int i = 0; i < m_Deck.m_Cards.Count; i++)
             {
+                m_CardsInDeck.Add(m_Deck.m_Cards[i]);
+            }
+            
+            
+            for (int i = 0; i < m_CardsInDeck.Count; i++)
+            {
                 CardHolder card = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_DeckHolder.transform);
-                card.Initialize(m_Deck.m_Cards[i]);
+                card.Initialize(m_CardsInDeck[i]);
                 GotoCard(CardState.Deck,card);
                 m_CardsOnBoards.Add(card);
             }
         }
         public void Update()
         {
-            TrySelect();
+            m_KeyPressed = KeyCode.None;
             
             if (Input.GetKeyDown(KeyCode.P))
             {
                 Draw();
             }
 
-            FetchInstantAction();
-
-            if(m_SelectedCard)
-                FetchInput();
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                AlternativeAction();
+            }
+            else
+            {
+                FecthAction();
+            }
 
             if (m_SelectedCard && m_KeyPressed != KeyCode.None)
             {
@@ -52,72 +66,72 @@ namespace MTG
             }
         }
 
-        private void FetchInstantAction()
+        private void AlternativeAction()
         {
-            CardHolder cardSelected = InstantSelect();
-
-            if (cardSelected)
+            if (Input.GetKeyDown(KeyCode.D))
             {
-                if (Input.GetKeyDown(KeyCode.R))
-                {
-                    cardSelected.RotateCard();
-                }else if (Input.GetMouseButtonDown(1))
-                {
-                    CardHelpDisplay.Instance.DisplayPreviewCard(cardSelected);
-                }
+                CardUIDisplay.Instance.DisplayCard(GetHolder(GetState(KeyCode.D)).Cards, GetState(KeyCode.D));
+            }else  if (Input.GetKeyDown(KeyCode.G))
+            {
+                CardUIDisplay.Instance.DisplayCard(GetHolder(GetState(KeyCode.G)).Cards, GetState(KeyCode.G));
             }
         }
 
-        private void TrySelect()
+        private void SelectCard()
         {
-            List<CardHolder> selectable = new List<CardHolder>();
-            if (Input.GetMouseButtonDown(0))
-            {
-                Vector3 mousePosition = Input.mousePosition;
-                mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-                mousePosition.z = 0;
-                
-                foreach (CardHolder card in m_CardsOnBoards)
-                {
-                    if (card.Selection.bounds.Contains(mousePosition))
-                    {
-                        selectable.Add(card);
-                    }
-                }
-            }
-
-            if (selectable.Count == 0) return;
-            
-            int biggestPriority = 0;
-            int index = 0;
-
-            for (int i = 0; i < selectable.Count; i++)
-            {
-                if (selectable[i].GetPriority() > biggestPriority)
-                {
-                    index = i;
-                    biggestPriority = selectable[i].GetPriority();
-                }
-            }
-            
-            SetSelectableCard(selectable[index]);
+            if(CardUIDisplay.Instance.InDisplay)
+                return;
+            m_SelectedCard = InstantSelect();
         }
+
+        // private void TrySelect()
+        // {
+        //     List<CardHolder> selectable = new List<CardHolder>();
+        //     if (Input.GetMouseButtonDown(0))
+        //     {
+        //         Vector3 mousePosition = Input.mousePosition;
+        //         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        //         mousePosition.z = 0;
+        //         
+        //         foreach (CardHolder card in m_CardsOnBoards)
+        //         {
+        //             if (card.Selection.bounds.Contains(mousePosition))
+        //             {
+        //                 selectable.Add(card);
+        //             }
+        //         }
+        //     }
+        //
+        //     if (selectable.Count == 0) return;
+        //     
+        //     int biggestPriority = 0;
+        //     int index = 0;
+        //
+        //     for (int i = 0; i < selectable.Count; i++)
+        //     {
+        //         if (selectable[i].GetPriority() > biggestPriority)
+        //         {
+        //             index = i;
+        //             biggestPriority = selectable[i].GetPriority();
+        //         }
+        //     }
+        //     
+        //     SetSelectableCard(selectable[index]);
+        // }
         
         private CardHolder InstantSelect()
         {
             List<CardHolder> selectable = new List<CardHolder>();
-            if (Input.GetKey(KeyCode.LeftShift))
+
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            mousePosition.z = 0;
+            
+            foreach (CardHolder card in m_CardsOnBoards)
             {
-                Vector3 mousePosition = Input.mousePosition;
-                mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-                mousePosition.z = 0;
-                
-                foreach (CardHolder card in m_CardsOnBoards)
+                if (card.Selection.bounds.Contains(mousePosition))
                 {
-                    if (card.Selection.bounds.Contains(mousePosition))
-                    {
-                        selectable.Add(card);
-                    }
+                    selectable.Add(card);
                 }
             }
 
@@ -140,14 +154,6 @@ namespace MTG
 
         public void SetSelectableCard(CardHolder card)
         {
-            if (card.State == CardState.Graveyard || card.State == CardState.Deck )
-            {
-                if (!CardUIDisplay.Instance.InDisplay)
-                {
-                    CardUIDisplay.Instance.DisplayCard(GetHolder(card.State).Cards, card.State);
-                    return;
-                }
-            }
             m_SelectedCard = card;
         }
         
@@ -164,23 +170,46 @@ namespace MTG
             m_KeyPressed = KeyCode.None;
         }
         
-        private void FetchInput()
+        private void FecthAction()
         {
-            if (Input.GetKeyDown(KeyCode.H))
+            if (Input.GetKeyDown(KeyCode.R))
             {
+                CardHolder cardSelected = InstantSelect();
+                if(cardSelected)
+                    cardSelected.RotateCard();
+            }else if (Input.GetMouseButtonDown(0))
+            {
+                CardHolder cardSelected = InstantSelect();
+                if(cardSelected && !CardHelpDisplay.Instance.InDisplay)
+                    CardHelpDisplay.Instance.DisplayPreviewCard(cardSelected);
+            }
+            
+            //Go to action
+            if(Input.GetKeyDown(KeyCode.H))
+            {
+                SelectCard();
                 m_KeyPressed = KeyCode.H;
-            }else  if (Input.GetKeyDown(KeyCode.D))
+            }else if(Input.GetKeyDown(KeyCode.D))
             {
+                SelectCard();
                 m_KeyPressed = KeyCode.D;
-            }else  if (Input.GetKeyDown(KeyCode.L))
+            }else if(Input.GetKeyDown(KeyCode.L))
             {
+                SelectCard();
                 m_KeyPressed = KeyCode.L;
-            }else  if (Input.GetKeyDown(KeyCode.G))
+            }else if(Input.GetKeyDown(KeyCode.G))
             {
+                SelectCard();
                 m_KeyPressed = KeyCode.G;
-            }else  if (Input.GetKeyDown(KeyCode.C))
+            }else if(Input.GetKeyDown(KeyCode.C))
             {
+                SelectCard();
                 m_KeyPressed = KeyCode.C;
+            }
+            else if(Input.GetKeyDown(KeyCode.E))
+            {
+                SelectCard();
+                m_KeyPressed = KeyCode.E;
             } 
         }
 
@@ -198,6 +227,8 @@ namespace MTG
                     return CardState.Graveyard;
                 case KeyCode.C:
                     return CardState.Creature;
+                case KeyCode.E:
+                    return CardState.Exil;
                 default:
                     return CardState.Hand;
             }
@@ -217,6 +248,8 @@ namespace MTG
                     return m_GraveyardHolder;
                 case CardState.Creature:
                     return m_CreatureHolder;
+                case CardState.Exil:
+                    return m_ExileHolder;
                 default:
                     return m_HandHolder;
             }
