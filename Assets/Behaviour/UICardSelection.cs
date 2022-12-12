@@ -18,8 +18,16 @@ namespace MTG
 
         public void OnSelect()
         {
-            Holder zone = GameManager.Instance.GetHolder(m_Holder);
-            GameManager.Instance.SetSelectableCard(zone.Cards[m_Index]);
+            Holder zone = HolderManager.Instance.GetHolder(m_Holder);
+            
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                CardHelpDisplay.Instance.DisplayPreviewCard
+                    (zone.Cards[m_Index]);
+            }else
+            {
+                HolderManager.Instance.SetSelectableCard(zone.Cards[m_Index]);
+            }
         }
     }
 }

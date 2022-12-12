@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 namespace MTG
 {
-    public class GameManager:SingletonMonoBehaviour<GameManager>
+    public class HolderManager:SingletonMonoBehaviour<HolderManager>
     {
         [SerializeField] private DeckScriptable m_Deck = null;
         [SerializeField] private DeckHolder m_DeckHolder = null;
@@ -74,6 +74,9 @@ namespace MTG
             }else  if (Input.GetKeyDown(KeyCode.G))
             {
                 CardUIDisplay.Instance.DisplayCard(GetHolder(GetState(KeyCode.G)).Cards, GetState(KeyCode.G));
+            }else  if (Input.GetKeyDown(KeyCode.E))
+            {
+                CardUIDisplay.Instance.DisplayCard(GetHolder(GetState(KeyCode.E)).Cards, GetState(KeyCode.E));
             }
         }
 
@@ -180,7 +183,7 @@ namespace MTG
             }else if (Input.GetMouseButtonDown(0))
             {
                 CardHolder cardSelected = InstantSelect();
-                if(cardSelected && !CardHelpDisplay.Instance.InDisplay)
+                if(cardSelected && !CardHelpDisplay.Instance.InDisplay && !CardUIDisplay.Instance.InDisplay)
                     CardHelpDisplay.Instance.DisplayPreviewCard(cardSelected);
             }
             

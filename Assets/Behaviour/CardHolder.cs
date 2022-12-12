@@ -44,7 +44,7 @@ namespace MTG
             switch (state)
             {
                 case CardState.Deck:
-                    newSprite = GameManager.Instance.Deck.m_CardBackSprite;
+                    newSprite = HolderManager.Instance.Deck.m_CardBackSprite;
                     m_Visual.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
                     break;
                 case CardState.Hand:
@@ -56,6 +56,12 @@ namespace MTG
                 case CardState.Graveyard:
                     m_Visual.transform.localScale = new Vector3(.6f, .6f, .6f);
                     goto default;
+                case CardState.Creature:
+                    m_Visual.transform.localScale = new Vector3(.7f, .7f, .7f);
+                    goto default;
+                case CardState.Exil:
+                    m_Visual.transform.localScale = new Vector3(.5f, .5f, .5f);
+                    goto default;
                 default:
                     newSprite = m_CardVisual;
                     ResetRotation();
@@ -65,8 +71,9 @@ namespace MTG
             m_Visual.sprite = newSprite;
         }
 
-        private void ResetRotation()
+        public void ResetRotation()
         {
+            Debug.Log("Reset Rotation");
             transform.DORotate(new Vector3(0, 0, 0), 0.5f);
         }
 

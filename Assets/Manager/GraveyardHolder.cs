@@ -14,6 +14,7 @@ namespace MTG
         protected override void UpdateCardPosition(CardHolder card, int index)
         {
             card.transform.DOKill();
+            card.ResetRotation();
             card.transform.position = m_StartTransform.position;
         }
 
