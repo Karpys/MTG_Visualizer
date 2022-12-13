@@ -34,6 +34,11 @@ namespace MTG
             {
                 m_CardsInDeck.Add(m_Deck.m_Cards[i]);
             }
+            
+            for (int i = 0; i < m_Deck.m_Terrains.Count; i++)
+            {
+                m_CardsInDeck.Add(m_Deck.m_Terrains[i]);
+            }
 
             for (int i = 0; i < m_Deck.m_Jetons.Count; i++)
             {

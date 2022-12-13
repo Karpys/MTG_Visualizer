@@ -7,6 +7,7 @@ namespace MTG
     public class DeckScriptable : ScriptableObject
     {
         public List<CardScriptable> m_Cards;
+        public List<CardScriptable> m_Terrains;
         public List<CardScriptable> m_Jetons;
         public Sprite m_CardBackSprite = null;
     }
