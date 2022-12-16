@@ -6,6 +6,7 @@ namespace MTG
     [CreateAssetMenu(fileName = "New Deck", menuName = "ScriptableObjects/Deck", order = 1)]
     public class DeckScriptable : ScriptableObject
     {
+        public List<CardScriptable> m_Commanders;
         public List<CardScriptable> m_Cards;
         public List<CardScriptable> m_Terrains;
         public List<CardScriptable> m_Jetons;

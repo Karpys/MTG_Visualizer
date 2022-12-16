@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18aea74a444145ee87ac534d2a79bb80, type: 3}
   m_Name: Phenix
   m_EditorClassIdentifier: 
+  m_Commanders:
+  - {fileID: 11400000, guid: 86950827cc92046219237a0dfecd5fa1, type: 2}
   m_Cards:
   - {fileID: 11400000, guid: 6dd0c2aa017654af7ab5700002c5b743, type: 2}
   - {fileID: 11400000, guid: 172209a611a3848b5909c3a0a6cb7ef0, type: 2}
@@ -73,7 +75,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2538de2061465435b9a187d37bc178ac, type: 2}
   - {fileID: 11400000, guid: 0b6243f3fddf942ce8baaf8de40cc8be, type: 2}
   - {fileID: 11400000, guid: 9d4117870d24c4dc3987e514f7e61aa9, type: 2}
-  - {fileID: 11400000, guid: 86950827cc92046219237a0dfecd5fa1, type: 2}
   - {fileID: 11400000, guid: 10505b0b3595542acbcd4bee37e5c706, type: 2}
   - {fileID: 11400000, guid: 1f0c64d2f91f0490487849336874a77c, type: 2}
   - {fileID: 11400000, guid: 910f04b5fa929415eb0cf42a3dbbc00c, type: 2}

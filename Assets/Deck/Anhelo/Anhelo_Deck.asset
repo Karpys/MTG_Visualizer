@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18aea74a444145ee87ac534d2a79bb80, type: 3}
   m_Name: Anhelo_Deck
   m_EditorClassIdentifier: 
+  m_Commanders:
+  - {fileID: 11400000, guid: 4b89cacad7e9a4a639e2496b6bf72f8f, type: 2}
   m_Cards:
   - {fileID: 11400000, guid: c6cb99e59dff544fda5cd375d2e4cf1d, type: 2}
   - {fileID: 11400000, guid: c6cb99e59dff544fda5cd375d2e4cf1d, type: 2}
@@ -33,7 +35,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 380c1640ec22d4635a2cc1b720a339ba, type: 2}
   - {fileID: 11400000, guid: cff6467206ecf46f0b2b5f307f7f7d4f, type: 2}
   - {fileID: 11400000, guid: d373caca1336d49e897c15ef2a0f233d, type: 2}
-  - {fileID: 11400000, guid: 4b89cacad7e9a4a639e2496b6bf72f8f, type: 2}
   - {fileID: 11400000, guid: ff4b7c546ebc24e139938098cb13713c, type: 2}
   - {fileID: 11400000, guid: 18d43d184e4d44fc79dfedabfbd77353, type: 2}
   - {fileID: 11400000, guid: 5745f72c43d574be9b7de3cb7ebd09b9, type: 2}
@@ -113,6 +114,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d569c9179930141e585e6cb57560f374, type: 2}
   - {fileID: 11400000, guid: 51808d45ebcf243baa3a9f280b2f6b5b, type: 2}
   - {fileID: 11400000, guid: c00071409123e42d29bb40ee1373d2b1, type: 2}
+  m_Terrains: []
   m_Jetons:
   - {fileID: 11400000, guid: b30e934e24b5441abaa09b14c460499d, type: 2}
   - {fileID: 11400000, guid: 37f74066914a3451d9c8b120efb89464, type: 2}

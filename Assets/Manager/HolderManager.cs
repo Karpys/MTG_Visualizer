@@ -56,6 +56,14 @@ namespace MTG
                 m_CardsOnBoards.Add(card);
             }
             
+            for (int i = 0; i < m_Deck.m_Commanders.Count; i++)
+            {
+                CardHolder card = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_EnchantementHolder.transform);
+                card.Initialize(m_Deck.m_Commanders[i]);
+                GotoCard(CardState.Enchantement,card);
+                m_CardsOnBoards.Add(card);
+            }
+            
             for (int i = 0; i < m_JetonsCards.Count; i++)
             {
                 CardHolder card = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_DeckHolder.transform);
