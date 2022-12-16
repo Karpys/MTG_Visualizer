@@ -223,11 +223,12 @@ namespace MTG
             }else if (Input.GetKeyDown(KeyCode.J))
             {
                 CardUIDisplay.Instance.DisplayCard(GetHolder(GetState(KeyCode.J)).Cards, GetState(KeyCode.J));
-            }else if (Input.GetKeyDown(KeyCode.Equals))
+            }else if (Input.GetAxis("Mouse ScrollWheel") > 0f )
             {
                 CardHolder card = TempSelect();
                 card.ChangeCounter(1);
-            }else if (Input.GetKeyDown(KeyCode.Colon))
+            }
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
             {
                 CardHolder card = TempSelect();
                 card.ChangeCounter(-1);
