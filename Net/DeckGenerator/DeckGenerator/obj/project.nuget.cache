@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "btmXs/cDsRVLYMourwtbLoO+APBZMWtWpdOWiWjqqvPmVa9bPzcoqTxz7KBRX9sHrVPhMawcgUfOAuqhHRUJhA==",
+  "dgSpecHash": "sR0/OiK3ht7swmuDkk31HuuaDwyPqaXQUJMP7NxOpLPEa1TVd54VNWH616EBbiQui66lh84RkJY7vTxboEOEBA==",
   "success": true,
-  "projectFilePath": "/Users/remi/MTG/MTG_Project/Net/DeckGenerator/DeckGenerator/DeckGenerator.csproj",
+  "projectFilePath": "D:\\A_Unity\\MTG_Visualizer\\Net\\DeckGenerator\\DeckGenerator\\DeckSolution.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

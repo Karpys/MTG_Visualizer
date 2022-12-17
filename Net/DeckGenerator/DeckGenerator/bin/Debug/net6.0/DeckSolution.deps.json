@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "DeckGenerator/1.0.0": {
+      "DeckSolution/1.0.0": {
         "runtime": {
-          "DeckGenerator.dll": {}
+          "DeckSolution.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "DeckGenerator/1.0.0": {
+    "DeckSolution/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

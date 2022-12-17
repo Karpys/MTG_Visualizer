@@ -17,10 +17,10 @@ public class DeckCreator
         
         KeepOnlyMeta(files);
 
-        foreach (string file in files)
+        /*foreach (string file in files)
         {
             Console.WriteLine(file);
-        }
+        }*/
 
         CreateDeck(files);
 
@@ -83,7 +83,7 @@ public class DeckCreator
         
         for (int i = 0; i < files.Count; i++)
         {
-            names[i] = files[i].Split('/', '.')[22];
+            names[i] = files[i].Split('\\','/', '.')[22];
         }
 
         return names;
