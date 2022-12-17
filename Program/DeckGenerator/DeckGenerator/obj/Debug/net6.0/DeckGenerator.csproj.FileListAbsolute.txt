@@ -1,0 +1,15 @@
+/Users/remi/MTG/Net/DeckGenerator/DeckGenerator/bin/Debug/net6.0/DeckGenerator
+/Users/remi/MTG/Net/DeckGenerator/DeckGenerator/bin/Debug/net6.0/DeckGenerator.deps.json
+/Users/remi/MTG/Net/DeckGenerator/DeckGenerator/bin/Debug/net6.0/DeckGenerator.runtimeconfig.json
+/Users/remi/MTG/Net/DeckGenerator/DeckGenerator/bin/Debug/net6.0/DeckGenerator.dll
+/Users/remi/MTG/Net/DeckGenerator/DeckGenerator/bin/Debug/net6.0/DeckGenerator.pdb
+/Users/remi/MTG/Net/DeckGenerator/DeckGenerator/obj/Debug/net6.0/DeckGenerator.csproj.AssemblyReference.cache
+/Users/remi/MTG/Net/DeckGenerator/DeckGenerator/obj/Debug/net6.0/DeckGenerator.GeneratedMSBuildEditorConfig.editorconfig
+/Users/remi/MTG/Net/DeckGenerator/DeckGenerator/obj/Debug/net6.0/DeckGenerator.AssemblyInfoInputs.cache
+/Users/remi/MTG/Net/DeckGenerator/DeckGenerator/obj/Debug/net6.0/DeckGenerator.AssemblyInfo.cs
+/Users/remi/MTG/Net/DeckGenerator/DeckGenerator/obj/Debug/net6.0/DeckGenerator.csproj.CoreCompileInputs.cache
+/Users/remi/MTG/Net/DeckGenerator/DeckGenerator/obj/Debug/net6.0/DeckGenerator.dll
+/Users/remi/MTG/Net/DeckGenerator/DeckGenerator/obj/Debug/net6.0/refint/DeckGenerator.dll
+/Users/remi/MTG/Net/DeckGenerator/DeckGenerator/obj/Debug/net6.0/DeckGenerator.pdb
+/Users/remi/MTG/Net/DeckGenerator/DeckGenerator/obj/Debug/net6.0/DeckGenerator.genruntimeconfig.cache
+/Users/remi/MTG/Net/DeckGenerator/DeckGenerator/obj/Debug/net6.0/ref/DeckGenerator.dll
