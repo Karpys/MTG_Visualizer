@@ -62,6 +62,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 74d928b0b3f9d2341aaa93cdb912563d, type: 2}
   - {fileID: 11400000, guid: 8bd1383d955822a4c84d89e2be6c8ac2, type: 2}
   - {fileID: 11400000, guid: b88d26acb6918bb45a725585f09c0ebe, type: 2}
+  - {fileID: 11400000, guid: fb4414f59850988469f2441e555ab4f3, type: 2}
   - {fileID: 11400000, guid: 61e4069058c742c4abc53e0bd2c89eb9, type: 2}
   - {fileID: 11400000, guid: 162535b4e12dc1643bd467d67a7943b2, type: 2}
   - {fileID: 11400000, guid: 3149dd5e510313d488c2b7627bdc489e, type: 2}
@@ -69,7 +70,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d0ef48a7c6739948ad44c7abfc64efa, type: 2}
   - {fileID: 11400000, guid: 905bbca3c9e4bd84db426fcee237f829, type: 2}
   - {fileID: 11400000, guid: 7d1e24c0e6308aa429ba958b0809fe73, type: 2}
-  - {fileID: 11400000, guid: f34646b4e2010c4448fea730352b7dc7, type: 2}
   - {fileID: 11400000, guid: 903cd4a01ae9c9540974fb981e360637, type: 2}
   - {fileID: 11400000, guid: ec40c79b0c233e048932cd0aced6f805, type: 2}
   - {fileID: 11400000, guid: a5d09ddab07c7654197abf8b5816d88e, type: 2}
@@ -78,8 +78,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1ba2f2af09b6e8644981cccc9bff38ca, type: 2}
   - {fileID: 11400000, guid: 39758367dafd2d6419e01ce72460c081, type: 2}
   - {fileID: 11400000, guid: 5e57638f230d73e4ca5529f90f6cd7de, type: 2}
+  - {fileID: 11400000, guid: dfb3b23e75e79fb4582bea204eae7528, type: 2}
   - {fileID: 11400000, guid: ac52a1fe09f90884e88809e3ca2d5b69, type: 2}
-  - {fileID: 11400000, guid: 346f5e9ce4a93584b94bc39cc1f16893, type: 2}
   - {fileID: 11400000, guid: 819a93374fd9dce47a1349a5ea1ed6be, type: 2}
   - {fileID: 11400000, guid: f8160395aee3c454985d16164ba841f5, type: 2}
   - {fileID: 11400000, guid: 8e5e8d9546057bb48bb40621244a9a09, type: 2}
@@ -115,5 +115,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 380c1640ec22d4635a2cc1b720a339ba, type: 2}
   - {fileID: 11400000, guid: 380c1640ec22d4635a2cc1b720a339ba, type: 2}
   - {fileID: 11400000, guid: 380c1640ec22d4635a2cc1b720a339ba, type: 2}
-  m_Jetons: []
+  m_Jetons:
+  - {fileID: 11400000, guid: 223ee96004440764e997a25194c18336, type: 2}
+  - {fileID: 11400000, guid: f14376fab2c31394385a498deca257ea, type: 2}
+  - {fileID: 11400000, guid: 93fee6e09eeed3945a262b13df764ab6, type: 2}
+  - {fileID: 11400000, guid: 861f7f41bc0ef154db1a9dffc31307d4, type: 2}
   m_CardBackSprite: {fileID: 21300000, guid: 347c01213d38a8240b84024363701226, type: 3}

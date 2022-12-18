@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
-  m_Name: Siren's_Ruse
+  m_Name: Kari_Zev's_Expertise
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: 459a6b8c6bfa3b246b04935816705e11, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: 5438c1e631860ac498b71b336b88d430, type: 3}

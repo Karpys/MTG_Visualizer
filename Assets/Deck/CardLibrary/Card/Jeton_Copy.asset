@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
-  m_Name: Port_Razer
+  m_Name: Jeton_Copy
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: 0da46670da502b040bc979d1380e7dd0, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: b045e195232f8aa47acc5c87ee08613b, type: 3}

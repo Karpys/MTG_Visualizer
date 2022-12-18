@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c2a5b49-6569-4590-aa55-80d7d76f5ced" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DeckGenerator.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DeckGenerator.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeckCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DeckCreator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Assets/Deck/CardLibrary/Card/Jeton_Tresor.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Assets/Deck/CardLibrary/Card/Jeton_Tresor.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Assets/Deck/Pirate/Card/Port_Razer.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Assets/Deck/Pirate/Card/Port_Razer.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Assets/Deck/Pirate/Card/Siren's_Ruse.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Assets/Deck/Pirate/Card/Siren's_Ruse.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Assets/Deck/Pirate/Sprite/Port_Razer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Assets/Deck/Pirate/Sprite/Port_Razer.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Assets/Deck/Pirate/Sprite/Siren's_Ruse.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Assets/Deck/Pirate/Sprite/Siren's_Ruse.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Net.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Net.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/DeckSolution.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net6.0/DeckSolution.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/DeckSolution.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/DeckSolution.dll" afterDir="false" />
     </list>
@@ -66,6 +74,8 @@
       <workItem from="1671382819751" duration="17000" />
       <workItem from="1671383086712" duration="4000" />
       <workItem from="1671385941210" duration="21000" />
+      <workItem from="1671393514915" duration="253000" />
+      <workItem from="1671393828303" duration="18000" />
     </task>
     <servers />
   </component>
