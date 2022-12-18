@@ -116,4 +116,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 380c1640ec22d4635a2cc1b720a339ba, type: 2}
   - {fileID: 11400000, guid: 380c1640ec22d4635a2cc1b720a339ba, type: 2}
   m_Jetons: []
-  m_CardBackSprite: {fileID: 0}
+  m_CardBackSprite: {fileID: 21300000, guid: 347c01213d38a8240b84024363701226, type: 3}
