@@ -88,6 +88,7 @@ public class DeckCreator
         
         for (int i = 0; i < files.Count; i++)
         {
+            Console.WriteLine(files[i].Split('\\','/', '.')[22]);
             names[i] = files[i].Split('\\','/', '.')[22];
         }
 

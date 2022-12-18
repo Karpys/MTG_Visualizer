@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="428c2275-f512-4a5a-9e61-e179e12c2708" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/DeckGenerator/DeckGenerator/.idea/.idea.DeckGenerator.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DeckGenerator/DeckGenerator/.idea/.idea.DeckGenerator.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeckGenerator/DeckGenerator/DeckCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DeckGenerator/DeckGenerator/DeckCreator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeckGenerator/DeckGenerator/bin/Debug/net6.0/DeckSolution.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DeckGenerator/DeckGenerator/bin/Debug/net6.0/DeckSolution.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeckGenerator/DeckGenerator/obj/Debug/net6.0/DeckSolution.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DeckGenerator/DeckGenerator/obj/Debug/net6.0/DeckSolution.dll" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="2J2mcbIYo1XojSsSHqTbx1Ia3Hl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <created>1671284636182</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671284636182</updated>
+      <workItem from="1671284636187" duration="1000" />
+    </task>
+    <servers />
+  </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
