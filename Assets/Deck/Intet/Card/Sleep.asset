@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
   m_Name: Sleep
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: 15c1eff3f220545beb0ccc29e20ca2ed, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: 5ae8746ae165d43128ebc9275c35c81d, type: 3}

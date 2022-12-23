@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
   m_Name: Fact_or_fiction
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: 6b957fb7079f443c4965c5d87a34b1ed, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: 8dba83d402cfe48f9906c8471c8852a0, type: 3}

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
   m_Name: Bard_Class
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: 33ecc0918d82f4e2f8e1a0fd3b52ed47, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: 5a6574e3c2ba74abc81ebe6e6c808c86, type: 3}

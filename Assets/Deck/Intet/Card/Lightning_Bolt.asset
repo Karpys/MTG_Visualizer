@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
   m_Name: Lightning_Bolt
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: 8311b101fa6a045fc86bd0bbc0028a56, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: 39f1da07f9bea4876be6c1b05230f087, type: 3}

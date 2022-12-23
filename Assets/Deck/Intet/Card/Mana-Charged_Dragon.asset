@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
   m_Name: Mana-Charged_Dragon
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: 1adbf64b5cd7c40328e1de237bd4ce99, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: ba360378025074c72971737c0aa54365, type: 3}

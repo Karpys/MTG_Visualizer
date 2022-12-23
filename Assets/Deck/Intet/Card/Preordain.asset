@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
   m_Name: Preordain
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: 419d05d4ef75042ce885f141300b5041, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: d376c90e1eff840409c4171811f6dbcf, type: 3}

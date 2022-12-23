@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
   m_Name: Inspiring_Refrain
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: b15eb057621474acba526242d29be420, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: f8758c62dc08c483abb1c84ff6cc373c, type: 3}

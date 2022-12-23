@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
   m_Name: Ranger's_Path
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: bb5b0910a874147a993a865332abbbc5, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: 1d4313892551b44a9b13dedfecaccda5, type: 3}

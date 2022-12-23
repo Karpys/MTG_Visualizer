@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
   m_Name: Sarkhan_Unbroken
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: 507fdb12da59c465ca65bac1ff8699e0, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: 66f82b0b46f914f888a9878ae7d7ed99, type: 3}

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
   m_Name: Temur_Banner
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: 75389bdea7bf74b0e801919a3cf2be74, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: 5c4c8fdfce17c4e828ca4efff4d0fc3d, type: 3}

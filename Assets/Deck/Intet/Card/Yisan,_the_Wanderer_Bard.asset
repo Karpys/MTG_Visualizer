@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
   m_Name: Yisan,_the_Wanderer_Bard
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: 806c38a298b6b4bafafce1dda5d992f9, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: 1bb38877ddae94442bf195f05ffdec76, type: 3}

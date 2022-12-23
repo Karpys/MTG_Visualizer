@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
   m_Name: Gilded_Lotus
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: 62d15b4b29c694a1f898e474504ee299, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: 01f90291c95e648aba08abda1c9d16d0, type: 3}

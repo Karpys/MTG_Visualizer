@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
   m_Name: Command_Tower
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: db134c16b2780405e97bbf6fcd10ca92, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: f699f83f360844e978929a0259a635fb, type: 3}

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
   m_Name: Arbor_Colossus
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: bdde7c421369944c09597c8c032a3354, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: 7728012a85e654901b1b0f0f398b3694, type: 3}

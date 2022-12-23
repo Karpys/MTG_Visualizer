@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
   m_Name: Wolfir_Silverheart
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: 7f06df6ec660e4a7a94201581d65743c, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: 16a785518753a4acf828f5f75fe26ae8, type: 3}

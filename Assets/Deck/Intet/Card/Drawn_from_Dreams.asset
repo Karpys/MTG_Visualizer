@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8b1c3e5a0514fd3983b5eafe4fbd5e, type: 3}
   m_Name: Drawn_from_Dreams
   m_EditorClassIdentifier: 
-  m_CardVisual: {fileID: 21300000, guid: 1232732ab6ea34363a6b1a7bac323386, type: 3}
+  m_CardVisual: {fileID: 21300000, guid: 52fb5cafdfc414b7997d558b73ec3217, type: 3}
