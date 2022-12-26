@@ -33,13 +33,11 @@ public class SocketInterpretor : MonoBehaviour
     {
         if (lines.Count > 0)
         {
-            Debug.Log(lines.Count + "action count");
             for (int i = 0; i < lines.Count; i++)
             {
                 Interpret(lines[i]);
             }
             lines.Clear();
-            Debug.Log("Request Clear");
             requestClear = true;
         }
     }

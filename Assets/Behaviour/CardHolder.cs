@@ -41,6 +41,7 @@ namespace MTG
             m_CardVisual = cardHolder.CardVisual;
             m_State = cardHolder.State;
             UpdateVisual(m_State);
+            gameObject.name = cardHolder.name;
         }
 
         public void UpdateState(CardState state)
@@ -53,6 +54,7 @@ namespace MTG
         private void UpdateVisual(CardState state)
         {
             Sprite newSprite = null;
+            Sprite forceSprite = null;
             switch (state)
             {
                 case CardState.Deck:
@@ -60,6 +62,7 @@ namespace MTG
                     m_Visual.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
                     break;
                 case CardState.Hand:
+                    forceSprite = HolderManager.Instance.Deck.m_CardBackSprite;
                     m_Visual.transform.localScale = new Vector3(.7f, .7f, .7f);
                     goto default;
                 case CardState.Land:
@@ -86,7 +89,14 @@ namespace MTG
                     break;
             }
 
-            m_Visual.sprite = newSprite;
+            if (forceSprite)
+            {
+                m_Visual.sprite = forceSprite;
+            }
+            else
+            {
+                m_Visual.sprite = newSprite;
+            }
         }
 
         public void ResetRotation()
