@@ -293,7 +293,13 @@ namespace MTG
             }
         }
 
-        private void Draw()
+        public CardHolder GetCard(CardState state, int cardId)
+        {
+            Holder holder = GetHolder(state);
+            return holder.Cards[cardId];
+        }
+
+        public void Draw()
         {
             GotoCard(CardState.Hand,m_DeckHolder.Cards[0]);
         }
