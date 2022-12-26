@@ -1511,7 +1511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4d840bb8e4403bad4c14bd4b9a96d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Deck: {fileID: 11400000, guid: 5c22c8a9a02b74b049949a59129c53b2, type: 2}
+  m_Deck: {fileID: 11400000, guid: e66e555810610491495bd2ae8589b453, type: 2}
   m_DeckHolder: {fileID: 2025016951}
   m_HandHolder: {fileID: 662208586}
   m_LandHolder: {fileID: 885766282}
