@@ -14,7 +14,7 @@ namespace MTG
         [SerializeField] protected List<CardHolder> m_Cards = new List<CardHolder>();
 
         public List<CardHolder> Cards => m_Cards;
-        public void AddCard(CardHolder card)
+        public virtual void AddCard(CardHolder card)
         {
             m_Cards.Add(card);
             UpdateCardPosition(card,m_Cards.Count - 1);

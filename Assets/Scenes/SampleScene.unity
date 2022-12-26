@@ -202,6 +202,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41453251}
   m_CullTransparentMesh: 1
+--- !u!1 &69277241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 69277243}
+  - component: {fileID: 69277242}
+  m_Layer: 0
+  m_Name: SocketSender
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &69277242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69277241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59156ee3e5bb7e441b0619d6c32ab669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Hand: {fileID: 662208586}
+--- !u!4 &69277243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69277241}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &168143973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,6 +1202,7 @@ MonoBehaviour:
   m_HorizontalSpacing: 2.25
   m_VerticalSpacing: 1
   m_Cards: []
+  m_Sender: {fileID: 69277242}
 --- !u!1 &706355829
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,7 +1511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4d840bb8e4403bad4c14bd4b9a96d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Deck: {fileID: 11400000, guid: bf2ee35b36ffe4fe6846ecf4535fafcc, type: 2}
+  m_Deck: {fileID: 11400000, guid: 5c22c8a9a02b74b049949a59129c53b2, type: 2}
   m_DeckHolder: {fileID: 2025016951}
   m_HandHolder: {fileID: 662208586}
   m_LandHolder: {fileID: 885766282}

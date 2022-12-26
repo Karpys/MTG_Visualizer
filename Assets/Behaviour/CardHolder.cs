@@ -33,6 +33,7 @@ namespace MTG
         {
             m_CardVisual = cardScriptable.m_CardVisual;
             UpdateVisual(m_State);
+            gameObject.name = cardScriptable.name;
         }
 
         public void Initialize(CardHolder cardHolder)
