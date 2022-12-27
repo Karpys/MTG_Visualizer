@@ -1466,7 +1466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4d840bb8e4403bad4c14bd4b9a96d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Deck: {fileID: 11400000, guid: bf2ee35b36ffe4fe6846ecf4535fafcc, type: 2}
+  m_Deck: {fileID: 11400000, guid: 0e1a3038f5e0f40caa9d3f3fad5ff621, type: 2}
   m_DeckHolder: {fileID: 2025016951}
   m_HandHolder: {fileID: 662208586}
   m_LandHolder: {fileID: 885766282}
@@ -2057,7 +2057,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CardHolder: {fileID: 6186150315082115359, guid: b7b142f3d3ab447deb127a33451cd94e, type: 3}
-  m_DeckHolder: {fileID: 0}
 --- !u!4 &1598257005
 Transform:
   m_ObjectHideFlags: 0

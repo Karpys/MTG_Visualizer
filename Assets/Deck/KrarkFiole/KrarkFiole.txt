@@ -1,0 +1,70 @@
+/Land 40
+Mountain
+Swamp
+/Commanders
+Krark, the Thumbless
+Vial Smasher the Fierce
+/Krark
+Krark's Thumb
+Storm-Kiln Artist
+Harmonic Prodigy
+/Vial
+Curse of the Cabal
+Festering March
+Greater Gargadon
+Phthisis
+Nihilith
+Gargadon
+Corpulent Corpse
+Mindstab
+Arc Blade
+Rousing Refrain
+Plunder
+Rift Bolt
+Fury Charm
+/Creature
+Guttersnipe
+Satyr Firedancer
+Rakdos Cackler
+Kroxa, Titan of Death's Hunger
+Hellhole Flailer
+Cryptborn Horror
+Ashenmoor Gouger
+Lightning Skelemental
+Ashenmoor Liege
+Rakdos, Lord of Riots
+Bloodsoaked Champion
+Ragavan, Nimble Pilferer
+Chandra, Pyromaster
+Fire Servant
+Galvanoth
+/Spells / Enchantement 24 
+Lightning Bolt
+Chandra's Outrage
+Seething Song
+Dark Ritual
+Profane Command
+Terminate
+Bedevil
+Terror
+Smash
+Rakdos Charm
+Deface
+Thunderbolt
+Hungry Flames
+Pulse of the Forge
+Gratuitous Violence
+Cerebral Eruption
+Sarkhan's Catharsis
+Lava Axe
+Incendiary Command
+Kill! Maim! Burn!
+Flame Wave
+Soulfire Eruption
+Mizzium Mortars
+Twinning Staff
+/ManaRamp
+Command Tower
+Rakdos signet
+Commander's Sphere
+Arcane Signet
