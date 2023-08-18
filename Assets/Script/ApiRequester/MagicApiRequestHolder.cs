@@ -1,16 +1,17 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json.Linq;
+using Script.UI;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering;
-using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 namespace Script
 {
     public class MagicApiRequestHolder : MonoBehaviour
     {
-        [SerializeField] private string m_CardName = String.Empty;
-        [SerializeField] private SpriteRenderer m_TargetRenderer = null;
+        [SerializeField] private DownloadCardUIController m_UIController = null;
         
         [Header("Texture Manipulation Settings")]
         [SerializeField] private Vector2Int m_BorderSize = Vector2Int.zero;
@@ -18,28 +19,43 @@ namespace Script
         
         private MagicApiRequest m_ApiRequest = null;
 
-        private JObject m_currentCard;
+        private List<JObject> m_Cards = new List<JObject>();
         private void Awake()
         {
             m_ApiRequest = new MagicApiRequest();
 
             m_ApiRequest.OnCardFound += OnCardFound;
+            m_ApiRequest.OnFailCardFound += OnFailCardfound;
             m_ApiRequest.OnCardDownload += OnCardDownload;
+            m_ApiRequest.OnCardsFound += OnCardsFound;
         }
 
         private void OnCardFound(JObject card)
         {
-            m_currentCard = card;
+            m_Cards.Clear();
+            m_Cards.Add(card);
+            m_UIController.DisplayDownloadContainer(m_Cards.Count);
         }
         
-        private void OnCardDownload(string cardPath)
+        private void OnCardsFound(JObject[] cards)
         {
-            byte[] cardData = File.ReadAllBytes(cardPath);
+            m_Cards = cards.ToList();
+            m_UIController.DisplayDownloadContainer(m_Cards.Count);
+        }
+
+        private void OnFailCardfound()
+        {
+            m_UIController.OnFailCardFound();
+        }
+        
+        private void OnCardDownload(CardData cardDatas)
+        {
+            byte[] cardData = File.ReadAllBytes(cardDatas.cardPath);
             Texture2D cardTexture = new Texture2D(488, 680);
             cardTexture.LoadImage(cardData);
             ApplyModification(cardTexture);
             Sprite sprite = Sprite.Create(cardTexture,new Rect(Vector2.zero,new Vector2(488,680)),Vector2.zero);
-            m_TargetRenderer.sprite = sprite;
+            m_UIController.AddCard(sprite,cardDatas);
         }
 
         private void ApplyModification(Texture2D texture)
@@ -60,37 +76,36 @@ namespace Script
             
             texture.Apply();
         }
-
-        private void Update()
+        
+        public void TryFindCard()
         {
-            FindCardInput();
-            DownloadCardInput();
+            m_UIController.Clear();
+            m_ApiRequest.FindCard(m_UIController.GetCardName);
+        }
+        
+        public void TryFindCards()
+        {
+            m_UIController.Clear();
+            m_ApiRequest.FindCards(m_UIController.GetCardName);
         }
 
-        private void FindCardInput()
+        public void TryFindAbstractCards()
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            m_UIController.Clear();
+            m_ApiRequest.FindAbstractCards(m_UIController.GetCardName);
+        }
+
+        public void PreviewCards()
+        {
+            for (int i = 0; i < m_Cards.Count; i++)
             {
-                TryFindCard();
+                PreviewCardImage(m_Cards[i], "TempCardSave");
             }
         }
 
-        private void TryFindCard()
+        private void PreviewCardImage(JObject cardObject,string location)
         {
-            m_ApiRequest.FindCard(m_CardName);
-        }
-
-        private void DownloadCardInput()
-        {
-            if (Input.GetKeyDown(KeyCode.D) && m_currentCard != null)
-            {
-                DownloadImage(m_currentCard);            
-            }
-        }
-
-        private void DownloadImage(JObject cardObject)
-        {
-            m_ApiRequest.DownloadCard(cardObject);
+            m_ApiRequest.DownloadCard(cardObject, location);
         }
     }
 }
