@@ -1,9 +1,6 @@
-using System;
 using System.Collections.Generic;
 using Manager;
-using UnityEditor.U2D.Path;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace MTG
 {

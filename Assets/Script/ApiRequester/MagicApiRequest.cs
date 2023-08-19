@@ -93,15 +93,36 @@ namespace Script
 
         public async Task DownloadCard(JObject cardObject,string location)
         {
-            string cardImageUris = (string) cardObject["image_uris"]["normal"];
+            string cardImageUris = String.Empty;
+
+
+            if (cardObject["image_uris"] == null)
+            {
+                if (cardObject["card_faces"] != null)
+                {
+                    cardImageUris = (string)cardObject["card_faces"][0]["image_uris"]["normal"];
+                }
+                else
+                {
+                    Debug.LogError("Unknown cards");
+                }
+            }
+            else
+            {
+                cardImageUris = (string)cardObject["image_uris"]["normal"];
+            }
+            
             HttpClient client = new HttpClient();
 
             string cardName = (string) cardObject["name"];
-            string cardPath = await client.DownloadFile(cardImageUris, location + "/",(string) cardObject["name"] +" id~" + cardObject["id"],"jpg");
+            cardName = cardName.Replace("/", "");
+            string cardSaveName = cardName + " id~" + cardObject["id"];
+            string cardPath = await client.DownloadFile(cardImageUris, location + "/",cardSaveName,"jpg");
             
             CardData data = new CardData();
             data.cardPath = cardPath;
             data.cardId = (string)cardObject["id"];
+            data.cardSaveName = cardSaveName;
             
             OnCardDownload?.Invoke(data);
         }
@@ -111,6 +132,8 @@ namespace Script
     public struct CardData
     {
         public string cardPath;
+        public string cardSaveName;
         public string cardId;
+        public Sprite sprite;
     }
 }

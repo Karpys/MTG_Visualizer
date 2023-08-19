@@ -34,13 +34,13 @@ namespace Script
         {
             m_Cards.Clear();
             m_Cards.Add(card);
-            m_UIController.DisplayDownloadContainer(m_Cards.Count);
+            m_UIController.DisplayDisplayContainer(m_Cards.Count);
         }
         
         private void OnCardsFound(JObject[] cards)
         {
             m_Cards = cards.ToList();
-            m_UIController.DisplayDownloadContainer(m_Cards.Count);
+            m_UIController.DisplayDisplayContainer(m_Cards.Count);
         }
 
         private void OnFailCardfound()
@@ -55,6 +55,7 @@ namespace Script
             cardTexture.LoadImage(cardData);
             ApplyModification(cardTexture);
             Sprite sprite = Sprite.Create(cardTexture,new Rect(Vector2.zero,new Vector2(488,680)),Vector2.zero);
+            cardDatas.sprite = sprite;
             m_UIController.AddCard(sprite,cardDatas);
         }
 
@@ -97,6 +98,7 @@ namespace Script
 
         public void PreviewCards()
         {
+            m_UIController.Clear();
             for (int i = 0; i < m_Cards.Count; i++)
             {
                 PreviewCardImage(m_Cards[i], "TempCardSave");
