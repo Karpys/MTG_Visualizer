@@ -99,9 +99,13 @@ namespace Script
         public void PreviewCards()
         {
             m_UIController.Clear();
-            for (int i = 0; i < m_Cards.Count; i++)
+            if (m_Cards.Count > 1)
             {
-                PreviewCardImage(m_Cards[i], "TempCardSave");
+                m_ApiRequest.DownloadCards(m_Cards, "TempCardSave");
+            }
+            else
+            {
+                PreviewCardImage(m_Cards[0],"TempCardSave");
             }
         }
 

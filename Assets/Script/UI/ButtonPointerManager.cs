@@ -22,5 +22,11 @@ namespace Script.UI
         {
             m_CurrentPointer = buttonPointer;
         }
+
+        public void Clear(ButtonPointer buttonPointer)
+        {
+            if (m_CurrentPointer == buttonPointer)
+                m_CurrentPointer = null;
+        }
     }
 }

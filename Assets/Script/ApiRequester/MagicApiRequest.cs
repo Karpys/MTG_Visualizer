@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace Script
         public Action<CardData> OnCardDownload = null;
         public Action OnFailCardFound = null;
 
-        public int MAX_CARDS = 36;
+        public int MAX_CARDS = 175;
 
         public async Task FindCard(string cardName)
         {
@@ -125,6 +126,14 @@ namespace Script
             data.cardSaveName = cardSaveName;
             
             OnCardDownload?.Invoke(data);
+        }
+
+        public async Task DownloadCards(List<JObject> cards, string location)
+        {
+            for (int i = 0; i < cards.Count; i++)
+            {
+                await DownloadCard(cards[i], location);
+            }
         }
     }
 
