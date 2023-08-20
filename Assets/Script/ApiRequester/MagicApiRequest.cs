@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
@@ -92,7 +93,7 @@ namespace Script
             }
         }
 
-        public async Task DownloadCard(JObject cardObject,string location)
+        public async Task DownloadCard(JObject cardObject,string location,string fallBackLocation,CancellationTokenSource cancellationTokenSource = null)
         {
             string cardImageUris = String.Empty;
 
@@ -112,27 +113,37 @@ namespace Script
             {
                 cardImageUris = (string)cardObject["image_uris"]["normal"];
             }
-            
+        
             HttpClient client = new HttpClient();
 
             string cardName = (string) cardObject["name"];
             cardName = cardName.Replace("/", "");
             string cardSaveName = cardName + " id~" + cardObject["id"];
-            string cardPath = await client.DownloadFile(cardImageUris, location + "/",cardSaveName,"jpg");
-            
+            string cardPath = await client.DownloadFile(cardImageUris, location,cardSaveName,"jpg",fallBackLocation);
+        
             CardData data = new CardData();
             data.cardPath = cardPath;
             data.cardId = (string)cardObject["id"];
             data.cardSaveName = cardSaveName;
+        
             
+            if(cancellationTokenSource is {IsCancellationRequested:true})
+                return;
             OnCardDownload?.Invoke(data);
         }
 
-        public async Task DownloadCards(List<JObject> cards, string location)
+        public async Task DownloadCards(List<JObject> cards, string location,string fallBackLocation,CancellationTokenSource cancellationTokenSource)
         {
             for (int i = 0; i < cards.Count; i++)
             {
-                await DownloadCard(cards[i], location);
+                if (cancellationTokenSource.IsCancellationRequested)
+                {
+                    return;
+                }
+                else
+                {
+                    await DownloadCard(cards[i], location,fallBackLocation,cancellationTokenSource);
+                }
             }
         }
     }

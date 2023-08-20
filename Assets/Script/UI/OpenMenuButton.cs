@@ -13,7 +13,6 @@ namespace Script.UI
 
         public override void OnClick()
         {
-            Debug.Log("Cc");
             m_GlobalCanvas.OpenMenu(m_MenuType);
         }
     }

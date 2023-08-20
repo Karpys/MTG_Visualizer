@@ -13,7 +13,8 @@ namespace Script.UI
 
         private void OnDisable()
         {
-            ButtonPointerManager.Instance.Clear(this);
+            if(ButtonPointerManager.Instance)
+                ButtonPointerManager.Instance.Clear(this);
         }
         
     }

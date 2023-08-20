@@ -17,7 +17,6 @@ namespace Script.UI
 
         public string GetCardName => m_CardField.text;
 
-        private DownLoadCardDataPointer m_CurrentPointer = null;
         public void DisplayDisplayContainer(int cardCount = 0)
         {
             string additionalText = "";

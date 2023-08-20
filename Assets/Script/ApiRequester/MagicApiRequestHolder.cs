@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Script.UI;
 using UnityEngine;
@@ -81,37 +83,54 @@ namespace Script
         public void TryFindCard()
         {
             m_UIController.Clear();
+            CancelMultipleDownload();
             m_ApiRequest.FindCard(m_UIController.GetCardName);
         }
         
         public void TryFindCards()
         {
             m_UIController.Clear();
+            CancelMultipleDownload();
             m_ApiRequest.FindCards(m_UIController.GetCardName);
         }
 
         public void TryFindAbstractCards()
         {
             m_UIController.Clear();
+            CancelMultipleDownload();
             m_ApiRequest.FindAbstractCards(m_UIController.GetCardName);
         }
+
+        private Task m_CurrentPreviewCardsTask = null;
+        private CancellationTokenSource m_CancellationTokenSource = null;
 
         public void PreviewCards()
         {
             m_UIController.Clear();
+            CancelMultipleDownload();
+            
             if (m_Cards.Count > 1)
             {
-                m_ApiRequest.DownloadCards(m_Cards, "TempCardSave");
+                m_CancellationTokenSource = new CancellationTokenSource();
+                m_CurrentPreviewCardsTask = m_ApiRequest.DownloadCards(m_Cards, "TempCardSave","Card_Library",m_CancellationTokenSource);
             }
             else
             {
-                PreviewCardImage(m_Cards[0],"TempCardSave");
+                PreviewCardImage(m_Cards[0],"TempCardSave","Card_Library");
             }
         }
 
-        private void PreviewCardImage(JObject cardObject,string location)
+        private void CancelMultipleDownload()
         {
-            m_ApiRequest.DownloadCard(cardObject, location);
+            if (m_CurrentPreviewCardsTask is {IsCompleted: false})
+            {
+                m_CancellationTokenSource.Cancel();
+            }
+        }
+
+        private void PreviewCardImage(JObject cardObject,string location,string fallBackLocation)
+        {
+            m_ApiRequest.DownloadCard(cardObject, location,fallBackLocation);
         }
     }
 }
