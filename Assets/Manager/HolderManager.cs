@@ -15,6 +15,10 @@ namespace MTG
         [SerializeField] private CreatureHolder m_CreatureHolder = null;
         [SerializeField] private EnchantementHolder m_EnchantementHolder = null;
         [SerializeField] private JetonHolder m_JetonHolder = null;
+
+        [Header("Parameters")] 
+        [SerializeField] private bool m_DisplayHandCards = false;
+        
         public List<CardHolder> m_CardsOnBoards = new List<CardHolder>();
 
         private List<CardScriptable> m_CardsInDeck = new List<CardScriptable>();
@@ -22,8 +26,8 @@ namespace MTG
         public DeckScriptable Deck => m_Deck;
         private CardHolder m_SelectedCard = null;
         private KeyCode m_KeyPressed = KeyCode.None;
-        
 
+        public bool DisplayHandCards => m_DisplayHandCards;
         private void Start()
         {
 

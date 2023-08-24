@@ -62,7 +62,8 @@ namespace MTG
                     m_Visual.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
                     break;
                 case CardState.Hand:
-                    forceSprite = HolderManager.Instance.Deck.m_CardBackSprite;
+                    if(!HolderManager.Instance.DisplayHandCards)
+                        forceSprite = HolderManager.Instance.Deck.m_CardBackSprite;
                     m_Visual.transform.localScale = new Vector3(.7f, .7f, .7f);
                     goto default;
                 case CardState.Land:

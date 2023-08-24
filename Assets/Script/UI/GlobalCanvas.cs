@@ -40,5 +40,6 @@ namespace Script.UI
     {
         MainMenu,
         Card_Research,
+        Deck_Creation,
     }
 }
