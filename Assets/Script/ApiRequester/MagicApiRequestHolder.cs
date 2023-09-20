@@ -87,11 +87,11 @@ namespace Script
             m_ApiRequest.FindCard(m_UIController.GetCardName);
         }
         
-        public void TryFindCards()
+        public void TryFindArtsCards()
         {
             m_UIController.Clear();
             CancelMultipleDownload();
-            m_ApiRequest.FindCards(m_UIController.GetCardName);
+            m_ApiRequest.FindCardsArts(m_UIController.GetCardName);
         }
 
         public void TryFindAbstractCards()

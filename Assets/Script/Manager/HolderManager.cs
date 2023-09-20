@@ -30,7 +30,6 @@ namespace MTG
         public bool DisplayHandCards => m_DisplayHandCards;
         private void Start()
         {
-
             for (int i = 0; i < m_Deck.m_Cards.Count; i++)
             {
                 m_CardsInDeck.Add(m_Deck.m_Cards[i]);
@@ -47,8 +46,6 @@ namespace MTG
             }
             
             m_CardsInDeck.Shuffle();
-
-
             for (int i = 0; i < m_CardsInDeck.Count; i++)
             {
                 CardHolder card = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_DeckHolder.transform);

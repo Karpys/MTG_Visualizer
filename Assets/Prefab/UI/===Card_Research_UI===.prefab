@@ -653,7 +653,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7840237141864342461}
         m_TargetAssemblyTypeName: Script.MagicApiRequestHolder, Assembly-CSharp
-        m_MethodName: TryFindCards
+        m_MethodName: TryFindArtsCards
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -862,7 +862,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Search Multiple
+  m_text: 'Search Arts
 
 '
   m_isRightToLeft: 0

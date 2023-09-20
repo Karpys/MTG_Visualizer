@@ -37,7 +37,7 @@ namespace Script
             }
         }
 
-        public async Task FindCards(string cardName)
+        public async Task FindCardsArts(string cardName)
         {
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync("https://api.scryfall.com/cards/search?q=!" + "\"" + cardName + "\"" + "&unique=art");
