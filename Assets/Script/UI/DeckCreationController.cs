@@ -13,6 +13,7 @@ namespace Script.UI
 
         [Header("References")] 
         [SerializeField] private TMP_Text m_SelectBackCardText = null;
+        [SerializeField] private TMP_InputField m_DeckNameText = null;
         
         private string m_CurrentBackCardPath = String.Empty;
         public void OpenDeckCreationPopup()
@@ -34,6 +35,28 @@ namespace Script.UI
             {
                 Debug.LogError("Select a correct file format");
             }
+        }
+
+        public void CheckCreateDeck()
+        {
+            if (CanCreateDeck())
+            {
+                CreateDeck();
+            }
+            else
+            {
+                Debug.Log("Cannot create deck");
+            }
+        }
+
+        private void CreateDeck()
+        {
+            Debug.Log("Create deck => Open Deck Popup with new deck");
+        }
+
+        private bool CanCreateDeck()
+        {
+            return m_CurrentBackCardPath != String.Empty && m_DeckNameText.text != String.Empty;
         }
     }
 }
