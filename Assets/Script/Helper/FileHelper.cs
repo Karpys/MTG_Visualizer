@@ -1,4 +1,8 @@
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using Script.Helper;
+using Script.Manager;
 using UnityEngine;
 
 namespace Script
@@ -15,6 +19,32 @@ namespace Script
             {
                 Directory.CreateDirectory(directoryPath);
             }
+        }
+
+        public static string GetCardsLibraryPath()
+        {
+            string path = GetApplicationPath() + "Card_Library/";
+            DirectoryCheck(path);
+            return path;
+        }
+
+        public static List<CardNameData> GetCardsInLibrary()
+        {
+            string libraryPath = GetCardsLibraryPath();
+            List<string> cardsFiles = Directory.GetFiles(libraryPath).Where(s => s.Contains(".jpg")).Select(s => s.ToFileName()).ToList();
+            List<CardNameData> cardsNameDatas = new List<CardNameData>();
+
+            char[] separator = new char[2];
+            separator[0] = '~';
+            separator[1] = '.';
+            
+            for (int i = 0; i < cardsFiles.Count; i++)
+            {
+                string[] cardSplit = cardsFiles[i].Split(separator);
+                cardsNameDatas.Add(new CardNameData(cardSplit[0],cardSplit[1],cardsFiles[i]));
+            }
+
+            return cardsNameDatas;
         }
     }
 }

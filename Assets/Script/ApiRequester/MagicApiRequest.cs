@@ -118,7 +118,7 @@ namespace Script
 
             string cardName = (string) cardObject["name"];
             cardName = cardName.Replace("/", "");
-            string cardSaveName = cardName + " id~" + cardObject["id"];
+            string cardSaveName = cardName + "~" + cardObject["id"];
             string cardPath = await client.DownloadFile(cardImageUris, location,cardSaveName,"jpg",fallBackLocation);
         
             CardData data = new CardData();

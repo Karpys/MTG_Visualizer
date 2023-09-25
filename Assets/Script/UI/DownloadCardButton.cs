@@ -15,8 +15,7 @@ namespace Script.UI
         public void DownloadCard()
         {
             byte[] pixels = m_CardData.sprite.texture.EncodeToJPG();
-            string filePath = FileHelper.GetApplicationPath() + "Card_Library/";
-            FileHelper.DirectoryCheck(filePath);
+            string filePath = FileHelper.GetCardsLibraryPath();
             filePath += m_CardData.cardSaveName+".jpg";
             File.WriteAllBytes(filePath, pixels);
         }
