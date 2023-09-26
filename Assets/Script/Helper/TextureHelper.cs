@@ -1,3 +1,5 @@
+using System.IO;
+using Script.Manager;
 using UnityEngine;
 
 namespace Script
@@ -24,5 +26,14 @@ namespace Script
 
             return resizedTexture;
         }
+
+        public static Sprite ToCardSprite(this string cardPath, int width = 488, int heigth = 680)
+        {
+            byte[] cardData = File.ReadAllBytes(cardPath);
+            Texture2D cardTexture = new Texture2D(488, 680);
+            cardTexture.LoadImage(cardData);
+            return Sprite.Create(cardTexture,new Rect(Vector2.zero,new Vector2(488,680)),Vector2.zero);
+        }
+        
     }
 }

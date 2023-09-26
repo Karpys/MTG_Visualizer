@@ -52,16 +52,12 @@ namespace Script
         
         private void OnCardDownload(CardData cardDatas)
         {
-            byte[] cardData = File.ReadAllBytes(cardDatas.cardPath);
-            Texture2D cardTexture = new Texture2D(488, 680);
-            cardTexture.LoadImage(cardData);
-            ApplyModification(cardTexture);
-            Sprite sprite = Sprite.Create(cardTexture,new Rect(Vector2.zero,new Vector2(488,680)),Vector2.zero);
+            Sprite sprite = cardDatas.cardPath.ToCardSprite();
             cardDatas.sprite = sprite;
             m_UIController.AddCard(sprite,cardDatas);
         }
 
-        private void ApplyModification(Texture2D texture)
+        private void SetBorderColor(Texture2D texture)
         {
             int width = texture.width;
             int height = texture.height;

@@ -31,7 +31,7 @@ namespace Script
         public static List<CardNameData> GetCardsInLibrary()
         {
             string libraryPath = GetCardsLibraryPath();
-            List<string> cardsFiles = Directory.GetFiles(libraryPath).Where(s => s.Contains(".jpg")).Select(s => s.ToFileName()).ToList();
+            List<string> cardsFiles = Directory.GetFiles(libraryPath).Where(s => s.Contains(".jpg")).ToList();
             List<CardNameData> cardsNameDatas = new List<CardNameData>();
 
             char[] separator = new char[2];
@@ -40,8 +40,9 @@ namespace Script
             
             for (int i = 0; i < cardsFiles.Count; i++)
             {
-                string[] cardSplit = cardsFiles[i].Split(separator);
-                cardsNameDatas.Add(new CardNameData(cardSplit[0],cardSplit[1],cardsFiles[i]));
+                string cardFileName = cardsFiles[i].ToFileName();
+                string[] cardSplit = cardFileName.Split(separator);
+                cardsNameDatas.Add(new CardNameData(cardSplit[0],cardSplit[1],cardFileName,cardsFiles[i]));
             }
 
             return cardsNameDatas;
