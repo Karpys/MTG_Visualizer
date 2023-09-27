@@ -31,6 +31,7 @@ namespace Script.UI
             m_ButtonTransform.gameObject.SetActive(true);
             m_ButtonTransform.transform.position = m_ButtonPosition.position;
             m_ButtonTransform.SetCardData(m_CardData);
+            m_ButtonTransform.SetAttach(m_ButtonPosition);
         }
 
         protected override void OnExit()
