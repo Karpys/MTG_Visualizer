@@ -40,7 +40,7 @@ namespace Script.UI
             m_CardLayout.gameObject.SetActive(false);
         }
 
-        public void AddCard(Sprite sprite, CardData cardDatas)
+        public void AddCard(Sprite sprite, PreviewCardData cardDatas)
         {
             m_CardLayout.gameObject.SetActive(true);
             DownLoadCardDataPointer card = Instantiate(m_CardDataPointer, m_CardLayout);

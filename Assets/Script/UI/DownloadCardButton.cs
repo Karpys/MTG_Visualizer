@@ -5,9 +5,9 @@ namespace Script.UI
 {
     public class DownloadCardButton : MonoBehaviour
     {
-        private CardData m_CardData;
+        private PreviewCardData m_CardData;
         
-        public void SetCardData(CardData cardData)
+        public void SetCardData(PreviewCardData cardData)
         {
             m_CardData = cardData;
         }

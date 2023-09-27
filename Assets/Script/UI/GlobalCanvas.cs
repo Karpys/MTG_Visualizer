@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MTG;
 using Script.Widget;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Script.UI
 {
@@ -12,6 +13,10 @@ namespace Script.UI
         [SerializeField] private Transform m_MainMenu = null;
 
         [SerializeField] private GenericLibrary<Transform, MenuType> m_MenuLibrary = null;
+
+        [Header("Card Viewer")]
+        [SerializeField] private Transform m_CardViewerTransform = null;
+        [SerializeField] private Image m_CardViewerImage = null;
 
         private void Awake()
         {
@@ -33,6 +38,17 @@ namespace Script.UI
             Transform t = m_MenuLibrary.GetViaKey(menuType);
             t.gameObject.SetActive(true);
             m_MainMenu.gameObject.SetActive(false);
+        }
+
+        public void DisplayCardViewer(Sprite sprite)
+        {
+            m_CardViewerTransform.gameObject.SetActive(true);
+            m_CardViewerImage.sprite = sprite;
+        }
+
+        public void CloseCardViewer()
+        {
+            m_CardViewerTransform.gameObject.SetActive(false);
         }
     }
 

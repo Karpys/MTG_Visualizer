@@ -28,7 +28,7 @@ namespace Script
 
             m_ApiRequest.OnCardFound += OnCardFound;
             m_ApiRequest.OnFailCardFound += OnFailCardfound;
-            m_ApiRequest.OnCardDownload += OnCardDownload;
+            m_ApiRequest.OnCardPreview += OnCardDownload;
             m_ApiRequest.OnCardsFound += OnCardsFound;
         }
 
@@ -50,9 +50,9 @@ namespace Script
             m_UIController.OnFailCardFound();
         }
         
-        private void OnCardDownload(CardData cardDatas)
+        private void OnCardDownload(PreviewCardData cardDatas)
         {
-            Sprite sprite = cardDatas.cardPath.ToCardSprite();
+            Sprite sprite = cardDatas.sprite;
             cardDatas.sprite = sprite;
             m_UIController.AddCard(sprite,cardDatas);
         }
@@ -105,14 +105,14 @@ namespace Script
             m_UIController.Clear();
             CancelMultipleDownload();
             
+            m_CancellationTokenSource = new CancellationTokenSource();
             if (m_Cards.Count > 1)
             {
-                m_CancellationTokenSource = new CancellationTokenSource();
-                m_CurrentPreviewCardsTask = m_ApiRequest.DownloadCards(m_Cards, "TempCardSave","Card_Library",m_CancellationTokenSource);
+                m_CurrentPreviewCardsTask = m_ApiRequest.PreviewCards(m_Cards,m_CancellationTokenSource);
             }
             else
             {
-                PreviewCardImage(m_Cards[0],"TempCardSave","Card_Library");
+                PreviewCardImage(m_Cards[0],m_CancellationTokenSource);
             }
         }
 
@@ -124,9 +124,9 @@ namespace Script
             }
         }
 
-        private void PreviewCardImage(JObject cardObject,string location,string fallBackLocation)
+        private void PreviewCardImage(JObject cardObject,CancellationTokenSource cancellationTokenSource)
         {
-            m_ApiRequest.DownloadCard(cardObject, location,fallBackLocation);
+            m_ApiRequest.PreviewCard(cardObject,cancellationTokenSource);
         }
     }
 }

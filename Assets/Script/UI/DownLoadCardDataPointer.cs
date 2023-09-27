@@ -6,19 +6,24 @@ namespace Script.UI
     {
         [SerializeField] private Transform m_ButtonPosition = null;
         
-        private CardData m_CardData;
+        private PreviewCardData m_CardData;
         private DownloadCardButton m_ButtonTransform = null;
         
-        public CardData CardData => m_CardData;
+        public PreviewCardData CardData => m_CardData;
 
-        public void Initialize(CardData cardData, DownloadCardButton downloadButtonTransform)
+        public void Initialize(PreviewCardData cardData, DownloadCardButton downloadButtonTransform)
         {
             m_CardData = cardData;
             m_ButtonTransform = downloadButtonTransform;
         }
-        public override void OnClick()
+        public override void OnRightClick()
         {
             PlaceDownloadButton();
+        }
+
+        public override void OnLeftClick()
+        {
+            GlobalCanvas.Instance.DisplayCardViewer(CardData.sprite);
         }
 
         private void PlaceDownloadButton()

@@ -13,7 +13,7 @@ namespace Script
     {
         public  Action<JObject> OnCardFound = null;
         public  Action<JObject[]> OnCardsFound = null;
-        public Action<CardData> OnCardDownload = null;
+        public Action<PreviewCardData> OnCardPreview = null;
         public Action OnFailCardFound = null;
 
         public int MAX_CARDS = 175;
@@ -93,6 +93,7 @@ namespace Script
             }
         }
 
+        //Obsolete//
         public async Task DownloadCard(JObject cardObject,string location,string fallBackLocation,CancellationTokenSource cancellationTokenSource = null)
         {
             string cardImageUris = String.Empty;
@@ -121,17 +122,18 @@ namespace Script
             string cardSaveName = cardName + "~" + cardObject["id"];
             string cardPath = await client.DownloadFile(cardImageUris, location,cardSaveName,"jpg",fallBackLocation);
         
-            CardData data = new CardData();
-            data.cardPath = cardPath;
-            data.cardId = (string)cardObject["id"];
+            PreviewCardData data = new PreviewCardData();
+            //data.cardPath = cardPath;
+            //data.cardId = (string)cardObject["id"];
             data.cardSaveName = cardSaveName;
         
             
             if(cancellationTokenSource is {IsCancellationRequested:true})
                 return;
-            OnCardDownload?.Invoke(data);
+            OnCardPreview?.Invoke(data);
         }
 
+        //Obsolete//
         public async Task DownloadCards(List<JObject> cards, string location,string fallBackLocation,CancellationTokenSource cancellationTokenSource)
         {
             for (int i = 0; i < cards.Count; i++)
@@ -146,14 +148,64 @@ namespace Script
                 }
             }
         }
+
+        public async Task PreviewCards(List<JObject> cards, CancellationTokenSource cancellationTokenSource)
+        {
+            for (int i = 0; i < cards.Count; i++)
+            {
+                if (cancellationTokenSource.IsCancellationRequested)
+                {
+                    return;
+                }
+                else
+                {
+                    await PreviewCard(cards[i],cancellationTokenSource);
+                }
+            }
+        }
+
+        public async Task PreviewCard(JObject cardObject,CancellationTokenSource cancellationTokenSource)
+        {
+            string cardImageUris = String.Empty;
+
+
+            if (cardObject["image_uris"] == null)
+            {
+                if (cardObject["card_faces"] != null)
+                {
+                    cardImageUris = (string)cardObject["card_faces"][0]["image_uris"]["normal"];
+                }
+                else
+                {
+                    Debug.LogError("Unknown cards");
+                }
+            }
+            else
+            {
+                cardImageUris = (string)cardObject["image_uris"]["normal"];
+            }
+            
+            HttpClient client = new HttpClient();
+
+            string cardName = (string) cardObject["name"];
+            cardName = cardName.Replace("/", "");
+            string cardSaveName = cardName + "~" + cardObject["id"];
+            
+            PreviewCardData data = new PreviewCardData();
+            data.cardSaveName = cardSaveName;
+            byte[] cardImageBytes = await client.ReadFile(cardImageUris);
+            data.sprite = cardImageBytes.ToCardSprite();
+            
+            if(cancellationTokenSource is {IsCancellationRequested:true})
+                return;
+            OnCardPreview?.Invoke(data);
+        }
     }
 
 
-    public struct CardData
+    public struct PreviewCardData
     {
-        public string cardPath;
         public string cardSaveName;
-        public string cardId;
         public Sprite sprite;
     }
 }

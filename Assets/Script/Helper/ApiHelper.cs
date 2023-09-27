@@ -37,5 +37,11 @@ namespace Script
             await s.CopyToAsync(fs);
             return totalPath;
         }
+        
+        public static async Task<byte[]> ReadFile(this HttpClient client,string url)
+        {
+            byte[] fileData = await client.GetByteArrayAsync(new Uri(url));
+            return fileData;
+        }
     }
 }

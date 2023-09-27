@@ -1,11 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Script.UI
 {
-    public class OpenMenuButton : ButtonPointer
+    public class CardDeckGestionPointer : ButtonPointer
     {
-        [SerializeField] private GlobalCanvas m_GlobalCanvas = null;
-        [SerializeField] private MenuType m_MenuType = MenuType.MainMenu;
+        [SerializeField] private Image m_Image = null;
         protected override void OnExit()
         {
             return;
@@ -13,12 +13,12 @@ namespace Script.UI
 
         public override void OnRightClick()
         {
-            m_GlobalCanvas.OpenMenu(m_MenuType);
+            return;
         }
 
         public override void OnLeftClick()
         {
-            return;
+            GlobalCanvas.Instance.DisplayCardViewer(m_Image.sprite);
         }
     }
 }

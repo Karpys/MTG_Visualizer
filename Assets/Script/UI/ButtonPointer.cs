@@ -9,13 +9,13 @@ namespace Script.UI
             ButtonPointerManager.Instance.SetCurrentButton(this);   
         }
 
-        public abstract void OnClick();
+        public abstract void OnRightClick();
+        public abstract void OnLeftClick();
 
         private void OnDisable()
         {
             if(ButtonPointerManager.Instance)
                 ButtonPointerManager.Instance.Clear(this);
         }
-        
     }
 }

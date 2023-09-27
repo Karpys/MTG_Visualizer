@@ -13,7 +13,13 @@ namespace Script.UI
             {
                 if (m_CurrentPointer != null && m_CurrentPointer.PointerUp)
                 {
-                    m_CurrentPointer.OnClick();
+                    m_CurrentPointer.OnRightClick();
+                }
+            }else if (Input.GetMouseButtonDown(1))
+            {
+                if (m_CurrentPointer != null && m_CurrentPointer.PointerUp)
+                {
+                    m_CurrentPointer.OnLeftClick();
                 }
             }
         }
