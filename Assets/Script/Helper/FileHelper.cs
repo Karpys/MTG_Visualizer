@@ -27,6 +27,13 @@ namespace Script
             DirectoryCheck(path);
             return path;
         }
+        
+        public static string GetDeckPath()
+        {
+            string path = GetApplicationPath() + "Deck/";
+            DirectoryCheck(path);
+            return path;
+        }
 
         public static List<CardNameData> GetCardsInLibrary()
         {

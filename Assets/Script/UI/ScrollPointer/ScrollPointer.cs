@@ -21,8 +21,6 @@ namespace Script.UI.ScrollPointer
         public void MoveUp(float force)
         {
             var position = m_ScrollContent.transform.position;
-            Debug.Log("Move Up");
-            Debug.Log("Target Position :"  + (position.y + m_MoveForce*force));
             float targetY = Mathf.Min(position.y + m_MoveForce * force, m_ScrollClamp.y);
             m_ScrollContent.transform.DOMove(position.Y(targetY),0.5f);
         }
@@ -30,8 +28,6 @@ namespace Script.UI.ScrollPointer
         public void MoveDown(float force)
         {
             var position = m_ScrollContent.transform.position;
-            Debug.Log("Move Down");
-            Debug.Log("Target Position :"  + (position.y - m_MoveForce*force));
             float targetY = Mathf.Max(position.y - m_MoveForce * force, m_ScrollClamp.x);
             m_ScrollContent.transform.DOMove(position.Y(targetY),0.5f);
         }
