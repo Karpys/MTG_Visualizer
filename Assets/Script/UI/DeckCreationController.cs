@@ -19,11 +19,17 @@ namespace Script.UI
         [Header("References")] 
         [SerializeField] private TMP_Text m_SelectBackCardText = null;
         [SerializeField] private TMP_InputField m_DeckNameText = null;
+        [SerializeField] private TMP_Dropdown m_DeckTypeDropDown = null;
         
         private string m_CurrentBackCardPath = String.Empty;
 
         private List<DeckDefinedContainer> m_DeckDefinedContainers = new List<DeckDefinedContainer>();
         private void OnEnable()
+        {
+            UpdateContainers();
+        }
+
+        private void UpdateContainers()
         {
             ClearOldContainers();
             CreateExistentDeckContainers();
@@ -36,8 +42,10 @@ namespace Script.UI
             for (int i = 0; i < decks.Length; i++)
             {
                 DeckDefinedContainer container = Instantiate(m_DeckDefinedContainer,m_DeckGridRoot);
-                string[] deckLines = File.ReadAllLines(decks[i]);
-                DeckData deckData = new DeckData(deckLines[0], (DeckType) int.Parse(deckLines[2]));
+                string[] deckInfo = File.ReadAllLines(decks[i]);
+                Sprite backCardImage = File.ReadAllBytes(FileHelper.GetDeckBackCardPath() + deckInfo[1]).ToCardSprite();
+                
+                DeckData deckData = new DeckData(deckInfo[0], (DeckType) int.Parse(deckInfo[2]),backCardImage);
                 container.Initialize(deckData);
                 m_DeckDefinedContainers.Add(container);
             }
@@ -56,6 +64,12 @@ namespace Script.UI
         public void OpenDeckCreationPopup()
         {
             m_DeckCreationPopup.gameObject.SetActive(true);
+        }
+
+        private void CloseDeckCreationPopup()
+        {
+            m_DeckCreationPopup.gameObject.SetActive(false);
+            //Todo : Reset to default state//
         }
 
         public void SelectBackCard()
@@ -88,7 +102,31 @@ namespace Script.UI
 
         private void CreateDeck()
         {
-            Debug.Log("Create deck => Open Deck Popup with new deck");
+            CloseDeckCreationPopup();
+            CreateBackCardImage();
+            CreateDeckFile(m_DeckNameText.text,m_DeckTypeDropDown.value,m_CurrentBackCardPath.ToFileName());
+            UpdateContainers();
+        }
+
+        private void CreateBackCardImage()
+        {
+            byte[] backCardImage = File.ReadAllBytes(m_CurrentBackCardPath);
+            Texture2D texture = new Texture2D(2, 2);
+            texture.LoadImage(backCardImage);
+            texture = texture.ResizeTexture(488, 680);
+            
+            string path = FileHelper.GetDeckBackCardPath()+m_CurrentBackCardPath.ToFileName();
+            File.WriteAllBytes(path,texture.EncodeToJPG());
+        }
+
+        private void CreateDeckFile(string deckName,int deckType,string deckBackFileName)
+        {
+            string path = FileHelper.GetDeckPath() + deckName + ".dck";
+            string[] deckData = new string[3];
+            deckData[0] = deckName;
+            deckData[1] = deckBackFileName;
+            deckData[2] = deckType.ToString();
+            File.WriteAllLines(path,deckData);
         }
 
         private bool CanCreateDeck()

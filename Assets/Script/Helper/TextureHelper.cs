@@ -1,5 +1,4 @@
 using System.IO;
-using Script.Manager;
 using UnityEngine;
 
 namespace Script

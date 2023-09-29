@@ -17,6 +17,7 @@ namespace Script.UI
             m_DeckData = data;
             m_DeckName.text = m_DeckData.DeckName;
             m_DeckType.text = m_DeckData.DeckType.ToString();
+            m_DeckBackgroundImage.sprite = m_DeckData.DeckBackCard;
         }
     }
 
@@ -25,11 +26,13 @@ namespace Script.UI
     {
         public string DeckName;
         public DeckType DeckType;
+        public Sprite DeckBackCard;
 
-        public DeckData(string deckName, DeckType deckType)
+        public DeckData(string deckName, DeckType deckType,Sprite deckBackCard)
         {
             DeckName = deckName;
             DeckType = deckType;
+            DeckBackCard = deckBackCard;
         }
     }
 

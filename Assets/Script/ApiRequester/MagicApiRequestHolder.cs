@@ -16,7 +16,6 @@ namespace Script
         [SerializeField] private DownloadCardUIController m_UIController = null;
         
         [Header("Texture Manipulation Settings")]
-        [SerializeField] private Vector2Int m_BorderSize = Vector2Int.zero;
         [SerializeField] private Color m_BorderColor = Color.black;
         
         private MagicApiRequest m_ApiRequest = null;
@@ -57,25 +56,6 @@ namespace Script
             m_UIController.AddCard(sprite,cardDatas);
         }
 
-        private void SetBorderColor(Texture2D texture)
-        {
-            int width = texture.width;
-            int height = texture.height;
-            
-            for (int x = 0; x < texture.width; x++)
-            {
-                for (int y = 0; y < texture.height; y++)
-                {
-                    if (x <= m_BorderSize.x || x >= width - m_BorderSize.x || y <= m_BorderSize.y || y >= height - m_BorderSize.y)
-                    {
-                        texture.SetPixel(x,y,m_BorderColor);
-                    }
-                }
-            }
-            
-            texture.Apply();
-        }
-        
         public void TryFindCard()
         {
             m_UIController.Clear();

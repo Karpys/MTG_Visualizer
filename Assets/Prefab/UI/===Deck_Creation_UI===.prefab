@@ -56,6 +56,7 @@ MonoBehaviour:
   m_DeckDefinedContainer: {fileID: 6668407218727857671, guid: 05cf9605c6d9ed942bf48626a9862c00, type: 3}
   m_SelectBackCardText: {fileID: 8906989355563480418}
   m_DeckNameText: {fileID: 8906989355413710243}
+  m_DeckTypeDropDown: {fileID: 8906989355215446062}
 --- !u!1 &8906989355747065064
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +433,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8010723232620943655, guid: ddcbe219a11196a4fba730046d1abb2f, type: 3}
+      propertyPath: m_text
+      value: Standard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8010723233048095058, guid: ddcbe219a11196a4fba730046d1abb2f, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[0].m_Text
+      value: Standard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8010723233048095058, guid: ddcbe219a11196a4fba730046d1abb2f, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[1].m_Text
+      value: Commander
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddcbe219a11196a4fba730046d1abb2f, type: 3}
 --- !u!224 &8906989355926830395 stripped
@@ -448,6 +461,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8906989355215446062 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8010723233048095058, guid: ddcbe219a11196a4fba730046d1abb2f, type: 3}
+  m_PrefabInstance: {fileID: 1490750811297384828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8906989355563480418 stripped

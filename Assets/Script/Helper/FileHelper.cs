@@ -34,6 +34,14 @@ namespace Script
             DirectoryCheck(path);
             return path;
         }
+        
+        public static string GetDeckBackCardPath()
+        {
+            string path = GetDeckPath() + "DeckBackCard/";
+            DirectoryCheck(path);
+            return path;
+        }
+
 
         public static List<CardNameData> GetCardsInLibrary()
         {
