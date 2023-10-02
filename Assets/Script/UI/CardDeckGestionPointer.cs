@@ -13,12 +13,12 @@ namespace Script.UI
 
         public override void OnRightClick()
         {
-            return;
+            GlobalCanvas.Instance.DisplayCardViewer(m_Image.sprite);
         }
 
         public override void OnLeftClick()
         {
-            GlobalCanvas.Instance.DisplayCardViewer(m_Image.sprite);
+            return;
         }
     }
 }

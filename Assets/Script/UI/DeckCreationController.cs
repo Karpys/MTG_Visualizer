@@ -43,9 +43,7 @@ namespace Script.UI
             {
                 DeckDefinedContainer container = Instantiate(m_DeckDefinedContainer,m_DeckGridRoot);
                 string[] deckInfo = File.ReadAllLines(decks[i]);
-                Sprite backCardImage = File.ReadAllBytes(FileHelper.GetDeckBackCardPath() + deckInfo[1]).ToCardSprite();
-                
-                DeckData deckData = new DeckData(deckInfo[0], (DeckType) int.Parse(deckInfo[2]),backCardImage);
+                DeckData deckData = deckInfo.ToDeckData();
                 container.Initialize(deckData);
                 m_DeckDefinedContainers.Add(container);
             }

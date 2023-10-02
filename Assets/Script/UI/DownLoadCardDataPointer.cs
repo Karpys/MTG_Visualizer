@@ -18,12 +18,12 @@ namespace Script.UI
         }
         public override void OnRightClick()
         {
-            PlaceDownloadButton();
+            GlobalCanvas.Instance.DisplayCardViewer(CardData.sprite);
         }
 
         public override void OnLeftClick()
         {
-            GlobalCanvas.Instance.DisplayCardViewer(CardData.sprite);
+            PlaceDownloadButton();
         }
 
         private void PlaceDownloadButton()

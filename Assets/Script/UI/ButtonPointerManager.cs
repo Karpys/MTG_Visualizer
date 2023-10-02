@@ -9,13 +9,13 @@ namespace Script.UI
         private ButtonPointer m_CurrentPointer = null;
         public void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
                 if (m_CurrentPointer != null && m_CurrentPointer.PointerUp)
                 {
                     m_CurrentPointer.OnRightClick();
                 }
-            }else if (Input.GetMouseButtonDown(1))
+            }else if (Input.GetMouseButtonDown(0))
             {
                 if (m_CurrentPointer != null && m_CurrentPointer.PointerUp)
                 {

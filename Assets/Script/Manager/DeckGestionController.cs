@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Script.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,13 +12,21 @@ namespace Script.Manager
     {
         [SerializeField] private Image[] m_CardDisplayer = null;
         [SerializeField] private TMP_Text m_CardPageCount = null;
-        
+
+        [Header("Card in Deck")] 
+        [SerializeField] private Transform m_InDeckLayout = null;
+        [SerializeField] private CardInDeckPointer m_CardInDeckUIHolder = null;
+
         private Dictionary<string, Sprite> m_CardsSprite = new Dictionary<string, Sprite>();
         private List<CardNameData> m_CardsInLibrary = null;
 
         private const int CARD_COUNT_DISPLAY = 20;
         private int m_CurrentPage = 0;
         private int m_CurrentMaxPage = 0;
+        private DeckData m_CurrentDeckData;
+
+        private List<CardInDeckPointer> m_CurrentInDeckCards = new List<CardInDeckPointer>();
+
         private void OnEnable()
         {
             m_CurrentPage = 0;
@@ -26,6 +35,8 @@ namespace Script.Manager
             DisplayCards();
             UpdateMaxPageCount();
             UpdatePageUI();
+            ClearInDeckCards();
+            DisplayCurrentDeckCards();
         }
 
         private void UpdateMaxPageCount()
@@ -96,7 +107,32 @@ namespace Script.Manager
             }
         }
 
-        
+        public void SetDeckData(DeckData deckData)
+        {
+            m_CurrentDeckData = deckData;
+        }
+
+        private void ClearInDeckCards()
+        {
+            for (int i = 0; i < m_CurrentInDeckCards.Count; i++)
+            {
+                Destroy(m_CurrentInDeckCards[i].gameObject);
+            }
+            
+            m_CurrentInDeckCards.Clear();
+        }
+        private void DisplayCurrentDeckCards()
+        {
+            for (int i = 0; i < m_CurrentDeckData.DeckCards.Count; i++)
+            {
+                if (m_CardsSprite.TryGetValue(m_CurrentDeckData.DeckCards[i].CardId, out Sprite sprite))
+                {
+                    CardInDeckPointer cardInDeck = Instantiate(m_CardInDeckUIHolder, m_InDeckLayout);
+                    cardInDeck.Initialize(sprite,m_CurrentDeckData.DeckCards[i].Count);
+                    m_CurrentInDeckCards.Add(cardInDeck);
+                }
+            }
+        }
     }
 
     public struct CardNameData

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using MTG;
+using Script.Manager;
 using Script.Widget;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,9 @@ namespace Script.UI
         [SerializeField] private Transform m_MainMenu = null;
 
         [SerializeField] private GenericLibrary<Transform, MenuType> m_MenuLibrary = null;
+
+        [Header("References")] 
+        [SerializeField] private DeckGestionController m_DeckGestionController = null;
 
         [Header("Card Viewer")]
         [SerializeField] private Transform m_CardViewerTransform = null;
@@ -49,6 +53,11 @@ namespace Script.UI
         public void CloseCardViewer()
         {
             m_CardViewerTransform.gameObject.SetActive(false);
+        }
+
+        public void SetDeckGestionDeckData(DeckData deckData)
+        {
+            m_DeckGestionController.SetDeckData(deckData);
         }
     }
 

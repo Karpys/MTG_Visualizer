@@ -13,12 +13,12 @@ namespace Script.UI
 
         public override void OnRightClick()
         {
-            m_GlobalCanvas.OpenMenu(m_MenuType);
+            return;
         }
 
         public override void OnLeftClick()
         {
-            return;
+            m_GlobalCanvas.OpenMenu(m_MenuType);
         }
     }
 }
