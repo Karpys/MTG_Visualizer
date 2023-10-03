@@ -19,13 +19,13 @@ namespace Script.UI.ScrollPointer
 
             if (mouseDelta != 0 && m_CurrentScroll != null && m_CurrentScroll.PointerUp)
             {
-                if (mouseDelta > 0)
+                if (mouseDelta < 0)
                 {
-                    m_CurrentScroll.MoveUp(mouseDelta);
+                    m_CurrentScroll.MoveUp(Mathf.Abs(mouseDelta));
                 }
                 else
                 {
-                    m_CurrentScroll.MoveDown(Mathf.Abs(mouseDelta));
+                    m_CurrentScroll.MoveDown(mouseDelta);
                 }
             }
         }
