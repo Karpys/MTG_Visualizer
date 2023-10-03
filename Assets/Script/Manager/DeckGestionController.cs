@@ -15,7 +15,7 @@ namespace Script.Manager
 
         [Header("Card in Deck")] 
         [SerializeField] private Transform m_InDeckLayout = null;
-        [SerializeField] private CardInDeckPointer m_CardInDeckUIHolder = null;
+        [SerializeField] private CardInDeckHolder m_CardInDeckUIHolder = null;
 
         private Dictionary<string, Sprite> m_CardsSprite = new Dictionary<string, Sprite>();
         private List<CardNameData> m_CardsInLibrary = null;
@@ -25,7 +25,7 @@ namespace Script.Manager
         private int m_CurrentMaxPage = 0;
         private DeckData m_CurrentDeckData;
 
-        private List<CardInDeckPointer> m_CurrentInDeckCards = new List<CardInDeckPointer>();
+        private List<CardInDeckHolder> m_CurrentInDeckCards = new List<CardInDeckHolder>();
 
         private void OnEnable()
         {
@@ -125,11 +125,54 @@ namespace Script.Manager
         {
             for (int i = 0; i < m_CurrentDeckData.DeckCards.Count; i++)
             {
-                if (m_CardsSprite.TryGetValue(m_CurrentDeckData.DeckCards[i].CardId, out Sprite sprite))
+                AddCard(m_CurrentDeckData.DeckCards[i].CardId,m_CurrentDeckData.DeckCards[i].Count);
+            }
+        }
+
+        private void AddCard(string id, int count)
+        {
+            if (m_CardsSprite.TryGetValue(id, out Sprite sprite))
+            {
+                CardInDeckHolder cardInDeck = Instantiate(m_CardInDeckUIHolder, m_InDeckLayout);
+                cardInDeck.Initialize(sprite,count,id,this);
+                m_CurrentInDeckCards.Add(cardInDeck);
+            }
+        }
+
+        public int ChangeCardCount(string cardId, int currentCount)
+        {
+            for (int i = 0; i < m_CurrentDeckData.DeckCards.Count; i++)
+            {
+                CardCount cardCount = m_CurrentDeckData.DeckCards[i];
+                if (cardCount.CardId == cardId)
                 {
-                    CardInDeckPointer cardInDeck = Instantiate(m_CardInDeckUIHolder, m_InDeckLayout);
-                    cardInDeck.Initialize(sprite,m_CurrentDeckData.DeckCards[i].Count);
-                    m_CurrentInDeckCards.Add(cardInDeck);
+                    cardCount.Count += currentCount;
+                    
+                    if (cardCount.Count == 0)
+                    {
+                        m_CurrentDeckData.DeckCards.RemoveAt(i);
+                        RemoveCard(cardId);
+                        return cardCount.Count;
+                    }
+
+                    m_CurrentDeckData.DeckCards[i] = cardCount;
+                    return cardCount.Count;
+                }
+            }
+
+            AddCard(cardId,currentCount);
+            return 0;
+        }
+
+        private void RemoveCard(string id)
+        {
+            for (int i = 0; i < m_CurrentInDeckCards.Count; i++)
+            {
+                if (m_CurrentInDeckCards[i].CardId == id)
+                {
+                    Destroy(m_CurrentInDeckCards[i].gameObject);
+                    m_CurrentInDeckCards.RemoveAt(i);
+                    return;
                 }
             }
         }

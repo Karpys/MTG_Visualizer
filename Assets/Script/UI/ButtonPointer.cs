@@ -1,5 +1,3 @@
-using System;
-
 namespace Script.UI
 {
     public abstract class ButtonPointer : UIPointer

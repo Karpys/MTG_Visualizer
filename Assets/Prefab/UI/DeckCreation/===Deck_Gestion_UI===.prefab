@@ -79,7 +79,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -40, y: -100}
+  m_SizeDelta: {x: -40, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4709785267480174859
 MonoBehaviour:
@@ -97,12 +97,12 @@ MonoBehaviour:
     m_Left: 4
     m_Right: 0
     m_Top: 10
-    m_Bottom: 0
+    m_Bottom: 10
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 124.8, y: 177.6}
-  m_Spacing: {x: 15, y: 13}
+  m_Spacing: {x: 15, y: 42}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &2638834314633241700
@@ -2270,7 +2270,7 @@ MonoBehaviour:
   - {fileID: 2397948775176367871}
   m_CardPageCount: {fileID: 3666942963959429649}
   m_InDeckLayout: {fileID: 3722553634914736612}
-  m_CardInDeckUIHolder: {fileID: 4159253782351678363, guid: 046fbea964f8aab4584bc164a7699ab9, type: 3}
+  m_CardInDeckUIHolder: {fileID: 5778324490778464095, guid: 046fbea964f8aab4584bc164a7699ab9, type: 3}
 --- !u!1 &8760074818376229180
 GameObject:
   m_ObjectHideFlags: 0
