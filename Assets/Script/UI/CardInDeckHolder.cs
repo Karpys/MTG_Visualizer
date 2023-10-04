@@ -13,8 +13,6 @@ namespace Script.UI
 
         private string m_CardId = String.Empty;
         private DeckGestionController m_Controller = null;
-
-        public string CardId => m_CardId;
         
         public void Initialize(Sprite cardSprite, int cardCount,string cardId, DeckGestionController controller)
         {
@@ -27,7 +25,12 @@ namespace Script.UI
         public void ChangeCardCount(int count)
         {
             int newCount = m_Controller.ChangeCardCount(m_CardId, count);
-            m_CardCount.text = newCount.ToString();
+            UpdateCoutUI(newCount);
+        }
+
+        public void UpdateCoutUI(int cardCountCount)
+        {
+            m_CardCount.text = cardCountCount.ToString();
         }
     }
 }

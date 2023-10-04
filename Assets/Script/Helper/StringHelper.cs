@@ -15,6 +15,7 @@ namespace Script.Helper
         public static DeckData ToDeckData(this string[] deckLines)
         {
             string deckName = deckLines[0];
+            string deckBackPath = deckLines[1];
             Sprite backCardImage = File.ReadAllBytes(FileHelper.GetDeckBackCardPath() + deckLines[1]).ToCardSprite();
             DeckType deckType = (DeckType)int.Parse(deckLines[2]);
 
@@ -25,7 +26,7 @@ namespace Script.Helper
                 cardCounts.Add(new CardCount(int.Parse(splits[0]), splits[1]));
             }
 
-            return new DeckData(deckName, deckType, backCardImage,cardCounts);
+            return new DeckData(deckName, deckType,deckBackPath, backCardImage,cardCounts);
         }
     }
 }

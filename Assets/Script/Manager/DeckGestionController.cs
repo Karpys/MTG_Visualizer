@@ -4,13 +4,12 @@ using System.IO;
 using Script.UI;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Script.Manager
 {
     public class DeckGestionController : MonoBehaviour
     {
-        [SerializeField] private Image[] m_CardDisplayer = null;
+        [SerializeField] private CardInLibraryPointer[] m_CardDisplayer = null;
         [SerializeField] private TMP_Text m_CardPageCount = null;
 
         [Header("Card in Deck")] 
@@ -25,7 +24,7 @@ namespace Script.Manager
         private int m_CurrentMaxPage = 0;
         private DeckData m_CurrentDeckData;
 
-        private List<CardInDeckHolder> m_CurrentInDeckCards = new List<CardInDeckHolder>();
+        private Dictionary<string,CardInDeckHolder> m_CurrentCardInDeck = new Dictionary<string,CardInDeckHolder>();
 
         private void OnEnable()
         {
@@ -41,7 +40,7 @@ namespace Script.Manager
 
         private void UpdateMaxPageCount()
         {
-            m_CurrentMaxPage = (int)Mathf.Floor((float)m_CardsInLibrary.Count / CARD_COUNT_DISPLAY);
+            m_CurrentMaxPage = (int)Mathf.Floor(((float)m_CardsInLibrary.Count - 1)  / CARD_COUNT_DISPLAY);
             UpdatePageUI();
         }
 
@@ -82,7 +81,7 @@ namespace Script.Manager
                 m_CardDisplayer[y].gameObject.SetActive(true);
 
                 m_CardsSprite.TryGetValue(m_CardsInLibrary[i].CardId, out Sprite cardSprite);
-                m_CardDisplayer[y].sprite = cardSprite;
+                m_CardDisplayer[y].Initialize(m_CardsInLibrary[i].CardId,cardSprite);
             }
 
             for (; y < CARD_COUNT_DISPLAY; y++)
@@ -114,32 +113,32 @@ namespace Script.Manager
 
         private void ClearInDeckCards()
         {
-            for (int i = 0; i < m_CurrentInDeckCards.Count; i++)
+            foreach (CardInDeckHolder cardInDeckHolder in m_CurrentCardInDeck.Values)
             {
-                Destroy(m_CurrentInDeckCards[i].gameObject);
+                Destroy(cardInDeckHolder.gameObject);
             }
             
-            m_CurrentInDeckCards.Clear();
+            m_CurrentCardInDeck.Clear();
         }
         private void DisplayCurrentDeckCards()
         {
             for (int i = 0; i < m_CurrentDeckData.DeckCards.Count; i++)
             {
-                AddCard(m_CurrentDeckData.DeckCards[i].CardId,m_CurrentDeckData.DeckCards[i].Count);
+                AddCardDisplayer(m_CurrentDeckData.DeckCards[i].CardId,m_CurrentDeckData.DeckCards[i].Count);
             }
         }
 
-        private void AddCard(string id, int count)
+        private void AddCardDisplayer(string id, int count)
         {
             if (m_CardsSprite.TryGetValue(id, out Sprite sprite))
             {
                 CardInDeckHolder cardInDeck = Instantiate(m_CardInDeckUIHolder, m_InDeckLayout);
                 cardInDeck.Initialize(sprite,count,id,this);
-                m_CurrentInDeckCards.Add(cardInDeck);
+                m_CurrentCardInDeck.Add(id,cardInDeck);
             }
         }
 
-        public int ChangeCardCount(string cardId, int currentCount)
+        public int ChangeCardCount(string cardId, int currentCount, bool updateDisplayer = false)
         {
             for (int i = 0; i < m_CurrentDeckData.DeckCards.Count; i++)
             {
@@ -151,30 +150,38 @@ namespace Script.Manager
                     if (cardCount.Count == 0)
                     {
                         m_CurrentDeckData.DeckCards.RemoveAt(i);
-                        RemoveCard(cardId);
+                        RemoveCardDisplayer(cardId);
                         return cardCount.Count;
                     }
 
+                    if (updateDisplayer)
+                    {
+                        m_CurrentCardInDeck.TryGetValue(cardId, out CardInDeckHolder cardInDeck);
+                        if (cardInDeck != null) cardInDeck.UpdateCoutUI(cardCount.Count);
+                    }
                     m_CurrentDeckData.DeckCards[i] = cardCount;
                     return cardCount.Count;
                 }
             }
 
-            AddCard(cardId,currentCount);
+            m_CurrentDeckData.DeckCards.Add(new CardCount(1,cardId));
+            AddCardDisplayer(cardId,currentCount);
             return 0;
         }
 
-        private void RemoveCard(string id)
+        private void RemoveCardDisplayer(string id)
         {
-            for (int i = 0; i < m_CurrentInDeckCards.Count; i++)
+            if (m_CurrentCardInDeck.TryGetValue(id, out CardInDeckHolder card))
             {
-                if (m_CurrentInDeckCards[i].CardId == id)
-                {
-                    Destroy(m_CurrentInDeckCards[i].gameObject);
-                    m_CurrentInDeckCards.RemoveAt(i);
-                    return;
-                }
+                Destroy(card.gameObject);
+                m_CurrentCardInDeck.Remove(id);
             }
+        }
+
+        public void SaveDeck()
+        {
+            string[] deckData = m_CurrentDeckData.ToFile();
+            File.WriteAllLines(FileHelper.GetDeckPath() + m_CurrentDeckData.DeckName + ".dck",deckData);
         }
     }
 

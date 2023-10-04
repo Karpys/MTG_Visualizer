@@ -32,16 +32,35 @@ namespace Script.UI
     public struct DeckData
     {
         public string DeckName;
+        public string DeckBackPath;
         public DeckType DeckType;
         public Sprite DeckBackCard;
         public List<CardCount> DeckCards;
 
-        public DeckData(string deckName, DeckType deckType,Sprite deckBackCard,List<CardCount> deckCards)
+        public DeckData(string deckName, DeckType deckType, string deckBackPath, Sprite deckBackCard,
+            List<CardCount> deckCards)
         {
             DeckName = deckName;
+            DeckBackPath = deckBackPath;
             DeckType = deckType;
             DeckBackCard = deckBackCard;
             DeckCards = deckCards;
+        }
+
+        public string[] ToFile()
+        {
+            string[] fileLines = new string[4 + DeckCards.Count];
+
+            fileLines[0] = DeckName;
+            fileLines[1] = DeckBackPath;
+            fileLines[2] = ((int)DeckType).ToString();
+
+            for (int i = 0; i < DeckCards.Count; i++)
+            {
+                fileLines[i + 4] = DeckCards[i].Count + "|" + DeckCards[i].CardId;
+            }
+
+            return fileLines;
         }
     }
 

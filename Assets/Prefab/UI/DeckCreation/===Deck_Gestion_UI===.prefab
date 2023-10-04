@@ -37,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0.66, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 900}
+  m_AnchoredPosition: {x: 0, y: 0.4536}
+  m_SizeDelta: {x: 0, y: 882.8113}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &2834862995018132308
 CanvasRenderer:
@@ -2258,6 +2258,273 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5060527212723078964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1597481120133297144}
+  - component: {fileID: 9119168900219814926}
+  - component: {fileID: 7901234676975813292}
+  - component: {fileID: 1181960498214689017}
+  m_Layer: 0
+  m_Name: SaveButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1597481120133297144
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5060527212723078964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4778138561984701844}
+  m_Father: {fileID: 7776059110171932849}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 130, y: -30}
+  m_SizeDelta: {x: 160, y: 40}
+  m_Pivot: {x: 0, y: 1}
+--- !u!222 &9119168900219814926
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5060527212723078964}
+  m_CullTransparentMesh: 1
+--- !u!114 &7901234676975813292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5060527212723078964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 2
+--- !u!114 &1181960498214689017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5060527212723078964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 7901234676975813292}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7776059110171932851}
+        m_TargetAssemblyTypeName: Script.Manager.DeckGestionController, MainAssembly
+        m_MethodName: SaveDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &5315443783504442691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4778138561984701844}
+  - component: {fileID: 3630484731781301378}
+  - component: {fileID: 6406284452731630153}
+  m_Layer: 0
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4778138561984701844
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315443783504442691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1597481120133297144}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3630484731781301378
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315443783504442691}
+  m_CullTransparentMesh: 1
+--- !u!114 &6406284452731630153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315443783504442691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Save Deck
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7776059110171932812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,6 +2555,7 @@ RectTransform:
   m_Children:
   - {fileID: 2345784560041220010}
   - {fileID: 4956916649753315491}
+  - {fileID: 1597481120133297144}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2309,26 +2577,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CardDisplayer:
-  - {fileID: 9216632312294514269}
-  - {fileID: 5575786739410002559}
-  - {fileID: 8031058068017594844}
-  - {fileID: 5761210996848608417}
-  - {fileID: 7632807872231195339}
-  - {fileID: 3349921525714020377}
-  - {fileID: 4327166071088117527}
-  - {fileID: 8835602442909473707}
-  - {fileID: 3896036400241230518}
-  - {fileID: 8478117435375076388}
-  - {fileID: 8122127372935354328}
-  - {fileID: 1895416452514970987}
-  - {fileID: 6078883535835764160}
-  - {fileID: 1565786099204056202}
-  - {fileID: 4967317305522968151}
-  - {fileID: 35131011158570268}
-  - {fileID: 8524893340768894073}
-  - {fileID: 4896081481668888199}
-  - {fileID: 8751686267783650419}
-  - {fileID: 2397948775176367871}
+  - {fileID: 2384214967243125926}
+  - {fileID: 1413933331109398660}
+  - {fileID: 3569784830519995175}
+  - {fileID: 1228794680586399322}
+  - {fileID: 3968602494680229936}
+  - {fileID: 8107375714654733026}
+  - {fileID: 7130128661077155308}
+  - {fileID: 2621162307332403536}
+  - {fileID: 7561509510135638093}
+  - {fileID: 3122738657297067743}
+  - {fileID: 3335469063433911587}
+  - {fileID: 4950511076452358032}
+  - {fileID: 766431066934722363}
+  - {fileID: 5423647359673093745}
+  - {fileID: 1878304945818139820}
+  - {fileID: 6810198924653322215}
+  - {fileID: 2932091792916403842}
+  - {fileID: 2093048520519953532}
+  - {fileID: 2849191875194730120}
+  - {fileID: 9203485256965538820}
   m_CardPageCount: {fileID: 3666942963959429649}
   m_InDeckLayout: {fileID: 3722553634914736612}
   m_CardInDeckUIHolder: {fileID: 5778324490778464095, guid: 046fbea964f8aab4584bc164a7699ab9, type: 3}
@@ -2561,6 +2829,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
 --- !u!224 &2194664556107411014 stripped
@@ -2568,15 +2840,15 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 732119766235313713}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &35131011158570268 stripped
+--- !u!114 &6810198924653322215 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 732119766235313713}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1159698083443801670
@@ -2674,6 +2946,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
 --- !u!224 &307392142472193585 stripped
@@ -2681,15 +2957,15 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 1159698083443801670}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1895416452514970987 stripped
+--- !u!114 &4950511076452358032 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 1159698083443801670}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2301064887532971943
@@ -2787,24 +3063,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
---- !u!114 &1565786099204056202 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
-  m_PrefabInstance: {fileID: 2301064887532971943}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &843024803242033104 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 2301064887532971943}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5423647359673093745 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_PrefabInstance: {fileID: 2301064887532971943}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2605477084337138484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2900,24 +3180,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
---- !u!224 &3491560058499019587 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
-  m_PrefabInstance: {fileID: 2605477084337138484}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3349921525714020377 stripped
+--- !u!114 &8107375714654733026 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 2605477084337138484}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &3491560058499019587 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_PrefabInstance: {fileID: 2605477084337138484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3103813363997863378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3013,24 +3297,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
---- !u!114 &2397948775176367871 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
-  m_PrefabInstance: {fileID: 3103813363997863378}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &4561852895982564773 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 3103813363997863378}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9203485256965538820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_PrefabInstance: {fileID: 3103813363997863378}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3916129353747919930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3126,6 +3414,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
 --- !u!224 &2451332738289806413 stripped
@@ -3133,15 +3425,15 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 3916129353747919930}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4327166071088117527 stripped
+--- !u!114 &7130128661077155308 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 3916129353747919930}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4342679560812577179
@@ -3239,6 +3531,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
 --- !u!224 &2889143582953183724 stripped
@@ -3246,15 +3542,15 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 4342679560812577179}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3896036400241230518 stripped
+--- !u!114 &7561509510135638093 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 4342679560812577179}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5018736884016727948
@@ -3352,24 +3648,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
---- !u!224 &5907071649922195451 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
-  m_PrefabInstance: {fileID: 5018736884016727948}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5761210996848608417 stripped
+--- !u!114 &1228794680586399322 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 5018736884016727948}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &5907071649922195451 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_PrefabInstance: {fileID: 5018736884016727948}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5130972187529208146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3465,6 +3765,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
 --- !u!224 &6010300825120094501 stripped
@@ -3472,15 +3776,15 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 5130972187529208146}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5575786739410002559 stripped
+--- !u!114 &1413933331109398660 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 5130972187529208146}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5307400151213901226
@@ -3578,6 +3882,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
 --- !u!224 &6772196216360328669 stripped
@@ -3585,15 +3893,15 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 5307400151213901226}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4896081481668888199 stripped
+--- !u!114 &2093048520519953532 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 5307400151213901226}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5673049810795713914
@@ -3691,24 +3999,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
---- !u!114 &4967317305522968151 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
-  m_PrefabInstance: {fileID: 5673049810795713914}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &6550125549581241613 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 5673049810795713914}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1878304945818139820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_PrefabInstance: {fileID: 5673049810795713914}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6776022043545409261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3804,6 +4116,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
 --- !u!224 &5356263063293972122 stripped
@@ -3811,15 +4127,15 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 6776022043545409261}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6078883535835764160 stripped
+--- !u!114 &766431066934722363 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 6776022043545409261}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7185741876843954662
@@ -3917,17 +4233,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
---- !u!114 &7632807872231195339 stripped
+--- !u!114 &3968602494680229936 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 7185741876843954662}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &8639279501403855249 stripped
@@ -4030,24 +4350,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
---- !u!114 &8031058068017594844 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
-  m_PrefabInstance: {fileID: 7287317571344450289}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &8177904145536227974 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 7287317571344450289}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3569784830519995175 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_PrefabInstance: {fileID: 7287317571344450289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8127750345087178886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4143,6 +4467,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
 --- !u!224 &7248421713802264817 stripped
@@ -4150,15 +4478,15 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 8127750345087178886}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8835602442909473707 stripped
+--- !u!114 &2621162307332403536 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 8127750345087178886}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8296176083433365342
@@ -4256,24 +4584,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
---- !u!114 &8751686267783650419 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
-  m_PrefabInstance: {fileID: 8296176083433365342}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &7457381488954197801 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 8296176083433365342}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2849191875194730120 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_PrefabInstance: {fileID: 8296176083433365342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8484150827407646064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4369,6 +4701,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
 --- !u!224 &7053132893336061191 stripped
@@ -4376,15 +4712,15 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 8484150827407646064}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9216632312294514269 stripped
+--- !u!114 &2384214967243125926 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 8484150827407646064}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8854740609567708405
@@ -4482,6 +4818,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
 --- !u!224 &7979916121359846530 stripped
@@ -4489,15 +4829,15 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 8854740609567708405}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8122127372935354328 stripped
+--- !u!114 &3335469063433911587 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 8854740609567708405}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8942826319458402132
@@ -4595,24 +4935,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
---- !u!114 &8524893340768894073 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
-  m_PrefabInstance: {fileID: 8942826319458402132}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &7514060185200469795 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1467048426143438967, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 8942826319458402132}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2932091792916403842 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_PrefabInstance: {fileID: 8942826319458402132}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9222701991427852041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4708,17 +5052,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDeckGestionUIHolder (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7776059110171932851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
---- !u!114 &8478117435375076388 stripped
+--- !u!114 &3122738657297067743 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 744726144599425837, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6101160178660026838, guid: 78efa07295fe4ab4fa60496ae7a93aa0, type: 3}
   m_PrefabInstance: {fileID: 9222701991427852041}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &7755654158543953790 stripped
