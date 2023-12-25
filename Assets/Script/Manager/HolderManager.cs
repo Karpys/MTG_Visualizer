@@ -1,12 +1,13 @@
 using System.Collections.Generic;
-using Manager;
+using Script;
+using Script.Manager;
+using Script.UI;
 using UnityEngine;
 
 namespace MTG
 {
     public class HolderManager:SingletonMonoBehaviour<HolderManager>
     {
-        [SerializeField] private DeckScriptable m_Deck = null;
         [SerializeField] private DeckHolder m_DeckHolder = null;
         [SerializeField] private HandHolder m_HandHolder = null;
         [SerializeField] private LandHolder m_LandHolder = null;
@@ -21,52 +22,22 @@ namespace MTG
         
         public List<CardHolder> m_CardsOnBoards = new List<CardHolder>();
 
-        private List<CardScriptable> m_CardsInDeck = new List<CardScriptable>();
-        private List<CardScriptable> m_JetonsCards = new List<CardScriptable>();
-        public DeckScriptable Deck => m_Deck;
         private CardHolder m_SelectedCard = null;
         private KeyCode m_KeyPressed = KeyCode.None;
+        private DeckData m_DeckData;
 
+        public Sprite DefaultSprite => m_DeckData.DeckBackCard;
         public bool DisplayHandCards => m_DisplayHandCards;
         private void Start()
         {
-            for (int i = 0; i < m_Deck.m_Cards.Count; i++)
-            {
-                m_CardsInDeck.Add(m_Deck.m_Cards[i]);
-            }
+            m_DeckData = DeckDataHolder.DeckData;
+            CardFileHelper.UpdateLibrary();
             
-            for (int i = 0; i < m_Deck.m_Terrains.Count; i++)
-            {
-                m_CardsInDeck.Add(m_Deck.m_Terrains[i]);
-            }
-
-            for (int i = 0; i < m_Deck.m_Jetons.Count; i++)
-            {
-                m_JetonsCards.Add(m_Deck.m_Jetons[i]);
-            }
-            
-            m_CardsInDeck.Shuffle();
-            for (int i = 0; i < m_CardsInDeck.Count; i++)
+            for (int i = 0; i < m_DeckData.DeckCards.Count; i++)
             {
                 CardHolder card = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_DeckHolder.transform);
-                card.Initialize(m_CardsInDeck[i]);
+                card.Initialize(m_DeckData.DeckCards[i].CardId);
                 GotoCard(CardState.Deck,card);
-                m_CardsOnBoards.Add(card);
-            }
-            
-            for (int i = 0; i < m_Deck.m_Commanders.Count; i++)
-            {
-                CardHolder card = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_EnchantementHolder.transform);
-                card.Initialize(m_Deck.m_Commanders[i]);
-                GotoCard(CardState.Enchantement,card);
-                m_CardsOnBoards.Add(card);
-            }
-            
-            for (int i = 0; i < m_JetonsCards.Count; i++)
-            {
-                CardHolder card = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_DeckHolder.transform);
-                card.Initialize(m_JetonsCards[i]);
-                GotoCard(CardState.Jeton,card);
                 m_CardsOnBoards.Add(card);
             }
         }
@@ -177,7 +148,7 @@ namespace MTG
             if (card.State != CardState.Jeton) return card;
             
             CardHolder newCard = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_JetonHolder.transform);
-            newCard.Initialize(card);
+            newCard.Initialize(card.CardNameData.CardId);
             m_CardsOnBoards.Add(newCard);
             return newCard;
         }

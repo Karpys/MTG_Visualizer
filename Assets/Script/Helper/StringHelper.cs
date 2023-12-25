@@ -17,7 +17,7 @@ namespace Script.Helper
         {
             string deckName = deckLines[0];
             string deckBackPath = deckLines[1];
-            Sprite backCardImage = File.ReadAllBytes(FileHelper.GetDeckBackCardPath() + deckLines[1]).ToCardSprite();
+            Sprite backCardImage = File.ReadAllBytes(CardFileHelper.GetDeckBackCardPath() + deckLines[1]).ToCardSprite();
             DeckType deckType = (DeckType)int.Parse(deckLines[2]);
 
             List<CardCount> cardCounts = new List<CardCount>();

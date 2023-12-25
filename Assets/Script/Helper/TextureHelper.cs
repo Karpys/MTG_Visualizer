@@ -29,9 +29,9 @@ namespace Script
         public static Sprite ToCardSprite(this string cardPath, int width = 488, int heigth = 680)
         {
             byte[] cardData = File.ReadAllBytes(cardPath);
-            Texture2D cardTexture = new Texture2D(width, 680);
+            Texture2D cardTexture = new Texture2D(width, heigth);
             cardTexture.LoadImage(cardData);
-            return Sprite.Create(cardTexture,new Rect(Vector2.zero,new Vector2(width,680)),Vector2.zero);
+            return Sprite.Create(cardTexture,new Rect(Vector2.zero,new Vector2(width,heigth)),Vector2.zero);
         }
         
         public static Sprite ToCardSprite(this byte[] imageData, int width = 488, int heigth = 680)

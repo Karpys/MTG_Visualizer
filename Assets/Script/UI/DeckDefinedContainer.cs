@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using Script.Manager;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Script.UI
@@ -25,6 +27,12 @@ namespace Script.UI
         {
             GlobalCanvas.Instance.SetDeckGestionDeckData(m_DeckData);
             GlobalCanvas.Instance.OpenMenu(MenuType.Deck_Gestion);
+        }
+
+        public void OpenVisualizerScene()
+        {
+            DeckDataHolder.DeckData = m_DeckData;
+            SceneManager.LoadScene(1);
         }
     }
 

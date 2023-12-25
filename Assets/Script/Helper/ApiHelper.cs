@@ -11,8 +11,8 @@ namespace Script
     {
         public static async Task<string> DownloadFile(this HttpClient client,string url,string filePath,string fileName,string extension,string fallBackLocation = "")
         {
-            string directoryPath = FileHelper.GetApplicationPath() + filePath + "/";
-            FileHelper.DirectoryCheck(directoryPath);
+            string directoryPath = CardFileHelper.GetApplicationPath() + filePath + "/";
+            CardFileHelper.DirectoryCheck(directoryPath);
             string totalPath = directoryPath + fileName + "." + extension;
             
             if (File.Exists(totalPath))
@@ -21,8 +21,8 @@ namespace Script
                 return totalPath;
             }else if (fallBackLocation != "")
             {
-                string fallBackPath = FileHelper.GetApplicationPath() + fallBackLocation + "/";
-                FileHelper.DirectoryCheck(fallBackPath);
+                string fallBackPath = CardFileHelper.GetApplicationPath() + fallBackLocation + "/";
+                CardFileHelper.DirectoryCheck(fallBackPath);
                 fallBackPath = fallBackPath + fileName + "." + extension;
 
                 if (File.Exists(fallBackPath))

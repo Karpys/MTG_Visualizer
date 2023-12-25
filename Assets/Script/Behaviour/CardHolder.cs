@@ -1,7 +1,10 @@
 using System;
 using DG.Tweening;
+using Script;
+using Script.Manager;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MTG
 {
@@ -19,29 +22,26 @@ namespace MTG
     }
     public class CardHolder:MonoBehaviour
     {
-        [SerializeField] private SpriteRenderer m_Visual = null;
+        [SerializeField] private Canvas m_Canvas = null;
+        [SerializeField] private Image m_Visual = null;
         [SerializeField] private BoxCollider2D m_Selection = null;
         [SerializeField] private CardState m_State = CardState.Deck;
         [SerializeField] private TextMeshProUGUI m_Counter = null;
 
         private Sprite m_CardVisual = null;
         private int m_CurrentCount = 0;
+        private CardNameData m_CardNameData;
         public BoxCollider2D Selection => m_Selection;
         public CardState State => m_State;
         public Sprite CardVisual => m_CardVisual;
-        public void Initialize(CardScriptable cardScriptable)
-        {
-            m_CardVisual = cardScriptable.m_CardVisual;
-            UpdateVisual(m_State);
-            gameObject.name = cardScriptable.name;
-        }
+        public CardNameData CardNameData => m_CardNameData;
 
-        public void Initialize(CardHolder cardHolder)
+        public void Initialize(string cardId)
         {
-            m_CardVisual = cardHolder.CardVisual;
-            m_State = cardHolder.State;
+            m_CardNameData = cardId.CardIdToCardNameData();
+            m_CardVisual = m_CardNameData.CardPathName.ToCardSprite();
             UpdateVisual(m_State);
-            gameObject.name = cardHolder.name;
+            gameObject.name = m_CardNameData.CardName;
         }
 
         public void UpdateState(CardState state)
@@ -58,12 +58,12 @@ namespace MTG
             switch (state)
             {
                 case CardState.Deck:
-                    newSprite = HolderManager.Instance.Deck.m_CardBackSprite;
+                    newSprite = HolderManager.Instance.DefaultSprite;
                     m_Visual.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
                     break;
                 case CardState.Hand:
                     if(!HolderManager.Instance.DisplayHandCards)
-                        forceSprite = HolderManager.Instance.Deck.m_CardBackSprite;
+                        forceSprite = HolderManager.Instance.DefaultSprite;
                     m_Visual.transform.localScale = new Vector3(.7f, .7f, .7f);
                     goto default;
                 case CardState.Land:
@@ -102,7 +102,7 @@ namespace MTG
 
         public void ResetRotation()
         {
-            transform.DORotate(new Vector3(0, 0, 0), 0.5f);
+            transform.DORotate(new Vector3(0, 0, 0), 0.15f);
         }
 
         public void RotateCard()
@@ -112,17 +112,17 @@ namespace MTG
                 ResetRotation();
                 return;
             }
-            transform.DORotate(new Vector3(0, 0, -90), 0.5f);
+            transform.DORotate(new Vector3(0, 0, -90), 0.15f);
         }
 
         public void SetSpritePriority(int newPrio)
         {
-            m_Visual.sortingOrder = newPrio;
+            m_Canvas.sortingOrder = newPrio;
         }
 
         public int GetPriority()
         {
-            return m_Visual.sortingOrder;
+            return m_Canvas.sortingOrder;
         }
 
         public void ChangeCounter(int add)

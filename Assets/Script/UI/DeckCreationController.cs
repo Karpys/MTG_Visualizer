@@ -37,7 +37,7 @@ namespace Script.UI
 
         private void CreateExistentDeckContainers()
         {
-            string[] decks = Directory.GetFiles(FileHelper.GetDeckPath()).Where(s => s.Contains(".dck")).ToArray();
+            string[] decks = Directory.GetFiles(CardFileHelper.GetDeckPath()).Where(s => s.Contains(".dck")).ToArray();
 
             for (int i = 0; i < decks.Length; i++)
             {
@@ -113,13 +113,13 @@ namespace Script.UI
             texture.LoadImage(backCardImage);
             texture = texture.ResizeTexture(488, 680);
             
-            string path = FileHelper.GetDeckBackCardPath()+m_CurrentBackCardPath.ToFileName();
+            string path = CardFileHelper.GetDeckBackCardPath()+m_CurrentBackCardPath.ToFileName();
             File.WriteAllBytes(path,texture.EncodeToJPG());
         }
 
         private void CreateDeckFile(string deckName,int deckType,string deckBackFileName)
         {
-            string path = FileHelper.GetDeckPath() + deckName + ".dck";
+            string path = CardFileHelper.GetDeckPath() + deckName + ".dck";
             string[] deckData = new string[3];
             deckData[0] = deckName;
             deckData[1] = deckBackFileName;

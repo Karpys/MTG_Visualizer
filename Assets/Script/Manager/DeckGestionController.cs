@@ -101,7 +101,7 @@ namespace Script.Manager
             }
         }
         
-        public void ApplyNameFilter(string filter)
+        private void ApplyNameFilter(string filter)
         {
             m_CurrentCardsToDisplay.Clear();
 
@@ -120,7 +120,8 @@ namespace Script.Manager
         
         private void FetchCardsInLibrary()
         {
-            m_CardsInLibrary = FileHelper.GetCardsInLibrary();
+            CardFileHelper.UpdateLibrary();
+            m_CardsInLibrary = CardFileHelper.GetCardsInLibrary();
         }
 
         private void GenerateCardsSprite()
@@ -209,7 +210,7 @@ namespace Script.Manager
         public void SaveDeck()
         {
             string[] deckData = m_CurrentDeckData.ToFile();
-            File.WriteAllLines(FileHelper.GetDeckPath() + m_CurrentDeckData.DeckName + ".dck",deckData);
+            File.WriteAllLines(CardFileHelper.GetDeckPath() + m_CurrentDeckData.DeckName + ".dck",deckData);
         }
     }
 

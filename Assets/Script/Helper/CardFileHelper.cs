@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Script
 {
-    public static class FileHelper
+    public static class CardFileHelper
     {
         public static string GetApplicationPath()
         {
@@ -45,9 +45,20 @@ namespace Script
 
         public static List<CardNameData> GetCardsInLibrary()
         {
+            List<CardNameData> cardsNameDatas = new List<CardNameData>();
+            foreach (var value in m_CardNameLibrary.Values)
+            {
+                cardsNameDatas.Add(value);
+            }
+            return cardsNameDatas;
+        }
+        
+        public static void UpdateLibrary()
+        {
+            m_CardNameLibrary.Clear();
+            
             string libraryPath = GetCardsLibraryPath();
             List<string> cardsFiles = Directory.GetFiles(libraryPath).Where(s => s.Contains(".jpg")).ToList();
-            List<CardNameData> cardsNameDatas = new List<CardNameData>();
 
             char[] separator = new char[2];
             separator[0] = '~';
@@ -57,10 +68,19 @@ namespace Script
             {
                 string cardFileName = cardsFiles[i].ToFileName();
                 string[] cardSplit = cardFileName.Split(separator);
-                cardsNameDatas.Add(new CardNameData(cardSplit[0],cardSplit[1],cardFileName,cardsFiles[i]));
+                CardNameData cardNameData = new CardNameData(cardSplit[0],cardSplit[1],cardFileName,cardsFiles[i]);
+                m_CardNameLibrary.Add(cardSplit[1],cardNameData);
             }
+        }
 
-            return cardsNameDatas;
+        public static Dictionary<string, CardNameData> m_CardNameLibrary = new Dictionary<string, CardNameData>();
+
+        public static CardNameData CardIdToCardNameData(this string cardId)
+        {
+            if (m_CardNameLibrary.TryGetValue(cardId, out CardNameData cardNameData))
+                return cardNameData;
+            Debug.LogError("Not found card : " +cardId);
+            return new CardNameData();
         }
     }
 }

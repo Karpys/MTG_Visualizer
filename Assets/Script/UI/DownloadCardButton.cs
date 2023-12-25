@@ -22,7 +22,7 @@ namespace Script.UI
             texture.SetPixels(m_CardData.sprite.texture.GetPixels());
             SetBorderColor(texture);
             byte[] pixels = texture.EncodeToJPG();
-            string filePath = FileHelper.GetCardsLibraryPath();
+            string filePath = CardFileHelper.GetCardsLibraryPath();
             filePath += m_CardData.cardSaveName+".jpg";
             File.WriteAllBytes(filePath, pixels);
         }
