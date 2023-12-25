@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Script.Helper;
 using Script.UI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Script.Manager
 {
@@ -11,12 +13,15 @@ namespace Script.Manager
     {
         [SerializeField] private CardInLibraryPointer[] m_CardDisplayer = null;
         [SerializeField] private TMP_Text m_CardPageCount = null;
+        [SerializeField] private TMP_InputField m_FilterInput = null;
 
         [Header("Card in Deck")] 
         [SerializeField] private Transform m_InDeckLayout = null;
         [SerializeField] private CardInDeckHolder m_CardInDeckUIHolder = null;
 
         private Dictionary<string, Sprite> m_CardsSprite = new Dictionary<string, Sprite>();
+        private List<CardNameData> m_CurrentCardsToDisplay = null;
+        
         private List<CardNameData> m_CardsInLibrary = null;
 
         private const int CARD_COUNT_DISPLAY = 20;
@@ -26,10 +31,16 @@ namespace Script.Manager
 
         private Dictionary<string,CardInDeckHolder> m_CurrentCardInDeck = new Dictionary<string,CardInDeckHolder>();
 
+        private void Awake()
+        {
+            m_FilterInput.onValueChanged.AddListener(ApplyNameFilter);
+        }
+
         private void OnEnable()
         {
             m_CurrentPage = 0;
             FetchCardsInLibrary();
+            m_CurrentCardsToDisplay = new List<CardNameData>(m_CardsInLibrary);
             GenerateCardsSprite();
             DisplayCards();
             UpdateMaxPageCount();
@@ -40,7 +51,7 @@ namespace Script.Manager
 
         private void UpdateMaxPageCount()
         {
-            m_CurrentMaxPage = (int)Mathf.Floor(((float)m_CardsInLibrary.Count - 1)  / CARD_COUNT_DISPLAY);
+            m_CurrentMaxPage = Math.Max(0,(int)Mathf.Floor(((float)m_CurrentCardsToDisplay.Count - 1)  / CARD_COUNT_DISPLAY));
             UpdatePageUI();
         }
 
@@ -73,21 +84,38 @@ namespace Script.Manager
         {
             int startIndex = m_CurrentPage * CARD_COUNT_DISPLAY;
             //Replace by CardInCurrentResearchFilter//
-            int endIndex = Math.Min(m_CardsInLibrary.Count, startIndex + CARD_COUNT_DISPLAY);
+            int endIndex = Math.Min(m_CurrentCardsToDisplay.Count, startIndex + CARD_COUNT_DISPLAY);
 
             int y = 0;
             for (int i = startIndex; i < endIndex; i++,y++)
             {
                 m_CardDisplayer[y].gameObject.SetActive(true);
 
-                m_CardsSprite.TryGetValue(m_CardsInLibrary[i].CardId, out Sprite cardSprite);
-                m_CardDisplayer[y].Initialize(m_CardsInLibrary[i].CardId,cardSprite);
+                m_CardsSprite.TryGetValue(m_CurrentCardsToDisplay[i].CardId, out Sprite cardSprite);
+                m_CardDisplayer[y].Initialize(m_CurrentCardsToDisplay[i].CardId,cardSprite);
             }
 
             for (; y < CARD_COUNT_DISPLAY; y++)
             {
                 m_CardDisplayer[y].gameObject.SetActive(false);
             }
+        }
+        
+        public void ApplyNameFilter(string filter)
+        {
+            m_CurrentCardsToDisplay.Clear();
+
+            for (int i = 0; i < m_CardsInLibrary.Count; i++)
+            {
+                if (m_CardsInLibrary[i].CardName.Contains(filter,StringComparison.OrdinalIgnoreCase))
+                {
+                    m_CurrentCardsToDisplay.Add(m_CardsInLibrary[i]);
+                }
+            }
+
+            m_CurrentPage = 0;
+            UpdateMaxPageCount();
+            DisplayCards();
         }
         
         private void FetchCardsInLibrary()

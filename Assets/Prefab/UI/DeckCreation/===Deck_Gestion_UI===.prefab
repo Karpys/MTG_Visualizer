@@ -2598,6 +2598,7 @@ MonoBehaviour:
   - {fileID: 2849191875194730120}
   - {fileID: 9203485256965538820}
   m_CardPageCount: {fileID: 3666942963959429649}
+  m_FilterInput: {fileID: 3666942964763808641}
   m_InDeckLayout: {fileID: 3722553634914736612}
   m_CardInDeckUIHolder: {fileID: 5778324490778464095, guid: 046fbea964f8aab4584bc164a7699ab9, type: 3}
 --- !u!1 &8760074818376229180

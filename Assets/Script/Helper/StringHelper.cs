@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Script.UI;
@@ -27,6 +28,11 @@ namespace Script.Helper
             }
 
             return new DeckData(deckName, deckType,deckBackPath, backCardImage,cardCounts);
+        }
+        
+        public static bool Contains(this string source, string toCheck, StringComparison comp)
+        {
+            return source?.IndexOf(toCheck, comp) >= 0;
         }
     }
 }
