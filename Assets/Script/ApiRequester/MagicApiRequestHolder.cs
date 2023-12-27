@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,6 +13,7 @@ namespace Script
     public class MagicApiRequestHolder : MonoBehaviour
     {
         [SerializeField] private DownloadCardUIController m_UIController = null;
+        [SerializeField] private SetLangHolder[] m_SetLangHolders = null;
         
         [Header("Texture Manipulation Settings")]
         [SerializeField] private Color m_BorderColor = Color.black;
@@ -29,6 +29,15 @@ namespace Script
             m_ApiRequest.OnFailCardFound += OnFailCardfound;
             m_ApiRequest.OnCardPreview += OnCardDownload;
             m_ApiRequest.OnCardsFound += OnCardsFound;
+        }
+
+        public void SetLang(string lang)
+        {
+            foreach (SetLangHolder setLangHolder in m_SetLangHolders)
+            {
+                setLangHolder.Enable(setLangHolder.Lang == lang);
+            }
+            m_ApiRequest.SetLang(lang);
         }
 
         private void OnCardFound(JObject card)

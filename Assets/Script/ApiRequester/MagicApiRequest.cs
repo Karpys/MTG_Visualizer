@@ -11,6 +11,7 @@ namespace Script
 {
     public class MagicApiRequest
     {
+        private string m_Lang = "";
         public  Action<JObject> OnCardFound = null;
         public  Action<JObject[]> OnCardsFound = null;
         public Action<PreviewCardData> OnCardPreview = null;
@@ -18,16 +19,27 @@ namespace Script
 
         public int MAX_CARDS = 175;
 
+        public void SetLang(string lang)
+        {
+            if (lang.Length == 0)
+            {
+                m_Lang = "";
+                return;
+            }
+            
+            m_Lang = "lang:"+lang+"+";
+        }
+
         public async Task FindCard(string cardName)
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync("https://api.scryfall.com/cards/named?exact=" + cardName);
+            HttpResponseMessage response = await client.GetAsync("https://api.scryfall.com/cards/search?q=" + m_Lang + "!" + "\"" + cardName + "\"");
 
             Debug.Log("Try Find card");
             if (response.IsSuccessStatusCode)
             {
                 string responseContent = await response.Content.ReadAsStringAsync();
-                var cardJson = JObject.Parse(responseContent);
+                var cardJson = JObject.FromObject(JObject.Parse(responseContent)["data"][0]);
                 OnCardFound?.Invoke(cardJson);
                 Debug.Log("card found");
             }
@@ -40,7 +52,7 @@ namespace Script
         public async Task FindCardsArts(string cardName)
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync("https://api.scryfall.com/cards/search?q=!" + "\"" + cardName + "\"" + "&unique=art");
+            HttpResponseMessage response = await client.GetAsync("https://api.scryfall.com/cards/search?q=" + m_Lang + "!" + "\"" + cardName + "\"" + "&unique=art");
 
             if (response.IsSuccessStatusCode)
             {
@@ -68,7 +80,7 @@ namespace Script
         public async Task FindAbstractCards(string cardName)
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync("https://api.scryfall.com/cards/search?q=" + cardName);
+            HttpResponseMessage response = await client.GetAsync("https://api.scryfall.com/cards/search?q=" + m_Lang + "name:" + cardName);
 
             if (response.IsSuccessStatusCode)
             {
@@ -97,8 +109,7 @@ namespace Script
         public async Task DownloadCard(JObject cardObject,string location,string fallBackLocation,CancellationTokenSource cancellationTokenSource = null)
         {
             string cardImageUris = String.Empty;
-
-
+            
             if (cardObject["image_uris"] == null)
             {
                 if (cardObject["card_faces"] != null)
@@ -167,7 +178,6 @@ namespace Script
         public async Task PreviewCard(JObject cardObject,CancellationTokenSource cancellationTokenSource)
         {
             string cardImageUris = String.Empty;
-
 
             if (cardObject["image_uris"] == null)
             {
