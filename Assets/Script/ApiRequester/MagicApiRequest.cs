@@ -5,13 +5,14 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using Script.Manager;
 using UnityEngine;
 
 namespace Script
 {
     public class MagicApiRequest
     {
-        private string m_Lang = "";
+        private string m_Lang = "lang:any+";
         public  Action<JObject> OnCardFound = null;
         public  Action<JObject[]> OnCardsFound = null;
         public Action<PreviewCardData> OnCardPreview = null;
@@ -33,7 +34,9 @@ namespace Script
         public async Task FindCard(string cardName)
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync("https://api.scryfall.com/cards/search?q=" + m_Lang + "!" + "\"" + cardName + "\"");
+            string request = "https://api.scryfall.com/cards/search?q=" + m_Lang + "!" + "\"" + cardName + "\"";
+            HttpResponseMessage response = await client.GetAsync(request);
+            request.Log("Request");
 
             Debug.Log("Try Find card");
             if (response.IsSuccessStatusCode)
@@ -177,38 +180,10 @@ namespace Script
 
         public async Task PreviewCard(JObject cardObject,CancellationTokenSource cancellationTokenSource)
         {
-            string cardImageUris = String.Empty;
-
-            if (cardObject["image_uris"] == null)
-            {
-                if (cardObject["card_faces"] != null)
-                {
-                    cardImageUris = (string)cardObject["card_faces"][0]["image_uris"]["normal"];
-                }
-                else
-                {
-                    Debug.LogError("Unknown cards");
-                }
-            }
-            else
-            {
-                cardImageUris = (string)cardObject["image_uris"]["normal"];
-            }
-            
-            HttpClient client = new HttpClient();
-
-            string cardName = (string) cardObject["name"];
-            cardName = cardName.Replace("/", "");
-            string cardSaveName = cardName + "~" + cardObject["id"];
-            
-            PreviewCardData data = new PreviewCardData();
-            data.cardSaveName = cardSaveName;
-            byte[] cardImageBytes = await client.ReadFile(cardImageUris);
-            data.sprite = cardImageBytes.ToCardSprite();
-            
+            PreviewCardData previewCardData = await cardObject.ToPreviewCardData();
             if(cancellationTokenSource is {IsCancellationRequested:true})
                 return;
-            OnCardPreview?.Invoke(data);
+            OnCardPreview?.Invoke(previewCardData);
         }
     }
 

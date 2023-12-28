@@ -5,6 +5,24 @@ namespace Script
 {
     public static class TextureHelper
     {
+        public static void SetBorderColor(this Texture2D texture2D,Color borderColor,Vector2Int borderSize)
+        {
+            int width = texture2D.width;
+            int height = texture2D.height;
+            
+            for (int x = 0; x < texture2D.width; x++)
+            {
+                for (int y = 0; y < texture2D.height; y++)
+                {
+                    if (x <= borderSize.x || x >= width - borderSize.x || y <= borderSize.y || y >= height - borderSize.y)
+                    {
+                        texture2D.SetPixel(x,y,borderColor);
+                    }
+                }
+            }
+            
+            texture2D.Apply();
+        }
         public static Texture2D ResizeTexture(this Texture2D baseTexture, int newWidth, int newHeight)
         {
             Texture2D resizedTexture = new Texture2D(newWidth, newHeight);

@@ -1,6 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 using Script.Helper;
 using Script.Manager;
 using UnityEngine;
@@ -81,6 +85,59 @@ namespace Script
                 return cardNameData;
             Debug.LogError("Not found card : " +cardId);
             return new CardNameData();
+        }
+
+        public static async Task<PreviewCardData> ToPreviewCardData(this JObject cardObject)
+        {
+            string cardImageUris = String.Empty;
+
+            if (cardObject["image_uris"] == null)
+            {
+                if (cardObject["card_faces"] != null)
+                {
+                    cardImageUris = (string)cardObject["card_faces"][0]["image_uris"]["normal"];
+                }
+                else
+                {
+                    Debug.LogError("Unknown cards");
+                    return new PreviewCardData();
+                }
+            }
+            else
+            {
+                cardImageUris = (string)cardObject["image_uris"]["normal"];
+            }
+            
+            HttpClient client = new HttpClient();
+
+            string cardName = (string) cardObject["name"];
+            
+            if (cardName != null)
+            {
+                cardName = cardName.Replace("/", "");
+                string cardSaveName = cardName + "~" + cardObject["id"];
+
+                PreviewCardData data = new PreviewCardData();
+                data.cardSaveName = cardSaveName;
+                byte[] cardImageBytes = await client.ReadFile(cardImageUris);
+                data.sprite = cardImageBytes.ToCardSprite();
+                return data;
+            }
+            else
+            {
+                return new PreviewCardData();
+            }
+        }
+
+        public static void DownloadToLibrary(string saveName,Sprite visual,Color borderColor,Vector2Int borderSize)
+        {
+            Texture2D texture = new Texture2D(488,680);
+            texture.SetPixels(visual.texture.GetPixels());
+            texture.SetBorderColor(borderColor,borderSize);
+            byte[] pixels = texture.EncodeToJPG();
+            string filePath = GetCardsLibraryPath();
+            filePath += saveName+".jpg";
+            File.WriteAllBytes(filePath, pixels);
         }
     }
 }

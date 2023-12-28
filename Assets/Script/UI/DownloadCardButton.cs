@@ -18,32 +18,7 @@ namespace Script.UI
 
         public void DownloadCard()
         {
-            Texture2D texture = new Texture2D(488,680);
-            texture.SetPixels(m_CardData.sprite.texture.GetPixels());
-            SetBorderColor(texture);
-            byte[] pixels = texture.EncodeToJPG();
-            string filePath = CardFileHelper.GetCardsLibraryPath();
-            filePath += m_CardData.cardSaveName+".jpg";
-            File.WriteAllBytes(filePath, pixels);
-        }
-        
-        private void SetBorderColor(Texture2D texture)
-        {
-            int width = texture.width;
-            int height = texture.height;
-            
-            for (int x = 0; x < texture.width; x++)
-            {
-                for (int y = 0; y < texture.height; y++)
-                {
-                    if (x <= m_BorderSize.x || x >= width - m_BorderSize.x || y <= m_BorderSize.y || y >= height - m_BorderSize.y)
-                    {
-                        texture.SetPixel(x,y,m_BorderColor);
-                    }
-                }
-            }
-            
-            texture.Apply();
+            CardFileHelper.DownloadToLibrary(m_CardData.cardSaveName, m_CardData.sprite,m_BorderColor,m_BorderSize);
         }
 
         public void SetAttach(Transform attach)
