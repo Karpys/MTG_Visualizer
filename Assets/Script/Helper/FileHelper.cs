@@ -1,4 +1,9 @@
 using System;
+using System.Windows.Forms;
+
+#if UNITY_STANDALONE_WIN
+using Ookii.Dialogs;
+#endif
 
 namespace Script.Helper
 {
@@ -10,7 +15,7 @@ namespace Script.Helper
                 VistaOpenFileDialog openFile = new VistaOpenFileDialog();
                 openFile.Filter = "File " + filter;
                 
-                if (openFile.ShowDialog() == Dialog)
+                if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     return openFile.FileName;
                 }
