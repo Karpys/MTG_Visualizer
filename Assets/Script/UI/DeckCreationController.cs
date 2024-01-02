@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using Ookii.Dialogs;
 using Script.Helper;
 using TMPro;
 using UnityEngine;
@@ -72,12 +71,11 @@ namespace Script.UI
 
         public void SelectBackCard()
         {
-            VistaOpenFileDialog openFile = new VistaOpenFileDialog();
-            openFile.Filter = "Images (*.jpg)|*.jpg";
+            string filePath = FileHelper.GetFilePath("(*.jpg)|*.jpg");
             
-            if (openFile.ShowDialog() == DialogResult.OK)
+            if (filePath!=String.Empty)
             {
-                m_CurrentBackCardPath = openFile.FileName;
+                m_CurrentBackCardPath = filePath;
                 m_SelectBackCardText.text = m_CurrentBackCardPath.ToFileName();
             }
             else

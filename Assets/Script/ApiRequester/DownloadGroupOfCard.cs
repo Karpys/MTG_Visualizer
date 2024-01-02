@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
-using Ookii.Dialogs;
+using Script.Helper;
 using Script.Manager;
 using UnityEngine;
 using UnityEngine.Windows;
@@ -18,12 +19,11 @@ namespace Script
 
         public void OpenFileSelection()
         {
-            VistaOpenFileDialog openFile = new VistaOpenFileDialog();
-            openFile.Filter = "Text (*.txt)|*.txt";
+            string filePath = FileHelper.GetFilePath("(*.txt)|*.txt");
             
-            if (openFile.ShowDialog() == DialogResult.OK)
+            if (filePath!=String.Empty)
             {
-                DownloadCards(File.ReadAllLines(openFile.FileName));
+                DownloadCards(File.ReadAllLines(filePath));
             }
             else
             {
