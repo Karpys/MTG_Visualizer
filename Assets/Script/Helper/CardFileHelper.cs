@@ -114,13 +114,9 @@ namespace Script
             
             if (cardName != null)
             {
-                cardName = cardName.Replace("/", "");
-                string cardSaveName = cardName + "~" + cardObject["id"];
-
-                PreviewCardData data = new PreviewCardData();
-                data.cardSaveName = cardSaveName;
                 byte[] cardImageBytes = await client.ReadFile(cardImageUris);
-                data.sprite = cardImageBytes.ToCardSprite();
+                Sprite cardSprite = cardImageBytes.ToCardSprite();
+                PreviewCardData data = JObjectToPreviewCardData(cardObject,cardSprite);
                 return data;
             }
             else
@@ -129,15 +125,31 @@ namespace Script
             }
         }
 
-        public static void DownloadToLibrary(string saveName,Sprite visual,Color borderColor,Vector2Int borderSize)
+        public static void DownloadToLibrary(PreviewCardData cardData,Color borderColor,Vector2Int borderSize)
         {
             Texture2D texture = new Texture2D(488,680);
-            texture.SetPixels(visual.texture.GetPixels());
+            texture.SetPixels(cardData.sprite.texture.GetPixels());
             texture.SetBorderColor(borderColor,borderSize);
             byte[] pixels = texture.EncodeToJPG();
             string filePath = GetCardsLibraryPath();
-            filePath += saveName+".jpg";
+            filePath += cardData.cardSaveName+".jpg";
             File.WriteAllBytes(filePath, pixels);
+            //Todo:Save a file ".card" contains : Name + Id + Color + Cost without X + Type//
+        }
+
+        public static PreviewCardData JObjectToPreviewCardData(this JObject cardObject,Sprite sprite)
+        {
+            PreviewCardData previewCardData = new PreviewCardData();
+            previewCardData.sprite = sprite;
+            string cardSaveName = ((string) cardObject["name"]).Replace("/", "");
+            previewCardData.cardName = cardSaveName;
+            cardSaveName += "~";
+            
+            string cardId = (string)cardObject["id"];
+            previewCardData.cardId = cardId;
+            cardSaveName += cardId;
+            previewCardData.cardSaveName = cardSaveName;
+            return previewCardData;
         }
     }
 }

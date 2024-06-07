@@ -18,7 +18,7 @@ namespace Script.UI
 
         public void DownloadCard()
         {
-            CardFileHelper.DownloadToLibrary(m_CardData.cardSaveName, m_CardData.sprite,m_BorderColor,m_BorderSize);
+            CardFileHelper.DownloadToLibrary(m_CardData,m_BorderColor,m_BorderSize);
         }
 
         public void SetAttach(Transform attach)

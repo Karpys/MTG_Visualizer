@@ -108,61 +108,6 @@ namespace Script
             }
         }
 
-        //Obsolete//
-        public async Task DownloadCard(JObject cardObject,string location,string fallBackLocation,CancellationTokenSource cancellationTokenSource = null)
-        {
-            string cardImageUris = String.Empty;
-            
-            if (cardObject["image_uris"] == null)
-            {
-                if (cardObject["card_faces"] != null)
-                {
-                    cardImageUris = (string)cardObject["card_faces"][0]["image_uris"]["normal"];
-                }
-                else
-                {
-                    Debug.LogError("Unknown cards");
-                }
-            }
-            else
-            {
-                cardImageUris = (string)cardObject["image_uris"]["normal"];
-            }
-        
-            HttpClient client = new HttpClient();
-
-            string cardName = (string) cardObject["name"];
-            cardName = cardName.Replace("/", "");
-            string cardSaveName = cardName + "~" + cardObject["id"];
-            string cardPath = await client.DownloadFile(cardImageUris, location,cardSaveName,"jpg",fallBackLocation);
-        
-            PreviewCardData data = new PreviewCardData();
-            //data.cardPath = cardPath;
-            //data.cardId = (string)cardObject["id"];
-            data.cardSaveName = cardSaveName;
-        
-            
-            if(cancellationTokenSource is {IsCancellationRequested:true})
-                return;
-            OnCardPreview?.Invoke(data);
-        }
-
-        //Obsolete//
-        public async Task DownloadCards(List<JObject> cards, string location,string fallBackLocation,CancellationTokenSource cancellationTokenSource)
-        {
-            for (int i = 0; i < cards.Count; i++)
-            {
-                if (cancellationTokenSource.IsCancellationRequested)
-                {
-                    return;
-                }
-                else
-                {
-                    await DownloadCard(cards[i], location,fallBackLocation,cancellationTokenSource);
-                }
-            }
-        }
-
         public async Task PreviewCards(List<JObject> cards, CancellationTokenSource cancellationTokenSource)
         {
             for (int i = 0; i < cards.Count; i++)
@@ -191,6 +136,8 @@ namespace Script
     public struct PreviewCardData
     {
         public string cardSaveName;
+        public string cardName;
+        public string cardId;
         public Sprite sprite;
     }
 }
