@@ -19,7 +19,7 @@ namespace Script
 
         public void OpenFileSelection()
         {
-            string filePath = FileHelper.GetFilePath("(*.txt)|*.txt");
+            string filePath = FileHelper.GetFilePath(FilterType.Text);
             
             if (filePath!=String.Empty)
             {

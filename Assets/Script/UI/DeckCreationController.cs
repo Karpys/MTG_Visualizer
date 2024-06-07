@@ -71,7 +71,7 @@ namespace Script.UI
 
         public void SelectBackCard()
         {
-            string filePath = FileHelper.GetFilePath("(*.jpg)|*.jpg");
+            string filePath = FileHelper.GetFilePath(FilterType.Jpg);
             
             if (filePath!=String.Empty)
             {
