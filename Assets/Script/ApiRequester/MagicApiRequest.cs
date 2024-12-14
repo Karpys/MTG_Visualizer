@@ -12,6 +12,7 @@ namespace Script
 {
     public class MagicApiRequest
     {
+        private HttpClient m_Client = new HttpClient();
         private string m_Lang = "lang:any+";
         public  Action<JObject> OnCardFound = null;
         public  Action<JObject[]> OnCardsFound = null;
@@ -19,6 +20,11 @@ namespace Script
         public Action OnFailCardFound = null;
 
         public int MAX_CARDS = 175;
+
+        public MagicApiRequest()
+        {
+            m_Client.DefaultRequestHeaders.Add("User-Agent", "MonApplication/1.0");
+        }
 
         public void SetLang(string lang)
         {
@@ -33,11 +39,9 @@ namespace Script
 
         public async Task FindCard(string cardName)
         {
-            HttpClient client = new HttpClient();
             string request = "https://api.scryfall.com/cards/search?q=" + m_Lang + "!" + "\"" + cardName + "\"";
-            HttpResponseMessage response = await client.GetAsync(request);
+            HttpResponseMessage response = await m_Client.GetAsync(request);
             request.Log("Request");
-
             Debug.Log("Try Find card");
             if (response.IsSuccessStatusCode)
             {
@@ -54,8 +58,7 @@ namespace Script
 
         public async Task FindCardsArts(string cardName)
         {
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync("https://api.scryfall.com/cards/search?q=" + m_Lang + "!" + "\"" + cardName + "\"" + "&unique=art");
+            HttpResponseMessage response = await m_Client.GetAsync("https://api.scryfall.com/cards/search?q=" + m_Lang + "!" + "\"" + cardName + "\"" + "&unique=art");
 
             if (response.IsSuccessStatusCode)
             {
@@ -82,8 +85,7 @@ namespace Script
 
         public async Task FindAbstractCards(string cardName)
         {
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync("https://api.scryfall.com/cards/search?q=" + m_Lang + "name:" + cardName);
+            HttpResponseMessage response = await m_Client.GetAsync("https://api.scryfall.com/cards/search?q=" + m_Lang + "name:" + cardName);
 
             if (response.IsSuccessStatusCode)
             {

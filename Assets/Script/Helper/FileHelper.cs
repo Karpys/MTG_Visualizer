@@ -60,7 +60,7 @@ namespace Script.Helper
                 switch (filter)
                 {
                     case FilterType.Text:
-                        return "(*.txt)|*.txt;
+                        return "(*.txt)|*.txt";
                     case FilterType.Jpg:
                         return "(*.jpg)|*.jpg";
                     default:
