@@ -54,7 +54,7 @@ namespace Script
                 PreviewCardData cardData = await cardObject.ToPreviewCardData();
                 //Todo : Add notif log
                 cardData.cardSaveName.Log("Save");
-                CardFileHelper.DownloadToLibrary(cardData,m_BorderColor,m_BorderSize);
+                CardFileHelper.DownloadToLibrary(cardObject,cardData,m_BorderColor,m_BorderSize);
             }
         }
     }

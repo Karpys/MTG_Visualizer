@@ -16,7 +16,7 @@ namespace Script
         private string m_Lang = "lang:any+";
         public  Action<JObject> OnCardFound = null;
         public  Action<JObject[]> OnCardsFound = null;
-        public Action<PreviewCardData> OnCardPreview = null;
+        public Action<PreviewCardData,JObject> OnCardPreview = null;
         public Action OnFailCardFound = null;
 
         public int MAX_CARDS = 175;
@@ -130,7 +130,7 @@ namespace Script
             PreviewCardData previewCardData = await cardObject.ToPreviewCardData();
             if(cancellationTokenSource is {IsCancellationRequested:true})
                 return;
-            OnCardPreview?.Invoke(previewCardData);
+            OnCardPreview?.Invoke(previewCardData,cardObject);
         }
     }
 

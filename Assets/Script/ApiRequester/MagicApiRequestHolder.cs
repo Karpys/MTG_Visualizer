@@ -26,7 +26,7 @@ namespace Script
             m_ApiRequest = new MagicApiRequest();
 
             m_ApiRequest.OnCardFound += OnCardFound;
-            m_ApiRequest.OnFailCardFound += OnFailCardfound;
+            m_ApiRequest.OnFailCardFound += OnFailCardFound;
             m_ApiRequest.OnCardPreview += OnCardDownload;
             m_ApiRequest.OnCardsFound += OnCardsFound;
         }
@@ -53,16 +53,16 @@ namespace Script
             m_UIController.DisplayDisplayContainer(m_Cards.Count);
         }
 
-        private void OnFailCardfound()
+        private void OnFailCardFound()
         {
             m_UIController.OnFailCardFound();
         }
         
-        private void OnCardDownload(PreviewCardData cardDatas)
+        private void OnCardDownload(PreviewCardData cardDatas,JObject cardObject)
         {
             Sprite sprite = cardDatas.sprite;
             cardDatas.sprite = sprite;
-            m_UIController.AddCard(sprite,cardDatas);
+            m_UIController.AddCard(sprite,cardDatas,cardObject);
         }
 
         public void TryFindCard()

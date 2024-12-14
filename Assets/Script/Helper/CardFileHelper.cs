@@ -125,7 +125,7 @@ namespace Script
             }
         }
 
-        public static void DownloadToLibrary(PreviewCardData cardData,Color borderColor,Vector2Int borderSize)
+        public static void DownloadToLibrary(JObject cardObject, PreviewCardData cardData,Color borderColor,Vector2Int borderSize)
         {
             Texture2D texture = new Texture2D(488,680);
             texture.SetPixels(cardData.sprite.texture.GetPixels());
@@ -134,7 +134,12 @@ namespace Script
             string filePath = GetCardsLibraryPath();
             filePath += cardData.cardSaveName+".jpg";
             File.WriteAllBytes(filePath, pixels);
+            DownloadCardFile(cardObject,cardData.cardSaveName);
             //Todo:Save a file ".card" contains : Name + Id + Color + Cost without X + Type//
+        }
+
+        private static void DownloadCardFile(JObject cardObject,string fileName)
+        {
         }
 
         public static PreviewCardData JObjectToPreviewCardData(this JObject cardObject,Sprite sprite)

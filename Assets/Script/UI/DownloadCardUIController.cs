@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 namespace Script.UI
 {
+    using Newtonsoft.Json.Linq;
+
     public class DownloadCardUIController : MonoBehaviour
     {
         [SerializeField] private TMP_InputField m_CardField = null;
@@ -40,11 +42,11 @@ namespace Script.UI
             m_CardLayout.gameObject.SetActive(false);
         }
 
-        public void AddCard(Sprite sprite, PreviewCardData cardDatas)
+        public void AddCard(Sprite sprite, PreviewCardData cardDatas, JObject cardObject)
         {
             m_CardLayout.gameObject.SetActive(true);
             DownLoadCardDataPointer card = Instantiate(m_CardDataPointer, m_CardLayout);
-            card.Initialize(cardDatas,m_DownloadButtonTransform);
+            card.Initialize(cardObject,cardDatas,m_DownloadButtonTransform);
             card.GetComponent<Image>().sprite = sprite;
         }
 

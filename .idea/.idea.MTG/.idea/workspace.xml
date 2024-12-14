@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/DownloadGroupOfCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/DownloadGroupOfCard.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Helper/FileHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Helper/FileHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Socket/SocketToHand.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Socket/SocketToHand.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StandaloneFileBrowser/Plugins/Ookii.Dialogs.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StandaloneFileBrowser/Plugins/Ookii.Dialogs.dll.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequestHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequestHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Helper/CardFileHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Helper/CardFileHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DownLoadCardDataPointer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DownLoadCardDataPointer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DownloadCardButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DownloadCardButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DownloadCardUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DownloadCardUIController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,27 +38,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "SocketTest",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;SocketTest&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Rémi\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Rémi\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\Rémi\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Rémi\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Rémi\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Rémi\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2020.3.5f1\Editor\Unity.exe" />
@@ -83,10 +86,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="24240">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="24240" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -106,7 +109,8 @@
       <workItem from="1734203111280" duration="100000" />
       <workItem from="1734203327001" duration="130000" />
       <workItem from="1734203474433" duration="306000" />
-      <workItem from="1734203810881" duration="553000" />
+      <workItem from="1734203810881" duration="1013000" />
+      <workItem from="1734206693391" duration="4369000" />
     </task>
     <servers />
   </component>
