@@ -83,9 +83,9 @@ namespace Script
             }
         }
 
-        public async Task FindAbstractCards(string cardName)
+        public async Task FindAbstractCards(string cardName,string filter)
         {
-            HttpResponseMessage response = await m_Client.GetAsync("https://api.scryfall.com/cards/search?q=" + m_Lang + "name:" + cardName);
+            HttpResponseMessage response = await m_Client.GetAsync("https://api.scryfall.com/cards/search?q=" + m_Lang + "name:" + cardName + filter);
 
             if (response.IsSuccessStatusCode)
             {

@@ -14,6 +14,7 @@ namespace Script
     {
         [SerializeField] private DownloadCardUIController m_UIController = null;
         [SerializeField] private SetLangHolder[] m_SetLangHolders = null;
+        [SerializeField] private CardTypeFilter m_CardTypeFilter = null;
         
         [Header("Texture Manipulation Settings")]
         [SerializeField] private Color m_BorderColor = Color.black;
@@ -83,7 +84,7 @@ namespace Script
         {
             m_UIController.Clear();
             CancelMultipleDownload();
-            m_ApiRequest.FindAbstractCards(m_UIController.GetCardName);
+            m_ApiRequest.FindAbstractCards(m_UIController.GetCardName,GetFilters());
         }
 
         private Task m_CurrentPreviewCardsTask = null;
@@ -116,6 +117,11 @@ namespace Script
         private void PreviewCardImage(JObject cardObject,CancellationTokenSource cancellationTokenSource)
         {
             m_ApiRequest.PreviewCard(cardObject,cancellationTokenSource);
+        }
+        
+        private string GetFilters()
+        {
+            return m_CardTypeFilter.GetFilter();
         }
     }
 }

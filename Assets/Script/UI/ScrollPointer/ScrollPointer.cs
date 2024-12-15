@@ -20,16 +20,16 @@ namespace Script.UI.ScrollPointer
 
         public void MoveUp(float force)
         {
-            var position = m_ScrollContent.transform.position;
+            var position = m_ScrollContent.transform.localPosition;
             float targetY = Mathf.Min(position.y + m_MoveForce * force, m_ScrollClamp.y);
-            m_ScrollContent.transform.DOMove(position.Y(targetY),0.5f);
+            m_ScrollContent.transform.DOLocalMove(position.Y(targetY),0.5f);
         }
 
         public void MoveDown(float force)
         {
-            var position = m_ScrollContent.transform.position;
+            var position = m_ScrollContent.transform.localPosition;
             float targetY = Mathf.Max(position.y - m_MoveForce * force, m_ScrollClamp.x);
-            m_ScrollContent.transform.DOMove(position.Y(targetY),0.5f);
+            m_ScrollContent.transform.DOLocalMove(position.Y(targetY),0.5f);
         }
         
         public void SetMaxUpClamp(float clampUp)
