@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/CardType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/CardType.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/CardTypeFilter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/CardTypeFilter.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/===Card_Research_UI===.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/===Card_Research_UI===.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/DeckCreation/DeckCreationPopup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/DeckCreation/DeckCreationPopup.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ApiRequest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ApiRequest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequestHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequestHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/ScrollPointer/ScrollPointer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/ScrollPointer/ScrollPointer.cs" afterDir="false" />
-    </list>
+    <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,7 +103,7 @@
       <workItem from="1734203474433" duration="306000" />
       <workItem from="1734203810881" duration="1013000" />
       <workItem from="1734206693391" duration="4424000" />
-      <workItem from="1734262262815" duration="4047000" />
+      <workItem from="1734262262815" duration="4323000" />
     </task>
     <servers />
   </component>
