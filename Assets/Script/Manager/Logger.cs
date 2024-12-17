@@ -6,7 +6,7 @@ namespace Script.Manager
     {
         public static void Log(this object obj, string message)
         {
-            Debug.Log(obj.ToString() + " : " + message);
+            Debug.Log(message + " : " + obj.ToString());
         }
     }
 }

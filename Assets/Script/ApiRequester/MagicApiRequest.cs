@@ -13,7 +13,7 @@ namespace Script
     public class MagicApiRequest
     {
         private HttpClient m_Client = new HttpClient();
-        private string m_Lang = "lang:any+";
+        private string m_Lang = "lang:en";
         public  Action<JObject> OnCardFound = null;
         public  Action<JObject[]> OnCardsFound = null;
         public Action<PreviewCardData,JObject> OnCardPreview = null;
@@ -34,12 +34,12 @@ namespace Script
                 return;
             }
             
-            m_Lang = "lang:"+lang+"+";
+            m_Lang = "lang:"+lang;
         }
 
         public async Task FindCard(string cardName)
         {
-            string request = "https://api.scryfall.com/cards/search?q=" + m_Lang + "!" + "\"" + cardName + "\"";
+            string request = "https://api.scryfall.com/cards/search?q=" + m_Lang + "+!" + "\"" + cardName + "\"";
             HttpResponseMessage response = await m_Client.GetAsync(request);
             request.Log("Request");
             Debug.Log("Try Find card");
@@ -58,7 +58,7 @@ namespace Script
 
         public async Task FindCardsArts(string cardName)
         {
-            HttpResponseMessage response = await m_Client.GetAsync("https://api.scryfall.com/cards/search?q=" + m_Lang + "!" + "\"" + cardName + "\"" + "&unique=art");
+            HttpResponseMessage response = await m_Client.GetAsync("https://api.scryfall.com/cards/search?q=" + m_Lang + "+!" + "\"" + cardName + "\"" + "&unique=art");
 
             if (response.IsSuccessStatusCode)
             {
@@ -83,9 +83,11 @@ namespace Script
             }
         }
 
-        public async Task FindAbstractCards(string cardName,string filter)
+        public async Task FindAbstractCards(string filter)
         {
-            HttpResponseMessage response = await m_Client.GetAsync("https://api.scryfall.com/cards/search?q=" + m_Lang + "name:" + cardName + filter);
+            string request = "https://api.scryfall.com/cards/search?q=" + m_Lang + filter;
+            request.Log("Request");
+            HttpResponseMessage response = await m_Client.GetAsync(request);
 
             if (response.IsSuccessStatusCode)
             {

@@ -12,5 +12,6 @@ namespace Script
         Sorcery = 6,
         Battle = 7,
         Planeswalker = 8,
+        LegendaryCreature = 9,
     }
 }

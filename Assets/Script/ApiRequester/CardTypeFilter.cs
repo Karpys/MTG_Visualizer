@@ -9,6 +9,7 @@ namespace Script
     public class CardTypeFilter : MonoBehaviour
     {
         [SerializeField] private TMP_Dropdown m_Dropdown = null;
+        [SerializeField] private TMP_InputField m_TextField = null;
 
         private void Awake()
         {
@@ -30,8 +31,21 @@ namespace Script
 
         public string GetFilter()
         {
-            string typeFilter = GetTypeFilter();
+            return GetTypeFilterText() + GetSubTypeFilter();
+        }
 
+        private string GetSubTypeFilter()
+        {
+            if (m_TextField.text == "")
+                return "";
+
+            return "+type:" + m_TextField.text;
+        }
+
+        private string GetTypeFilterText()
+        {
+            string typeFilter = GetTypeFilter();
+            
             if (typeFilter == "")
                 return "";
 
@@ -64,6 +78,8 @@ namespace Script
                     return "battle";
                 case CardType.Artifact:
                     return "artifact";
+                case CardType.LegendaryCreature:
+                    return "creature+type:legendary";
                 default:
                     return "";
             }

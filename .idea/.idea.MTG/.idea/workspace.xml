@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="" />
+    <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/CardManaCostFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/CardManaCostFilter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/===Card_Research_UI===.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/===Card_Research_UI===.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/CardType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/CardType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/CardTypeFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/CardTypeFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequestHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequestHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/Logger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/Logger.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +25,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Dropdown.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/ApiRequester/CardTypeFilter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@5.0.4/Runtime/Triangle/RobustPredicates.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.path@4.0.1/Editor/IMGUI/GUIFramework/GUIState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.4/Scripts/Runtime/TMP_Dropdown.cs" root0="SKIP_HIGHLIGHTING" />
@@ -78,10 +89,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="6004">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="6004" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -104,6 +115,8 @@
       <workItem from="1734203810881" duration="1013000" />
       <workItem from="1734206693391" duration="4424000" />
       <workItem from="1734262262815" duration="4323000" />
+      <workItem from="1734360413723" duration="2306000" />
+      <workItem from="1734441147591" duration="2688000" />
     </task>
     <servers />
   </component>
