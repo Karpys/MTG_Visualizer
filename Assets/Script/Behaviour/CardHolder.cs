@@ -44,6 +44,21 @@ namespace MTG
             gameObject.name = m_CardNameData.CardName;
         }
 
+        public void Initialize(CardScriptable cardScriptable)
+        {
+            m_CardVisual = cardScriptable.m_CardVisual;
+            UpdateVisual(m_State);
+            gameObject.name = cardScriptable.name;
+        }
+        
+        public void Initialize(CardHolder cardHolder)
+        {
+            m_CardVisual = cardHolder.CardVisual;
+            m_State = cardHolder.State;
+            UpdateVisual(m_State);
+            gameObject.name = cardHolder.name;
+        }
+
         public void UpdateState(CardState state)
         {
             m_State = state;

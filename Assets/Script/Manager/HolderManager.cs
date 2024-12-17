@@ -6,6 +6,8 @@ using UnityEngine;
 
 namespace MTG
 {
+    using Manager;
+
     public class HolderManager:SingletonMonoBehaviour<HolderManager>
     {
         [SerializeField] private DeckHolder m_DeckHolder = null;
@@ -19,6 +21,7 @@ namespace MTG
 
         [Header("Parameters")] 
         [SerializeField] private bool m_DisplayHandCards = false;
+        [SerializeField] private DeckScriptable m_DeckScriptable = null;
         
         public List<CardHolder> m_CardsOnBoards = new List<CardHolder>();
 
@@ -26,21 +29,78 @@ namespace MTG
         private KeyCode m_KeyPressed = KeyCode.None;
         private DeckData m_DeckData;
 
-        public Sprite DefaultSprite => m_DeckData.DeckBackCard;
+        public Sprite DefaultSprite => m_DeckData.DeckBackCard ? m_DeckData.DeckBackCard : m_DeckScriptable.m_CardBackSprite;
         public bool DisplayHandCards => m_DisplayHandCards;
         private void Start()
         {
             m_DeckData = DeckDataHolder.DeckData;
             CardFileHelper.UpdateLibrary();
+
+            if (m_DeckData.DeckCards != null && m_DeckData.DeckCards.Count > 0)
+            {
+                for (int i = 0; i < m_DeckData.DeckCards.Count; i++)
+                {
+                    CardHolder card = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_DeckHolder.transform);
+                    card.Initialize(m_DeckData.DeckCards[i].CardId);
+                    GotoCard(CardState.Deck,card);
+                    m_CardsOnBoards.Add(card);
+                }
+            }
+            else
+            {
+                CreateFromDeckScriptable();
+            }
             
-            for (int i = 0; i < m_DeckData.DeckCards.Count; i++)
+        }
+
+        private void CreateFromDeckScriptable()
+        {
+            List<CardScriptable> cardInDeck = new List<CardScriptable>();
+            List<CardScriptable> jetonCards = new List<CardScriptable>();
+            
+            for (int i = 0; i < m_DeckScriptable.m_Cards.Count; i++)
+            {
+                cardInDeck.Add(m_DeckScriptable.m_Cards[i]);
+            }
+            
+            for (int i = 0; i < m_DeckScriptable.m_Terrains.Count; i++)
+            {
+                cardInDeck.Add(m_DeckScriptable.m_Terrains[i]);
+            }
+
+            for (int i = 0; i < m_DeckScriptable.m_Jetons.Count; i++)
+            {
+                jetonCards.Add(m_DeckScriptable.m_Jetons[i]);
+            }
+            
+            cardInDeck.Shuffle();
+
+
+            for (int i = 0; i < cardInDeck.Count; i++)
             {
                 CardHolder card = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_DeckHolder.transform);
-                card.Initialize(m_DeckData.DeckCards[i].CardId);
+                card.Initialize(cardInDeck[i]);
                 GotoCard(CardState.Deck,card);
                 m_CardsOnBoards.Add(card);
             }
+            
+            for (int i = 0; i < m_DeckScriptable.m_Commanders.Count; i++)
+            {
+                CardHolder card = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_EnchantementHolder.transform);
+                card.Initialize(m_DeckScriptable.m_Commanders[i]);
+                GotoCard(CardState.Enchantement,card);
+                m_CardsOnBoards.Add(card);
+            }
+            
+            for (int i = 0; i < jetonCards.Count; i++)
+            {
+                CardHolder card = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_DeckHolder.transform);
+                card.Initialize(jetonCards[i]);
+                GotoCard(CardState.Jeton,card);
+                m_CardsOnBoards.Add(card);
+            }
         }
+
         public void Update()
         {
             m_KeyPressed = KeyCode.None;
@@ -148,7 +208,7 @@ namespace MTG
             if (card.State != CardState.Jeton) return card;
             
             CardHolder newCard = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_JetonHolder.transform);
-            newCard.Initialize(card.CardNameData.CardId);
+            newCard.Initialize(card);
             m_CardsOnBoards.Add(newCard);
             return newCard;
         }
