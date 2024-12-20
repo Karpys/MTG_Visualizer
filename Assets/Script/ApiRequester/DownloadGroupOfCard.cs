@@ -34,6 +34,7 @@ namespace Script
         private async Task DownloadCards(string[] cards)
         {
             HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("User-Agent", "MonApplication/1.0");
             List<JObject> cardObjects = new List<JObject>();
             
             for (int i = 0; i < cards.Length; i++)
@@ -46,6 +47,7 @@ namespace Script
                     string responseContent = await response.Content.ReadAsStringAsync();
                     var cardObject = JObject.FromObject(JObject.Parse(responseContent)["data"][0]);
                     cardObjects.Add(cardObject);
+                    cards[i].Log("Found");
                 }
             }
 
