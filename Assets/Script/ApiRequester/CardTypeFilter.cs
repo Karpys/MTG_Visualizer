@@ -5,7 +5,7 @@ namespace Script
     using System.Linq;
     using TMPro;
     using UnityEngine;
-
+    
     public class CardTypeFilter : MonoBehaviour
     {
         [SerializeField] private TMP_Dropdown m_Dropdown = null;

@@ -15,7 +15,9 @@ namespace Script
         [SerializeField] private DownloadCardUIController m_UIController = null;
         [SerializeField] private SetLangHolder[] m_SetLangHolders = null;
         [SerializeField] private CardTypeFilter m_CardTypeFilter = null;
-        [SerializeField] private CardManaCostFilter m_CardManaCostFilter = null;
+        [SerializeField] private MinMaxCostFilter m_MinMaxCostFilter = null;
+        [SerializeField] private MinMaxCostFilter m_MinMaxPowFilter = null;
+        [SerializeField] private MinMaxCostFilter m_MinMaxTouFilter = null;
         
         [Header("Texture Manipulation Settings")]
         [SerializeField] private Color m_BorderColor = Color.black;
@@ -131,7 +133,7 @@ namespace Script
         
         private string GetFilters()
         {
-            return GetNameFilter() + m_CardTypeFilter.GetFilter() + m_CardManaCostFilter.GetFilter();
+            return GetNameFilter() + m_CardTypeFilter.GetFilter() + m_MinMaxCostFilter.GetFilter() + m_MinMaxPowFilter.GetFilter() + m_MinMaxTouFilter.GetFilter();
         }
     }
 }
