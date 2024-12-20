@@ -38,10 +38,21 @@ namespace MTG
 
             if (m_DeckData.DeckCards != null && m_DeckData.DeckCards.Count > 0)
             {
+                List<string> cardIds = new List<string>();
                 for (int i = 0; i < m_DeckData.DeckCards.Count; i++)
                 {
+                    for (int y = 0; y < m_DeckData.DeckCards[i].Count; y++)
+                    {
+                        cardIds.Add(m_DeckData.DeckCards[i].CardId);
+                    }
+                }
+
+                cardIds.Shuffle();
+                
+                foreach (string cardId in cardIds)
+                {
                     CardHolder card = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_DeckHolder.transform);
-                    card.Initialize(m_DeckData.DeckCards[i].CardId);
+                    card.Initialize(cardId);
                     GotoCard(CardState.Deck,card);
                     m_CardsOnBoards.Add(card);
                 }
@@ -263,12 +274,14 @@ namespace MTG
             }else if (Input.GetAxis("Mouse ScrollWheel") > 0f )
             {
                 CardHolder card = TempSelect();
-                card.ChangeCounter(1);
+                if(card)
+                    card.ChangeCounter(1);
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
             {
                 CardHolder card = TempSelect();
-                card.ChangeCounter(-1);
+                if(card)
+                    card.ChangeCounter(-1);
             }
         }
 
