@@ -5,15 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/CardManaCostFilter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/CardManaCostFilter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/SPR_Black.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/SPR_Black.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/SPR_Blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/SPR_Blue.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/SPR_ColorLess.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/SPR_ColorLess.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/SPR_Green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/SPR_Green.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/SPR_Red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/SPR_Red.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/SPR_White.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/SPR_White.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/===Card_Research_UI===.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/===Card_Research_UI===.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/CardType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/CardType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/CardTypeFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/CardTypeFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequestHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequestHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/Logger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/Logger.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +121,9 @@
       <workItem from="1734206693391" duration="4424000" />
       <workItem from="1734262262815" duration="4323000" />
       <workItem from="1734360413723" duration="2306000" />
-      <workItem from="1734441147591" duration="2688000" />
+      <workItem from="1734441147591" duration="3125000" />
+      <workItem from="1734621584242" duration="919000" />
+      <workItem from="1734729408776" duration="602000" />
     </task>
     <servers />
   </component>
