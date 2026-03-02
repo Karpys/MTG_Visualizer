@@ -24,6 +24,7 @@ namespace Script
         public MagicApiRequest()
         {
             m_Client.DefaultRequestHeaders.Add("User-Agent", "MonApplication/1.0");
+            m_Client.DefaultRequestHeaders.Add("Accept", "application/json");
         }
 
         public void SetLang(string lang)
@@ -52,6 +53,7 @@ namespace Script
             }
             else
             {
+                Debug.LogError("Error Response");
                 OnFailCardFound?.Invoke();
             }
         }
