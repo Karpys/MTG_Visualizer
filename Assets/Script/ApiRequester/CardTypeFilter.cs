@@ -54,6 +54,9 @@ namespace Script
         
         private string GetTypeFilter()
         {
+            if (m_Dropdown.options.Count == 0)
+                return "";
+            
             CardType cardTypeSelected = (CardType)Enum.Parse(typeof(CardType), m_Dropdown.options[m_Dropdown.value].text);
 
             switch (cardTypeSelected)

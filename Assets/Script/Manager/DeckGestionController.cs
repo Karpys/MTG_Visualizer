@@ -9,8 +9,11 @@ using UnityEngine.UI;
 
 namespace Script.Manager
 {
+    using System.Collections;
+
     public class DeckGestionController : MonoBehaviour
     {
+        [SerializeField] private CardGridSetter m_CardGridSetter = null;
         [SerializeField] private CardInLibraryPointer[] m_CardDisplayer = null;
         [SerializeField] private TMP_Text m_CardPageCount = null;
         [SerializeField] private TMP_InputField m_FilterInput = null;
@@ -24,7 +27,7 @@ namespace Script.Manager
         
         private List<CardNameData> m_CardsInLibrary = null;
 
-        private const int CARD_COUNT_DISPLAY = 20;
+        private int CARD_COUNT_DISPLAY = 20;
         private int m_CurrentPage = 0;
         private int m_CurrentMaxPage = 0;
         private DeckData m_CurrentDeckData;
@@ -36,11 +39,22 @@ namespace Script.Manager
             m_FilterInput.onValueChanged.AddListener(ApplyNameFilter);
         }
 
+        private void Update()
+        {
+            CARD_COUNT_DISPLAY = m_CardGridSetter.CardCount;
+        }
+
         private void OnEnable()
         {
             m_CurrentPage = 0;
             FetchCardsInLibrary();
             m_CurrentCardsToDisplay = new List<CardNameData>(m_CardsInLibrary);
+            StartCoroutine(Enable());
+        }
+
+        private IEnumerator Enable()
+        {
+            yield return new WaitForSeconds(0.1f);
             GenerateCardsSprite();
             DisplayCards();
             UpdateMaxPageCount();
@@ -95,7 +109,7 @@ namespace Script.Manager
                 m_CardDisplayer[y].Initialize(m_CurrentCardsToDisplay[i].CardId,cardSprite);
             }
 
-            for (; y < CARD_COUNT_DISPLAY; y++)
+            for (; y < m_CardDisplayer.Length; y++)
             {
                 m_CardDisplayer[y].gameObject.SetActive(false);
             }
