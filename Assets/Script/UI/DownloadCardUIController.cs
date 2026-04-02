@@ -16,7 +16,7 @@ namespace Script.UI
         [Header("Card Layout")] 
         [SerializeField] private Transform m_CardLayout = null;
         [SerializeField] private DownLoadCardDataPointer m_CardDataPointer = null;
-
+      
         public string GetCardName => m_CardField.text;
 
         public void DisplayDisplayContainer(int cardCount = 0)
