@@ -134,8 +134,8 @@ namespace Script
         
         private string GetFilters()
         {
-            return GetNameFilter() + m_CardTypeFilter.GetFilter() + m_MinMaxCostFilter.GetFilter() + m_MinMaxPowFilter.GetFilter() 
-                   + m_MinMaxTouFilter.GetFilter() + m_ManaCostFilter.GetFilter ();
+            return GetNameFilter() + m_CardTypeFilter.GetFilter() + m_MinMaxCostFilter.GetFilter() + m_MinMaxPowFilter.GetFilter()
+                   + m_MinMaxTouFilter.GetFilter() + m_ManaCostFilter.GetFilter();
         }
     }
 }
