@@ -86,8 +86,6 @@ namespace Script
                 default:
                     return "";
             }
-
-            return "";
         }
     }
 }

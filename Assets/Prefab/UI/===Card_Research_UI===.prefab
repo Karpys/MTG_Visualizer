@@ -5267,7 +5267,7 @@ MonoBehaviour:
   m_MinMaxCostFilter: {fileID: 3403640723919803805}
   m_MinMaxPowFilter: {fileID: 7190726261527201496}
   m_MinMaxTouFilter: {fileID: 3681230007468847999}
-  m_ManaCostFilter: {fileID: 4215460555947847852}
+  m_ManaCostFilter: {fileID: 9036124287400428886}
   m_BorderColor: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
 --- !u!1 &3818673965103035356
 GameObject:
@@ -9123,7 +9123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3162499042741848684}
-  - component: {fileID: 4215460555947847852}
+  - component: {fileID: 9036124287400428886}
   m_Layer: 0
   m_Name: Mana
   m_TagString: Untagged
@@ -9153,7 +9153,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 608.5, y: 261.6}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &4215460555947847852
+--- !u!114 &9036124287400428886
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9162,9 +9162,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7737656840401931675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54a21cb1fb364d8c8c5af3cc01a60cd7, type: 3}
+  m_Script: {fileID: 11500000, guid: ce140fdef13b434fa5791855299b9da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Request: 
+  m_ManaSearchType: 1
 --- !u!1 &7946578065398873605
 GameObject:
   m_ObjectHideFlags: 0

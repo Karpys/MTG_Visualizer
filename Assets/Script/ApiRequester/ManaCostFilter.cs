@@ -6,8 +6,8 @@ namespace Script
 
     public class ManaCostFilter : MonoBehaviour
     {
-        [SerializeField] private string m_Request = String.Empty;
-        [SerializeField] private ManaSymbolSearchType m_ManaSearchType = ManaSymbolSearchType.Contains;
+        private string m_Request = String.Empty;
+        private ManaSymbolSearchType m_ManaSearchType = ManaSymbolSearchType.Contains;
         private List<ManaSymbol> m_ManaSymbols = new List<ManaSymbol>();
         
         public void AddSymbol(string symbol)
@@ -33,6 +33,8 @@ namespace Script
                     m_ManaSymbols.Add(ManaSymbol.Red);
                     break;
             }
+
+            UpdateVisual();
         }
         
         public void RemoveSymbol(string symbol)
@@ -58,11 +60,17 @@ namespace Script
                     m_ManaSymbols.Remove(ManaSymbol.Red);
                     break;
             }
+            
+            UpdateVisual();
+        }
+
+        private void UpdateVisual()
+        {
+            
         }
 
         private string ComputeRequest()
         {
-            return m_Request;
             int colorlessCount = 0;
             string request = "";
 

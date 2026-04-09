@@ -37,6 +37,7 @@ namespace Script.UI
 
         public void OnFailCardFound()
         {
+            m_CardFoundText.gameObject.SetActive(true);
             m_CardFoundText.text = "No Card Found";
             m_DisplayButton.gameObject.SetActive(false);
             m_CardLayout.gameObject.SetActive(false);

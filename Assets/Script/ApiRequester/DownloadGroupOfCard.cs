@@ -12,10 +12,14 @@ using File = System.IO.File;
 
 namespace Script
 {
+    using System.Linq;
+
     public class DownloadGroupOfCard : MonoBehaviour
     {
         [SerializeField] private Color m_BorderColor = Color.black;
         [SerializeField] private Vector2Int m_BorderSize = new Vector2Int(10,10);
+
+        private HttpClient m_Client = new HttpClient();
 
         public void OpenFileSelection()
         {
@@ -23,7 +27,7 @@ namespace Script
             
             if (filePath!=String.Empty)
             {
-                DownloadCards(File.ReadAllLines(filePath));
+                _ = DownloadCards(File.ReadAllLines(filePath));
             }
             else
             {
@@ -33,19 +37,28 @@ namespace Script
         
         private async Task DownloadCards(string[] cards)
         {
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("User-Agent", "MonApplication/1.0");
+            m_Client.DefaultRequestHeaders.Add("User-Agent", "MonApplication/1.0");
             List<JObject> cardObjects = new List<JObject>();
-            
+
             for (int i = 0; i < cards.Length; i++)
             {
                 string request = "https://api.scryfall.com/cards/search?q=lang:any+!" + "\"" + cards[i] + "\"";
-                HttpResponseMessage response = await client.GetAsync(request);
-                
+                HttpResponseMessage response = await m_Client.GetAsync(request);
+
                 if (response.IsSuccessStatusCode)
                 {
                     string responseContent = await response.Content.ReadAsStringAsync();
-                    var cardObject = JObject.FromObject(JObject.Parse(responseContent)["data"][0]);
+
+                    var parsed = JObject.Parse(responseContent);
+                    var dataArray = parsed["data"] as JArray;
+
+                    if (dataArray == null || !dataArray.Any())
+                    {
+                        cards[i].Log("Wrong Data");
+                        continue;
+                    }
+                    
+                    var cardObject = JObject.FromObject(dataArray[0]);
                     cardObjects.Add(cardObject);
                     cards[i].Log("Found");
                 }

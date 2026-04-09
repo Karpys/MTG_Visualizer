@@ -20,9 +20,6 @@ namespace Script
         [SerializeField] private MinMaxCostFilter m_MinMaxTouFilter = null;
         [SerializeField] private ManaCostFilter m_ManaCostFilter = null;
         
-        [Header("Texture Manipulation Settings")]
-        [SerializeField] private Color m_BorderColor = Color.black;
-        
         private MagicApiRequest m_ApiRequest = null;
 
         private List<JObject> m_Cards = new List<JObject>();
@@ -74,21 +71,21 @@ namespace Script
         {
             m_UIController.Clear();
             CancelMultipleDownload();
-            m_ApiRequest.FindCard(m_UIController.GetCardName);
+            _ = m_ApiRequest.FindCard(m_UIController.GetCardName);
         }
         
         public void TryFindArtsCards()
         {
             m_UIController.Clear();
             CancelMultipleDownload();
-            m_ApiRequest.FindCardsArts(m_UIController.GetCardName);
+            _ = m_ApiRequest.FindCardsArts(m_UIController.GetCardName);
         }
 
         public void TryFindAbstractCards()
         {
             m_UIController.Clear();
             CancelMultipleDownload();
-            m_ApiRequest.FindAbstractCards(GetFilters());
+            _ = m_ApiRequest.FindAbstractCards(GetFilters());
         }
 
         private Task m_CurrentPreviewCardsTask = null;
@@ -120,7 +117,7 @@ namespace Script
 
         private void PreviewCardImage(JObject cardObject,CancellationTokenSource cancellationTokenSource)
         {
-            m_ApiRequest.PreviewCard(cardObject,cancellationTokenSource);
+            _ = m_ApiRequest.PreviewCard(cardObject,cancellationTokenSource);
         }
 
         private string GetNameFilter()
