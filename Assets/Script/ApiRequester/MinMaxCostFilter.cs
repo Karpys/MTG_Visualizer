@@ -27,7 +27,7 @@ namespace Script
             
             if (m_MaxValue.text != "" && m_MinValue.text == "")
             {
-                return String.Concat("+", m_Filter, "<", (int.Parse(m_MaxValue.text) - 1));
+                return String.Concat("+", m_Filter, "<", int.Parse(m_MaxValue.text) + 1);
             }
             
             if (m_MinValue.text != "" && m_MaxValue.text != "")

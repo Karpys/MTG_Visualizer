@@ -1,0 +1,3 @@
+[submodule "Assets/Script/KarpysUtils"]
+	path = Assets/Script/KarpysUtils
+	url = https://github.com/Karpys/KarpysUtils.git
