@@ -1,72 +1,88 @@
 namespace Script
 {
-    using System;
     using System.Collections.Generic;
+    using KarpysDev.KarpysUtils;
+    using KarpysDev.KarpysUtils.ObjectPooling;
+    using UI;
     using UnityEngine;
 
     public class ManaCostFilter : MonoBehaviour
     {
-        private string m_Request = String.Empty;
+        [SerializeField] private GenericLibrary<ManaSymbol, Sprite> m_ManaToSpriteLibrary = null;
+        [SerializeField] private IconHolder manaCostHolderPrefab = null;
+        [SerializeField] private Transform m_IconHolder = null;
+
+        private GameObjectPool<IconHolder> m_IconPool = null;
         private ManaSymbolSearchType m_ManaSearchType = ManaSymbolSearchType.Contains;
         private List<ManaSymbol> m_ManaSymbols = new List<ManaSymbol>();
+        private List<IconHolder> m_IconHolders = new List<IconHolder>();
+
+        private void Awake()
+        {
+            m_IconPool = new GameObjectPool<IconHolder>(manaCostHolderPrefab, m_IconHolder, 10,null);
+            m_ManaToSpriteLibrary.InitializeDictionary();
+        }
+
+        private ManaSymbol TextToSymbol(string symbol)
+        {
+            switch (symbol)
+            {
+                case "1":
+                    return ManaSymbol.Colorless;
+                case "W":
+                    return ManaSymbol.White;
+                case "B":
+                    return ManaSymbol.Black;
+                case "U":
+                    return ManaSymbol.Blue;
+                case "G":
+                    return ManaSymbol.Green;
+                case "R":
+                    return ManaSymbol.Red;
+            }
+
+            return ManaSymbol.Colorless;
+        }
+
+        private Sprite ManaSymbolToSprite(ManaSymbol symbol)
+        {
+            return m_ManaToSpriteLibrary.GetViaKey(symbol);
+        }
         
         public void AddSymbol(string symbol)
         {
-            switch (symbol)
-            {
-                case "1":
-                    m_ManaSymbols.Add(ManaSymbol.Colorless);
-                    break;
-                case "W":
-                    m_ManaSymbols.Add(ManaSymbol.White);
-                    break;
-                case "B":
-                    m_ManaSymbols.Add(ManaSymbol.Black);
-                    break;
-                case "U":
-                    m_ManaSymbols.Add(ManaSymbol.Blue);
-                    break;
-                case "G":
-                    m_ManaSymbols.Add(ManaSymbol.Green);
-                    break;
-                case "R":
-                    m_ManaSymbols.Add(ManaSymbol.Red);
-                    break;
-            }
-
-            UpdateVisual();
+            ManaSymbol manaSymbol = TextToSymbol(symbol);
+            AddSymbolIconHolder(manaSymbol);
         }
-        
+
+        private void AddSymbolIconHolder(ManaSymbol manaSymbol)
+        {
+            IconHolder manaCostHolder = m_IconPool.Take();
+            manaCostHolder.Initialize(ManaSymbolToSprite(manaSymbol),manaSymbol);
+            m_IconHolders.Add(manaCostHolder);
+            m_ManaSymbols.Add(manaSymbol);
+        }
+
         public void RemoveSymbol(string symbol)
         {
-            switch (symbol)
+            ManaSymbol manaSymbol = TextToSymbol(symbol);
+            RemoveSymbolIconHolder(manaSymbol);
+        }
+        
+        private void RemoveSymbolIconHolder(ManaSymbol manaSymbol)
+        {
+            for (int i = 0; i < m_IconHolders.Count; i++)
             {
-                case "1":
-                    m_ManaSymbols.Remove(ManaSymbol.Colorless);
-                    break;
-                case "W":
-                    m_ManaSymbols.Remove(ManaSymbol.White);
-                    break;
-                case "B":
-                    m_ManaSymbols.Remove(ManaSymbol.Black);
-                    break;
-                case "U":
-                    m_ManaSymbols.Remove(ManaSymbol.Blue);
-                    break;
-                case "G":
-                    m_ManaSymbols.Remove(ManaSymbol.Green);
-                    break;
-                case "R":
-                    m_ManaSymbols.Remove(ManaSymbol.Red);
-                    break;
+                if (m_IconHolders[i].ManaSymbol == manaSymbol)
+                {
+                    m_IconPool.Return(m_IconHolders[i]);
+                    m_IconHolders.Remove(m_IconHolders[i]);
+                    m_ManaSymbols.Remove(manaSymbol);
+                    return;
+                }
             }
             
-            UpdateVisual();
-        }
-
-        private void UpdateVisual()
-        {
-            
+            Debug.LogError("No Symbol found");
         }
 
         private string ComputeRequest()
