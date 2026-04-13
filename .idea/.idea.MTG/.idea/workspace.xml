@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/===Card_Research_UI===.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/===Card_Research_UI===.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/DownloadGroupOfCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/DownloadGroupOfCard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequestHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequestHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Helper/CardFileHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Helper/CardFileHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Helper/TextureHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Helper/TextureHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DownLoadCardDataPointer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DownLoadCardDataPointer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/ManaCostHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/ManaCostHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Search.settings" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Search.settings" afterDir="false" />
-    </list>
+    <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,7 +119,7 @@
       <workItem from="1775809145951" duration="3718000" />
       <workItem from="1775831107203" duration="949000" />
       <workItem from="1776024083317" duration="7376000" />
-      <workItem from="1776041427464" duration="487000" />
+      <workItem from="1776041427464" duration="744000" />
     </task>
     <servers />
   </component>

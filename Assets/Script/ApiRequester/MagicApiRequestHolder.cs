@@ -60,7 +60,7 @@ namespace Script
             m_UIController.OnFailCardFound();
         }
         
-        private void OnCardDownload(PreviewCardData cardDatas,JObject cardObject)
+        private void OnCardDownload(ApiCardData cardDatas,JObject cardObject)
         {
             Sprite sprite = cardDatas.m_FrontCardSprite;
             cardDatas.m_FrontCardSprite = sprite;

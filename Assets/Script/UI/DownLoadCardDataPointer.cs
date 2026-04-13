@@ -3,26 +3,30 @@ using UnityEngine;
 namespace Script.UI
 {
     using Newtonsoft.Json.Linq;
+    using UnityEngine.UI;
 
     public class DownLoadCardDataPointer : ButtonPointer
     {
+        [SerializeField] private Image m_Image = null;
         [SerializeField] private Transform m_ButtonPosition = null;
 
         private JObject m_CardObject;
-        private PreviewCardData m_CardData;
+        private ApiCardData m_CardData;
         private DownloadCardButton m_ButtonTransform = null;
         
-        public PreviewCardData CardData => m_CardData;
+        public ApiCardData CardData => m_CardData;
 
-        public void Initialize(JObject cardObject,PreviewCardData cardData, DownloadCardButton downloadButtonTransform)
+        public void Initialize(JObject cardObject,ApiCardData cardData, DownloadCardButton downloadButtonTransform)
         {
             m_CardObject = cardObject;
             m_CardData = cardData;
             m_ButtonTransform = downloadButtonTransform;
+            m_Image.sprite = cardData.m_FrontCardSprite;
         }
+        
         public override void OnRightClick()
         {
-            GlobalCanvas.Instance.DisplayCardViewer(CardData.m_FrontCardSprite);
+            GlobalCanvas.Instance.DisplayCardViewer(CardData.m_FrontCardSprite, CardData.m_BackCardSprite);
         }
 
         public override void OnLeftClick()

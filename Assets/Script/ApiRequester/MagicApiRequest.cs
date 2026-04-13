@@ -16,7 +16,7 @@ namespace Script
         private string m_Lang = "lang:en";
         public  Action<JObject> OnCardFound = null;
         public  Action<JObject[]> OnCardsFound = null;
-        public Action<PreviewCardData,JObject> OnCardPreview = null;
+        public Action<ApiCardData,JObject> OnCardPreview = null;
         public Action OnFailCardFound = null;
 
         public int MAX_CARDS = 175;
@@ -132,15 +132,15 @@ namespace Script
 
         public async Task PreviewCard(JObject cardObject,CancellationTokenSource cancellationTokenSource)
         {
-            PreviewCardData previewCardData = await cardObject.ToPreviewCardData();
+            ApiCardData apiCardData = await cardObject.ToPreviewCardData();
             if(cancellationTokenSource is {IsCancellationRequested:true})
                 return;
-            OnCardPreview?.Invoke(previewCardData,cardObject);
+            OnCardPreview?.Invoke(apiCardData,cardObject);
         }
     }
 
 
-    public struct PreviewCardData
+    public struct ApiCardData
     {
         public string m_CardSaveName;
         public string m_CardName;

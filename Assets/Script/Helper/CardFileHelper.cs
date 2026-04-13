@@ -32,6 +32,13 @@ namespace Script
             DirectoryCheck(path);
             return path;
         }
+
+        public static string GetCardsLibraryCardDataPath()
+        {
+            string path = GetApplicationPath() + "Card_Library/Cards/";
+            DirectoryCheck(path);
+            return path;
+        }
         
         public static string GetDeckPath()
         {
@@ -48,9 +55,9 @@ namespace Script
         }
 
 
-        public static List<CardNameData> GetCardsInLibrary()
+        public static List<LibraryCardData> GetCardsInLibrary()
         {
-            List<CardNameData> cardsNameDatas = new List<CardNameData>();
+            List<LibraryCardData> cardsNameDatas = new List<LibraryCardData>();
             foreach (var value in m_CardNameLibrary.Values)
             {
                 cardsNameDatas.Add(value);
@@ -62,8 +69,9 @@ namespace Script
         {
             m_CardNameLibrary.Clear();
             
-            string libraryPath = GetCardsLibraryPath();
-            List<string> cardsFiles = Directory.GetFiles(libraryPath).Where(s => s.Contains(".jpg")).ToList();
+            string libraryCardDataPath = GetCardsLibraryCardDataPath();
+            string libraryImagePath = GetCardsLibraryPath();
+            List<string> cardsFiles = Directory.GetFiles(libraryCardDataPath).Where(s => s.Contains(".card")).ToList();
 
             char[] separator = new char[2];
             separator[0] = '~';
@@ -73,22 +81,26 @@ namespace Script
             {
                 string cardFileName = cardsFiles[i].ToFileName();
                 string[] cardSplit = cardFileName.Split(separator);
-                CardNameData cardNameData = new CardNameData(cardSplit[0],cardSplit[1],cardFileName,cardsFiles[i]);
-                m_CardNameLibrary.Add(cardSplit[1],cardNameData);
+                string[] cardData = File.ReadLines(cardsFiles[i]).ToArray();
+
+                string imageCardPath = libraryImagePath + cardData[1] + ".jpg";
+                bool isDualCard = cardData[2] != "False";
+                LibraryCardData libraryCardData = new LibraryCardData(cardSplit[0],cardSplit[1],cardFileName,cardsFiles[i],imageCardPath,isDualCard);
+                m_CardNameLibrary.Add(cardSplit[1],libraryCardData);
             }
         }
 
-        public static Dictionary<string, CardNameData> m_CardNameLibrary = new Dictionary<string, CardNameData>();
+        public static Dictionary<string, LibraryCardData> m_CardNameLibrary = new Dictionary<string, LibraryCardData>();
 
-        public static CardNameData CardIdToCardNameData(this string cardId)
+        public static LibraryCardData CardIdToCardNameData(this string cardId)
         {
-            if (m_CardNameLibrary.TryGetValue(cardId, out CardNameData cardNameData))
+            if (m_CardNameLibrary.TryGetValue(cardId, out LibraryCardData cardNameData))
                 return cardNameData;
-            Debug.LogError("Not found card : " +cardId);
-            return new CardNameData();
+            Debug.LogError("Not found card : " + cardId);
+            return new LibraryCardData();
         }
 
-        public static async Task<PreviewCardData> ToPreviewCardData(this JObject cardObject)
+        public static async Task<ApiCardData> ToPreviewCardData(this JObject cardObject)
         {
             string cardImageUrisFront = String.Empty;
             string cardImageUrisBack = String.Empty;
@@ -109,12 +121,11 @@ namespace Script
                 else
                 {
                     Debug.LogError("Unknown cards");
-                    return new PreviewCardData();
+                    return new ApiCardData();
                 }
             }
             else
             {
-                Debug.Log((string)cardObject["name"]);
                 cardImageUrisFront = (string)cardObject["image_uris"]["normal"];
             }
             
@@ -126,7 +137,7 @@ namespace Script
                 {
                     byte[] cardImageBytes = await m_Client.ReadFile(cardImageUrisFront);
                     Sprite cardSprite = cardImageBytes.ToCardSprite();
-                    PreviewCardData data = JObjectToPreviewCardData(cardObject,cardSprite);
+                    ApiCardData data = JObjectToPreviewCardData(cardObject,cardSprite);
                     return data;
                 }
                 else
@@ -135,27 +146,27 @@ namespace Script
                     Sprite cardSpriteFront = cardImageBytesFront.ToCardSprite();
                     byte[] cardImageBytesBack = await m_Client.ReadFile(cardImageUrisBack);
                     Sprite cardSpriteBack = cardImageBytesBack.ToCardSprite();
-                    PreviewCardData data = JObjectToPreviewDualCardData(cardObject,cardSpriteFront,cardSpriteBack);
+                    ApiCardData data = JObjectToPreviewDualCardData(cardObject,cardSpriteFront,cardSpriteBack);
                     return data;
                 }
             }
             else
             {
-                return new PreviewCardData();
+                return new ApiCardData();
             }
         }
 
-        public static void DownloadToLibrary(JObject cardObject, PreviewCardData cardData,Color borderColor,Vector2Int borderSize)
+        public static void DownloadToLibrary(JObject cardObject, ApiCardData cardData,Color borderColor,Vector2Int borderSize)
         {
             byte[] pixels = cardData.ToPixels(borderColor, borderSize);
             string filePath = GetCardsLibraryPath();
-            filePath += cardData.m_CardSaveName+".jpg";
+            filePath += cardData.m_CardId+".jpg";
             File.WriteAllBytes(filePath, pixels);
-            DownloadCardFile(cardObject,cardData.m_CardSaveName);
+            DownloadCardFile(cardData);
             //Todo:Save a file ".card" contains : Name + Id + Color + Cost without X + Type//
         }
 
-        private static byte[] ToPixels(this PreviewCardData cardData, Color borderColor, Vector2Int borderSize)
+        private static byte[] ToPixels(this ApiCardData cardData, Color borderColor, Vector2Int borderSize)
         {
             if (!cardData.m_IsDualCard)
             {
@@ -183,40 +194,47 @@ namespace Script
             return pixels;
         }
 
-        private static void DownloadCardFile(JObject cardObject,string fileName)
+        private static void DownloadCardFile(ApiCardData cardObject)
         {
+            string[] cardData = new string[3];
+            cardData[0] = cardObject.m_CardName;
+            cardData[1] = cardObject.m_CardId;
+            cardData[2] = cardObject.m_IsDualCard.ToString();
+            string filePath = GetCardsLibraryCardDataPath();
+            filePath += cardObject.m_CardSaveName+".card";
+            File.WriteAllLines(filePath, cardData);
         }
 
-        public static PreviewCardData JObjectToPreviewCardData(this JObject cardObject,Sprite sprite)
+        public static ApiCardData JObjectToPreviewCardData(this JObject cardObject,Sprite sprite)
         {
-            PreviewCardData previewCardData = new PreviewCardData();
-            previewCardData.m_FrontCardSprite = sprite;
+            ApiCardData apiCardData = new ApiCardData();
+            apiCardData.m_FrontCardSprite = sprite;
             string cardSaveName = ((string) cardObject["name"]).Replace("/", "");
-            previewCardData.m_CardName = cardSaveName;
+            apiCardData.m_CardName = cardSaveName;
             cardSaveName += "~";
             
             string cardId = (string)cardObject["id"];
-            previewCardData.m_CardId = cardId;
+            apiCardData.m_CardId = cardId;
             cardSaveName += cardId;
-            previewCardData.m_CardSaveName = cardSaveName;
-            return previewCardData;
+            apiCardData.m_CardSaveName = cardSaveName;
+            return apiCardData;
         }
         
-        public static PreviewCardData JObjectToPreviewDualCardData(this JObject cardObject,Sprite spriteFront,Sprite spriteBack)
+        public static ApiCardData JObjectToPreviewDualCardData(this JObject cardObject,Sprite spriteFront,Sprite spriteBack)
         {
-            PreviewCardData previewCardData = new PreviewCardData();
-            previewCardData.m_IsDualCard = true;
-            previewCardData.m_FrontCardSprite = spriteFront;
-            previewCardData.m_BackCardSprite = spriteBack;
+            ApiCardData apiCardData = new ApiCardData();
+            apiCardData.m_IsDualCard = true;
+            apiCardData.m_FrontCardSprite = spriteFront;
+            apiCardData.m_BackCardSprite = spriteBack;
             string cardSaveName = ((string) cardObject["name"]).Replace("/", "");
-            previewCardData.m_CardName = cardSaveName;
+            apiCardData.m_CardName = cardSaveName;
             cardSaveName += "~";
             
             string cardId = (string)cardObject["id"];
-            previewCardData.m_CardId = cardId;
+            apiCardData.m_CardId = cardId;
             cardSaveName += cardId;
-            previewCardData.m_CardSaveName = cardSaveName;
-            return previewCardData;
+            apiCardData.m_CardSaveName = cardSaveName;
+            return apiCardData;
         }
     }
 }

@@ -11,12 +11,16 @@ namespace Script.UI
         [SerializeField] private TMP_Text m_CardCount = null;
         [SerializeField] private Image m_CardSprite = null;
 
+        private CardDisplayData m_CardDisplayData;
         private string m_CardId = String.Empty;
         private DeckGestionController m_Controller = null;
+
+        public CardDisplayData DisplayData => m_CardDisplayData;
         
-        public void Initialize(Sprite cardSprite, int cardCount,string cardId, DeckGestionController controller)
+        public void Initialize(CardDisplayData displayData, int cardCount,string cardId, DeckGestionController controller)
         {
-            m_CardSprite.sprite = cardSprite;
+            m_CardDisplayData = displayData;
+            m_CardSprite.sprite = displayData.m_FrontSprite;
             m_CardCount.text = cardCount.ToString();
             m_CardId = cardId;
             m_Controller = controller;

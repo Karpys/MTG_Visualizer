@@ -66,7 +66,7 @@ namespace Script
 
             foreach (JObject cardObject in cardObjects)
             {
-                PreviewCardData cardData = await cardObject.ToPreviewCardData();
+                ApiCardData cardData = await cardObject.ToPreviewCardData();
                 //Todo : Add notif log
                 cardData.m_CardSaveName.Log("Save");
                 CardFileHelper.DownloadToLibrary(cardObject,cardData,m_BorderColor,m_BorderSize);

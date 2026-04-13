@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using MTG;
-using Script.Manager;
-using Script.Widget;
-using UnityEngine;
-using UnityEngine.UI;
-
 namespace Script.UI
 {
+    using System.Collections.Generic;
+    using MTG;
+    using Manager;
+    using Widget;
+    using UnityEngine;
     public class GlobalCanvas : SingletonMonoBehaviour<GlobalCanvas>
     {
         [SerializeField] private List<Transform> m_SubCanvas = null;
@@ -19,8 +16,7 @@ namespace Script.UI
         [SerializeField] private DeckGestionController m_DeckGestionController = null;
 
         [Header("Card Viewer")]
-        [SerializeField] private Transform m_CardViewerTransform = null;
-        [SerializeField] private Image m_CardViewerImage = null;
+        [SerializeField] private DisplayCardViewer m_CardViewer = null;
 
         private void Awake()
         {
@@ -44,15 +40,14 @@ namespace Script.UI
             m_MainMenu.gameObject.SetActive(false);
         }
 
-        public void DisplayCardViewer(Sprite sprite)
+        public void DisplayCardViewer(Sprite cardFrontSprite, Sprite cardBackSprite)
         {
-            m_CardViewerTransform.gameObject.SetActive(true);
-            m_CardViewerImage.sprite = sprite;
+            m_CardViewer.Display(cardFrontSprite,cardBackSprite);
         }
 
         public void CloseCardViewer()
         {
-            m_CardViewerTransform.gameObject.SetActive(false);
+            m_CardViewer.Hide();
         }
 
         public void SetDeckGestionDeckData(DeckData deckData)

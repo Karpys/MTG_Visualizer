@@ -30,18 +30,18 @@ namespace MTG
 
         private Sprite m_CardVisual = null;
         private int m_CurrentCount = 0;
-        private CardNameData m_CardNameData;
+        private LibraryCardData m_LibraryCardData;
         public BoxCollider2D Selection => m_Selection;
         public CardState State => m_State;
         public Sprite CardVisual => m_CardVisual;
-        public CardNameData CardNameData => m_CardNameData;
+        public LibraryCardData LibraryCardData => m_LibraryCardData;
 
         public void Initialize(string cardId)
         {
-            m_CardNameData = cardId.CardIdToCardNameData();
-            m_CardVisual = m_CardNameData.CardPathName.ToCardSprite();
+            m_LibraryCardData = cardId.CardIdToCardNameData();
+            m_CardVisual = m_LibraryCardData.CardPathName.ToCardSprite();
             UpdateVisual(m_State);
-            gameObject.name = m_CardNameData.CardName;
+            gameObject.name = m_LibraryCardData.CardName;
         }
 
         public void Initialize(CardScriptable cardScriptable)

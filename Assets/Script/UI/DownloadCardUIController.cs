@@ -43,12 +43,11 @@ namespace Script.UI
             m_CardLayout.gameObject.SetActive(false);
         }
 
-        public void AddCard(Sprite sprite, PreviewCardData cardDatas, JObject cardObject)
+        public void AddCard(Sprite sprite, ApiCardData cardDatas, JObject cardObject)
         {
             m_CardLayout.gameObject.SetActive(true);
             DownLoadCardDataPointer card = Instantiate(m_CardDataPointer, m_CardLayout);
             card.Initialize(cardObject,cardDatas,m_DownloadButtonTransform);
-            card.GetComponent<Image>().sprite = sprite;
         }
 
         public void Clear()

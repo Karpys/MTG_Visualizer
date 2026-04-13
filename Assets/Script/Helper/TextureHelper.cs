@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace Script
 {
+    using Manager;
+
     public static class TextureHelper
     {
         public static void SetBorderColor(this Texture2D texture2D,Color borderColor,Vector2Int borderSize)
@@ -76,6 +78,25 @@ namespace Script
             Texture2D cardTexture = new Texture2D(width, heigth);
             cardTexture.LoadImage(cardData);
             return Sprite.Create(cardTexture,new Rect(Vector2.zero,new Vector2(width,heigth)),Vector2.zero);
+        }
+        
+        public static Sprite[] ToCardSprite(this LibraryCardData libraryCardData, int width = 488, int heigth = 680)
+        {
+            byte[] cardData = File.ReadAllBytes(libraryCardData.CardImagePath);
+            Texture2D cardTexture = new Texture2D(width, heigth);
+            cardTexture.LoadImage(cardData);
+            Sprite[] cardSprites = new Sprite[2];
+            cardSprites[0] = Sprite.Create(cardTexture,new Rect(Vector2.zero,new Vector2(width,heigth)),Vector2.zero);
+
+            if (libraryCardData.IsDualCard)
+            {
+                cardSprites[1] = Sprite.Create(cardTexture,new Rect(new Vector2(0,heigth),new Vector2(width,heigth)),Vector2.zero);
+            }
+            else
+            {
+                cardSprites[1] = null;
+            }
+            return cardSprites;
         }
         
         public static Sprite ToCardSprite(this byte[] imageData, int width = 488, int heigth = 680)

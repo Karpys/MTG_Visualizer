@@ -11,6 +11,12 @@ namespace Script.Manager
 {
     using System.Collections;
 
+    public struct CardDisplayData
+    {
+        public Sprite m_FrontSprite;
+        public Sprite m_BackSprite;
+    }
+    
     public class DeckGestionController : MonoBehaviour
     {
         [SerializeField] private CardGridSetter m_CardGridSetter = null;
@@ -22,10 +28,10 @@ namespace Script.Manager
         [SerializeField] private Transform m_InDeckLayout = null;
         [SerializeField] private CardInDeckHolder m_CardInDeckUIHolder = null;
 
-        private Dictionary<string, Sprite> m_CardsSprite = new Dictionary<string, Sprite>();
-        private List<CardNameData> m_CurrentCardsToDisplay = null;
+        private Dictionary<string, CardDisplayData> m_CardsSprite = new Dictionary<string, CardDisplayData>();
+        private List<LibraryCardData> m_CurrentCardsToDisplay = null;
         
-        private List<CardNameData> m_CardsInLibrary = null;
+        private List<LibraryCardData> m_CardsInLibrary = null;
 
         private int CARD_COUNT_DISPLAY = 20;
         private int m_CurrentPage = 0;
@@ -48,7 +54,7 @@ namespace Script.Manager
         {
             m_CurrentPage = 0;
             FetchCardsInLibrary();
-            m_CurrentCardsToDisplay = new List<CardNameData>(m_CardsInLibrary);
+            m_CurrentCardsToDisplay = new List<LibraryCardData>(m_CardsInLibrary);
             StartCoroutine(Enable());
         }
 
@@ -105,8 +111,8 @@ namespace Script.Manager
             {
                 m_CardDisplayer[y].gameObject.SetActive(true);
 
-                m_CardsSprite.TryGetValue(m_CurrentCardsToDisplay[i].CardId, out Sprite cardSprite);
-                m_CardDisplayer[y].Initialize(m_CurrentCardsToDisplay[i].CardId,cardSprite);
+                m_CardsSprite.TryGetValue(m_CurrentCardsToDisplay[i].CardId, out CardDisplayData cardDisplayData);
+                m_CardDisplayer[y].Initialize(m_CurrentCardsToDisplay[i].CardId,cardDisplayData);
             }
 
             for (; y < m_CardDisplayer.Length; y++)
@@ -144,8 +150,12 @@ namespace Script.Manager
             {
                 if(m_CardsSprite.ContainsKey(m_CardsInLibrary[i].CardId))
                     continue;
-                
-                m_CardsSprite.Add(m_CardsInLibrary[i].CardId,m_CardsInLibrary[i].CardPathName.ToCardSprite());
+
+                Sprite[] cardSprites = m_CardsInLibrary[i].ToCardSprite();
+                CardDisplayData cardDisplayData = new CardDisplayData();
+                cardDisplayData.m_FrontSprite = cardSprites[0];
+                cardDisplayData.m_BackSprite = cardSprites[1];
+                m_CardsSprite.Add(m_CardsInLibrary[i].CardId,cardDisplayData);
             }
         }
 
@@ -173,10 +183,10 @@ namespace Script.Manager
 
         private void AddCardDisplayer(string id, int count)
         {
-            if (m_CardsSprite.TryGetValue(id, out Sprite sprite))
+            if (m_CardsSprite.TryGetValue(id, out CardDisplayData cardDisplayData))
             {
                 CardInDeckHolder cardInDeck = Instantiate(m_CardInDeckUIHolder, m_InDeckLayout);
-                cardInDeck.Initialize(sprite,count,id,this);
+                cardInDeck.Initialize(cardDisplayData,count,id,this);
                 m_CurrentCardInDeck.Add(id,cardInDeck);
             }
         }
@@ -228,19 +238,23 @@ namespace Script.Manager
         }
     }
 
-    public struct CardNameData
+    public struct LibraryCardData
     {
         public string CardPathName;
+        public string CardImagePath;
         public string CardFileName;
         public string CardName;
         public string CardId;
+        public bool IsDualCard;
 
-        public CardNameData(string cardName, string cardId,string cardFileName,string cardPathName)
+        public LibraryCardData(string cardName, string cardId,string cardFileName,string cardPathName,string cardImagePath, bool isDualCard)
         {
             CardName = cardName;
             CardId = cardId;
             CardFileName = cardFileName;
             CardPathName = cardPathName;
+            CardImagePath = cardImagePath;
+            IsDualCard = isDualCard;
         }
     }
 }

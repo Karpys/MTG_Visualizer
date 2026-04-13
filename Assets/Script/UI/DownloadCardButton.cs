@@ -11,10 +11,11 @@ namespace Script.UI
         [SerializeField] private Vector2Int m_BorderSize = new Vector2Int(10,10);
         [SerializeField] private Color m_BorderColor = Color.black;
         [SerializeField] private PositionAttach m_Attach = null;
-        private PreviewCardData m_CardData;
+        
+        private ApiCardData m_CardData;
         private JObject m_CardObject;
         
-        public void SetCardData(PreviewCardData cardData,JObject cardObject)
+        public void SetCardData(ApiCardData cardData,JObject cardObject)
         {
             m_CardData = cardData;
             m_CardObject = cardObject;
