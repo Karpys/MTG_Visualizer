@@ -1,14 +1,11 @@
 namespace Script.UI
 {
     using System;
-    using TMPro;
     using UnityEngine;
-    using Image = UnityEngine.UIElements.Image;
 
     public class ManaCostHolder : MonoBehaviour
     {
         [SerializeField] private string m_Symbol = "";
-        [SerializeField] private TMP_InputField m_InputField = null;
         [SerializeField] private ManaCostFilter m_ManaCostFilter = null;
 
         private int m_CurrentCount = 0;

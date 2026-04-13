@@ -22,7 +22,7 @@ namespace Script.UI
         }
         public override void OnRightClick()
         {
-            GlobalCanvas.Instance.DisplayCardViewer(CardData.sprite);
+            GlobalCanvas.Instance.DisplayCardViewer(CardData.m_FrontCardSprite);
         }
 
         public override void OnLeftClick()

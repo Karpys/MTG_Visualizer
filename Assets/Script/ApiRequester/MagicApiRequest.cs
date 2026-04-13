@@ -54,6 +54,7 @@ namespace Script
             else
             {
                 Debug.LogError("Error Response");
+                Debug.Log("Response : " + response);
                 OnFailCardFound?.Invoke();
             }
         }
@@ -141,9 +142,13 @@ namespace Script
 
     public struct PreviewCardData
     {
-        public string cardSaveName;
-        public string cardName;
-        public string cardId;
-        public Sprite sprite;
+        public string m_CardSaveName;
+        public string m_CardName;
+        public string m_CardId;
+        public Sprite m_FrontCardSprite;
+
+        public bool m_IsDualCard;
+        public string m_BackCardSaveName;
+        public Sprite m_BackCardSprite;
     }
 }

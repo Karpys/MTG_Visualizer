@@ -62,8 +62,8 @@ namespace Script
         
         private void OnCardDownload(PreviewCardData cardDatas,JObject cardObject)
         {
-            Sprite sprite = cardDatas.sprite;
-            cardDatas.sprite = sprite;
+            Sprite sprite = cardDatas.m_FrontCardSprite;
+            cardDatas.m_FrontCardSprite = sprite;
             m_UIController.AddCard(sprite,cardDatas,cardObject);
         }
 
