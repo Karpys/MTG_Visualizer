@@ -34,16 +34,21 @@ namespace Script.UI
             CreateExistentDeckContainers();
         }
 
+        public void OnDeckDelete()
+        {
+            UpdateContainers();
+        }
+
         private void CreateExistentDeckContainers()
         {
-            string[] decks = Directory.GetFiles(CardFileHelper.GetDeckPath()).Where(s => s.Contains(".dck")).ToArray();
+            string[] decks = Directory.GetFiles(CardFileHelper.GetDeckPath()).Where(s => s.Contains(".deck")).ToArray();
 
             for (int i = 0; i < decks.Length; i++)
             {
                 DeckDefinedContainer container = Instantiate(m_DeckDefinedContainer,m_DeckGridRoot);
                 string[] deckInfo = File.ReadAllLines(decks[i]);
                 DeckData deckData = deckInfo.ToDeckData();
-                container.Initialize(deckData);
+                container.Initialize(deckData,this);
                 m_DeckDefinedContainers.Add(container);
             }
         }
@@ -117,7 +122,7 @@ namespace Script.UI
 
         private void CreateDeckFile(string deckName,int deckType,string deckBackFileName)
         {
-            string path = CardFileHelper.GetDeckPath() + deckName + ".dck";
+            string path = CardFileHelper.GetDeckPath() + deckName + ".deck";
             string[] deckData = new string[3];
             deckData[0] = deckName;
             deckData[1] = deckBackFileName;
