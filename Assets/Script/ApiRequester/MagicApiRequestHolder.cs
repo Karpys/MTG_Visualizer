@@ -19,6 +19,7 @@ namespace Script
         [SerializeField] private MinMaxCostFilter m_MinMaxPowFilter = null;
         [SerializeField] private MinMaxCostFilter m_MinMaxTouFilter = null;
         [SerializeField] private ManaCostFilter m_ManaCostFilter = null;
+        [SerializeField] private CardDescriptionFilter m_CardDescriptionFilter = null;
         
         private MagicApiRequest m_ApiRequest = null;
 
@@ -132,7 +133,7 @@ namespace Script
         private string GetFilters()
         {
             return GetNameFilter() + m_CardTypeFilter.GetFilter() + m_MinMaxCostFilter.GetFilter() + m_MinMaxPowFilter.GetFilter()
-                   + m_MinMaxTouFilter.GetFilter() + m_ManaCostFilter.GetFilter();
+                   + m_MinMaxTouFilter.GetFilter() + m_ManaCostFilter.GetFilter() + m_CardDescriptionFilter.GetFilter();
         }
     }
 }

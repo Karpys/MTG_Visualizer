@@ -11,9 +11,9 @@ namespace Script
         [SerializeField] private GenericLibrary<ManaSymbol, Sprite> m_ManaToSpriteLibrary = null;
         [SerializeField] private IconHolder manaCostHolderPrefab = null;
         [SerializeField] private Transform m_IconHolder = null;
+        [SerializeField] private ManaCostTypeController m_ManaCostTypeController = null;
 
         private GameObjectPool<IconHolder> m_IconPool = null;
-        private ManaSymbolSearchType m_ManaSearchType = ManaSymbolSearchType.Contains;
         private List<ManaSymbol> m_ManaSymbols = new List<ManaSymbol>();
         private List<IconHolder> m_IconHolders = new List<IconHolder>();
 
@@ -131,7 +131,7 @@ namespace Script
 
         private string ComputeSearchType()
         {
-            switch (m_ManaSearchType)
+            switch (m_ManaCostTypeController.SearchType)
             {
                 case ManaSymbolSearchType.Same:
                     return "=";

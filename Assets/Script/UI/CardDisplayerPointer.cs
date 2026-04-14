@@ -1,12 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Script.UI
 {
     public class CardDisplayerPointer : ButtonPointer
     {
         [SerializeField] private CardInDeckHolder m_CardInDeckHolder = null;
-        [SerializeField] private Image m_Image = null;
         protected override void OnExit()
         {
             

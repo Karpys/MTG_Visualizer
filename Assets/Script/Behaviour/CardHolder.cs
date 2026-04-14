@@ -39,7 +39,7 @@ namespace MTG
         public void Initialize(string cardId)
         {
             m_LibraryCardData = cardId.CardIdToCardNameData();
-            m_CardVisual = m_LibraryCardData.CardPathName.ToCardSprite();
+            m_CardVisual = m_LibraryCardData.CardImagePath.ToCardSprite();
             UpdateVisual(m_State);
             gameObject.name = m_LibraryCardData.CardName;
         }
