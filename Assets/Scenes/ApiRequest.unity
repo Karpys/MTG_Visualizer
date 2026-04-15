@@ -677,6 +677,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7939e35b194dfb81c76028ca4461c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1041153772 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4132996169879588445, guid: 3fd8639615d0a104ba324592cc33ff80, type: 3}
+  m_PrefabInstance: {fileID: 6204276670473459620}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e385e1fa1429461ea3b6b7b0074f747f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MainAssembly::Script.UI.DisplayCardViewer
 --- !u!1 &1191104212
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,7 +928,6 @@ GameObject:
   - component: {fileID: 1404155684}
   - component: {fileID: 1404155683}
   - component: {fileID: 1404155687}
-  - component: {fileID: 1404155688}
   m_Layer: 0
   m_Name: ===GlobalCanvas===
   m_TagString: Untagged
@@ -1040,22 +1050,7 @@ MonoBehaviour:
     - Object: {fileID: 6415806191414300258}
       Type: 3
   m_DeckGestionController: {fileID: 930006187}
-  m_CardViewer: {fileID: 1404155688}
---- !u!114 &1404155688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404155682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e385e1fa1429461ea3b6b7b0074f747f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MainAssembly::Script.UI.DisplayCardViewer
-  m_CardViewer: {fileID: 249916634}
-  m_Image: {fileID: 1683220854}
-  m_SwapButton: {fileID: 6204276670473459621}
+  m_CardViewer: {fileID: 1041153772}
 --- !u!1 &1477867631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,17 +1337,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d052c38e274942218b20089c7f7a7424, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1683220854 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7570491732891264477, guid: 3fd8639615d0a104ba324592cc33ff80, type: 3}
-  m_PrefabInstance: {fileID: 6204276670473459620}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2065167074
@@ -2555,10 +2539,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5929035536912359706, guid: 3fd8639615d0a104ba324592cc33ff80, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1404155687}
     - target: {fileID: 6171676864566340698, guid: 3fd8639615d0a104ba324592cc33ff80, type: 3}
       propertyPath: m_Name
       value: CardViewer
@@ -2566,18 +2546,6 @@ PrefabInstance:
     - target: {fileID: 6171676864566340698, guid: 3fd8639615d0a104ba324592cc33ff80, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6980956333973063397, guid: 3fd8639615d0a104ba324592cc33ff80, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1404155688}
-    - target: {fileID: 6980956333973063397, guid: 3fd8639615d0a104ba324592cc33ff80, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Swap
-      objectReference: {fileID: 0}
-    - target: {fileID: 6980956333973063397, guid: 3fd8639615d0a104ba324592cc33ff80, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Script.UI.DisplayCardViewer, MainAssembly
       objectReference: {fileID: 0}
     - target: {fileID: 7841633177876216573, guid: 3fd8639615d0a104ba324592cc33ff80, type: 3}
       propertyPath: m_IsActive
@@ -2588,11 +2556,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fd8639615d0a104ba324592cc33ff80, type: 3}
---- !u!224 &6204276670473459621 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8194175359556802051, guid: 3fd8639615d0a104ba324592cc33ff80, type: 3}
-  m_PrefabInstance: {fileID: 6204276670473459620}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6415806191414300258 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7776059110171932849, guid: 2ac697ed3ef70174eb780c53e35a21d0, type: 3}

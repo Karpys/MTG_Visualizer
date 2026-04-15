@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="" />
+    <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/CardViewer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/CardViewer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ApiRequest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ApiRequest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Visualizer.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Visualizer.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Behaviour/CardHelpDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Behaviour/CardHelpDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Behaviour/CardHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Behaviour/CardHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/CardUIDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/CardUIDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DeckGestionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckGestionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/HolderManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/HolderManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Socket/SocketToHand.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Socket/SocketToHand.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,6 +130,8 @@
       <workItem from="1776024083317" duration="7376000" />
       <workItem from="1776041427464" duration="744000" />
       <workItem from="1776083942669" duration="8644000" />
+      <workItem from="1776154820108" duration="9078000" />
+      <workItem from="1776243849200" duration="2698000" />
     </task>
     <servers />
   </component>

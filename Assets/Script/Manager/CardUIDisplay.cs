@@ -22,7 +22,7 @@ namespace MTG
             for (int i = 0; i < holders.Count; i++)
             {
                 UICardSelection cardUI = Instantiate(m_CardUI, m_CardsGroup);
-                cardUI.Initialize(i,zone,holders[i].CardVisual);
+                cardUI.Initialize(i,zone,holders[i].FrontCardVisual);
             }
         }
         public void DisplayCard(List<CardHolder> holders,CardState zone)

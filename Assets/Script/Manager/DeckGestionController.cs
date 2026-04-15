@@ -234,7 +234,7 @@ namespace Script.Manager
         public void SaveDeck()
         {
             string[] deckData = m_CurrentDeckData.ToFile();
-            File.WriteAllLines(CardFileHelper.GetDeckPath() + m_CurrentDeckData.DeckName + ".dck",deckData);
+            File.WriteAllLines(CardFileHelper.GetDeckPath() + m_CurrentDeckData.DeckName + ".deck",deckData);
         }
     }
 

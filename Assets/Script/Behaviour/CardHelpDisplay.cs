@@ -13,7 +13,7 @@ namespace MTG
         {
             m_PreviewTransform.gameObject.SetActive(true);
             InDisplay = true;
-            m_Preview.sprite = card.CardVisual;
+            m_Preview.sprite = card.FrontCardVisual;
         }
 
         public void RemoveDisplay()

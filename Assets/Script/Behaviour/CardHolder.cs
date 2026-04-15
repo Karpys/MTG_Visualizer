@@ -28,32 +28,45 @@ namespace MTG
         [SerializeField] private CardState m_State = CardState.Deck;
         [SerializeField] private TextMeshProUGUI m_Counter = null;
 
-        private Sprite m_CardVisual = null;
+        private Sprite m_FrontCardVisual = null;
+        private Sprite m_BackCardVisual = null;
         private int m_CurrentCount = 0;
         private LibraryCardData m_LibraryCardData;
         public BoxCollider2D Selection => m_Selection;
         public CardState State => m_State;
-        public Sprite CardVisual => m_CardVisual;
+        public Sprite FrontCardVisual => m_FrontCardVisual;
         public LibraryCardData LibraryCardData => m_LibraryCardData;
+        public Sprite BackCardVisual => m_BackCardVisual;
 
         public void Initialize(string cardId)
         {
             m_LibraryCardData = cardId.CardIdToCardNameData();
-            m_CardVisual = m_LibraryCardData.CardImagePath.ToCardSprite();
+
+            if (m_LibraryCardData.IsDualCard)
+            {
+                Sprite[] sprites = m_LibraryCardData.ToCardSprite();
+                m_FrontCardVisual = sprites[0];
+                m_BackCardVisual = sprites[1];
+            }
+            else
+            {
+                m_FrontCardVisual = m_LibraryCardData.CardImagePath.ToCardSprite();
+            }
+            
             UpdateVisual(m_State);
             gameObject.name = m_LibraryCardData.CardName;
         }
 
         public void Initialize(CardScriptable cardScriptable)
         {
-            m_CardVisual = cardScriptable.m_CardVisual;
+            m_FrontCardVisual = cardScriptable.m_CardVisual;
             UpdateVisual(m_State);
             gameObject.name = cardScriptable.name;
         }
         
         public void Initialize(CardHolder cardHolder)
         {
-            m_CardVisual = cardHolder.CardVisual;
+            m_FrontCardVisual = cardHolder.FrontCardVisual;
             m_State = cardHolder.State;
             UpdateVisual(m_State);
             gameObject.name = cardHolder.name;
@@ -100,7 +113,7 @@ namespace MTG
                     m_Visual.transform.localScale = Vector3.zero;
                     goto default;
                 default:
-                    newSprite = m_CardVisual;
+                    newSprite = m_FrontCardVisual;
                     ResetRotation();
                     break;
             }
@@ -163,6 +176,21 @@ namespace MTG
             }
 
             m_Counter.text = prefix + m_CurrentCount;
+        }
+
+        public void SwapVisual()
+        {
+            if (m_BackCardVisual)
+            {
+                if (m_Visual.sprite == m_FrontCardVisual)
+                {
+                    m_Visual.sprite = m_BackCardVisual;
+                }
+                else
+                {
+                    m_Visual.sprite = m_FrontCardVisual;
+                }
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ namespace MTG
 
     public class HolderManager:SingletonMonoBehaviour<HolderManager>
     {
+        [SerializeField] private DisplayCardViewer m_CardViewer = null;
         [SerializeField] private DeckHolder m_DeckHolder = null;
         [SerializeField] private HandHolder m_HandHolder = null;
         [SerializeField] private LandHolder m_LandHolder = null;
@@ -231,11 +232,14 @@ namespace MTG
                 CardHolder cardSelected = InstantSelect();
                 if(cardSelected)
                     cardSelected.RotateCard();
-            }else if (Input.GetMouseButtonDown(0))
+            }else if (Input.GetMouseButtonDown(1))
             {
                 CardHolder cardSelected = InstantSelect();
-                if(cardSelected && !CardHelpDisplay.Instance.InDisplay && !CardUIDisplay.Instance.InDisplay)
-                    CardHelpDisplay.Instance.DisplayPreviewCard(cardSelected);
+                if (cardSelected && !CardHelpDisplay.Instance.InDisplay && !CardUIDisplay.Instance.InDisplay)
+                {
+                    m_CardViewer.Display(cardSelected.FrontCardVisual,cardSelected.BackCardVisual);
+                    //CardHelpDisplay.Instance.DisplayPreviewCard(cardSelected);
+                }
             }
             
             //Go to action
@@ -282,6 +286,10 @@ namespace MTG
                 CardHolder card = TempSelect();
                 if(card)
                     card.ChangeCounter(-1);
+            }else if (Input.GetKeyDown(KeyCode.S))
+            {
+                SelectCard();
+                m_SelectedCard.SwapVisual();
             }
         }
 
