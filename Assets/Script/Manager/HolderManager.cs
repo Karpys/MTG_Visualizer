@@ -40,11 +40,21 @@ namespace MTG
             if (m_DeckData.DeckCards != null && m_DeckData.DeckCards.Count > 0)
             {
                 List<string> cardIds = new List<string>();
+                List<string> tokenIds = new List<string>();
+                
                 for (int i = 0; i < m_DeckData.DeckCards.Count; i++)
                 {
                     for (int y = 0; y < m_DeckData.DeckCards[i].Count; y++)
                     {
                         cardIds.Add(m_DeckData.DeckCards[i].CardId);
+                    }
+                }
+                
+                for (int i = 0; i < m_DeckData.TokenCards.Count; i++)
+                {
+                    for (int y = 0; y < m_DeckData.TokenCards[i].Count; y++)
+                    {
+                        tokenIds.Add(m_DeckData.TokenCards[i].CardId);
                     }
                 }
 
@@ -56,6 +66,14 @@ namespace MTG
                     card.Initialize(cardId);
                     GotoCard(CardState.Deck,card);
                     m_CardsOnBoards.Add(card);
+                }
+
+                foreach (string tokenId in tokenIds)
+                {
+                    CardHolder jeton = Instantiate(Library.Instance.m_CardHolder, transform.position, Quaternion.identity,m_DeckHolder.transform);
+                    jeton.Initialize(tokenId);
+                    GotoCard(CardState.Jeton,jeton);
+                    m_CardsOnBoards.Add(jeton);
                 }
             }
             else

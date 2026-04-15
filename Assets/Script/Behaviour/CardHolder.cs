@@ -167,7 +167,7 @@ namespace MTG
             }
             else if(m_CurrentCount < 0)
             {
-                prefix = " ";
+                prefix = "";
             }
             else
             {
