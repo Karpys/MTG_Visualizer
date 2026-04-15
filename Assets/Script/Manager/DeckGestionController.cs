@@ -10,26 +10,38 @@ using UnityEngine.UI;
 namespace Script.Manager
 {
     using System.Collections;
+    using KarpysDev.KarpysUtils;
 
     public struct CardDisplayData
     {
         public Sprite m_FrontSprite;
         public Sprite m_BackSprite;
     }
-    
+
+    public enum DeckGestionContext
+    {
+        Deck,
+        Token,
+    }
+
     public class DeckGestionController : MonoBehaviour
     {
+        [SerializeField] private TMP_Text m_CardCountInDeckText = null;
         [SerializeField] private CardGridSetter m_CardGridSetter = null;
         [SerializeField] private CardInLibraryPointer[] m_CardDisplayer = null;
         [SerializeField] private TMP_Text m_CardPageCount = null;
         [SerializeField] private TMP_InputField m_FilterInput = null;
+        [SerializeField] private DeckGestionContextDisplayer m_DeckGestionContextDisplayer;
 
         [Header("Card in Deck")] 
         [SerializeField] private Transform m_InDeckLayout = null;
+        [SerializeField] private Transform m_TokenInDeckLayout = null;
         [SerializeField] private CardInDeckHolder m_CardInDeckUIHolder = null;
+        [SerializeField] private TokenInDeckHolder m_TokenInDeckUIHolder = null;
 
         private Dictionary<string, CardDisplayData> m_CardsSprite = new Dictionary<string, CardDisplayData>();
         private List<LibraryCardData> m_CurrentCardsToDisplay = null;
+        private DeckGestionContext m_DeckGestionContext = DeckGestionContext.Token;
         
         private List<LibraryCardData> m_CardsInLibrary = null;
 
@@ -39,6 +51,9 @@ namespace Script.Manager
         private DeckData m_CurrentDeckData;
 
         private Dictionary<string,CardInDeckHolder> m_CurrentCardInDeck = new Dictionary<string,CardInDeckHolder>();
+        private Dictionary<string,TokenInDeckHolder> m_CurrentTokenInDeck = new Dictionary<string,TokenInDeckHolder>();
+
+        public DeckGestionContext DeckGestionContext => m_DeckGestionContext;
 
         private void Awake()
         {
@@ -66,7 +81,22 @@ namespace Script.Manager
             UpdateMaxPageCount();
             UpdatePageUI();
             ClearInDeckCards();
+            ClearInDeckToken();
             DisplayCurrentDeckCards();
+            DisplayCurrentTokenCards();
+            UpdateCardCountText();
+        }
+
+        public void SetDeckContext()
+        {
+            m_DeckGestionContext = DeckGestionContext.Deck;
+            m_DeckGestionContextDisplayer.Display(m_DeckGestionContext);
+        }
+        
+        public void SetTokenContext()
+        {
+            m_DeckGestionContext = DeckGestionContext.Token;
+            m_DeckGestionContextDisplayer.Display(m_DeckGestionContext);
         }
 
         private void UpdateMaxPageCount()
@@ -173,11 +203,31 @@ namespace Script.Manager
             
             m_CurrentCardInDeck.Clear();
         }
+        
+        private void ClearInDeckToken()
+        {
+            foreach (TokenInDeckHolder token in m_CurrentTokenInDeck.Values)
+            {
+                Destroy(token.gameObject);
+            }
+            
+            m_CurrentTokenInDeck.Clear();
+        }
+        
+        
         private void DisplayCurrentDeckCards()
         {
             for (int i = 0; i < m_CurrentDeckData.DeckCards.Count; i++)
             {
                 AddCardDisplayer(m_CurrentDeckData.DeckCards[i].CardId,m_CurrentDeckData.DeckCards[i].Count);
+            }
+        }
+
+        private void DisplayCurrentTokenCards()
+        {
+            for (int i = 0; i < m_CurrentDeckData.TokenCards.Count; i++)
+            {
+                AddTokenDisplayer(m_CurrentDeckData.TokenCards[i].CardId);
             }
         }
 
@@ -188,6 +238,16 @@ namespace Script.Manager
                 CardInDeckHolder cardInDeck = Instantiate(m_CardInDeckUIHolder, m_InDeckLayout);
                 cardInDeck.Initialize(cardDisplayData,count,id,this);
                 m_CurrentCardInDeck.Add(id,cardInDeck);
+            }
+        }
+
+        private void AddTokenDisplayer(string id)
+        {
+            if (m_CardsSprite.TryGetValue(id, out CardDisplayData cardDisplayData))
+            {
+                TokenInDeckHolder tokenInDeck = Instantiate(m_TokenInDeckUIHolder, m_TokenInDeckLayout);
+                tokenInDeck.Initialize(cardDisplayData,id,this);
+                m_CurrentTokenInDeck.Add(id,tokenInDeck);
             }
         }
 
@@ -212,13 +272,16 @@ namespace Script.Manager
                         m_CurrentCardInDeck.TryGetValue(cardId, out CardInDeckHolder cardInDeck);
                         if (cardInDeck != null) cardInDeck.UpdateCoutUI(cardCount.Count);
                     }
+                    
                     m_CurrentDeckData.DeckCards[i] = cardCount;
+                    UpdateCardCountText();
                     return cardCount.Count;
                 }
             }
 
             m_CurrentDeckData.DeckCards.Add(new CardCount(1,cardId));
             AddCardDisplayer(cardId,currentCount);
+            UpdateCardCountText();
             return 0;
         }
 
@@ -229,6 +292,39 @@ namespace Script.Manager
                 Destroy(card.gameObject);
                 m_CurrentCardInDeck.Remove(id);
             }
+            
+            UpdateCardCountText();
+        }
+
+        public void AddToken(string tokenId)
+        {
+            if(m_CurrentTokenInDeck.ContainsKey(tokenId))
+                return;
+            
+            m_CurrentDeckData.TokenCards.Add(new CardCount(1,tokenId));
+            AddTokenDisplayer(tokenId);
+        }
+        
+        public void RemoveToken(string tokenId)
+        {
+            if (m_CurrentTokenInDeck.TryGetValue(tokenId, out TokenInDeckHolder token))
+            {
+                Destroy(token.gameObject);
+                m_CurrentTokenInDeck.Remove(tokenId);
+                m_CurrentDeckData.TokenCards.Remove(new CardCount(1, tokenId));
+            }
+        }
+
+        private void UpdateCardCountText()
+        {
+            int cardCount = 0;
+
+            foreach (CardCount deckCard in m_CurrentDeckData.DeckCards)
+            {
+                cardCount += deckCard.Count;
+            }
+            
+            m_CardCountInDeckText.text = cardCount.ToString();
         }
 
         public void SaveDeck()

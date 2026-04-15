@@ -30,7 +30,15 @@ namespace Script.UI
 
         public override void OnLeftClick()
         {
-            m_Controller.ChangeCardCount(m_CurrentCardId, 1,true);
+            switch (m_Controller.DeckGestionContext)
+            {
+                case DeckGestionContext.Deck:
+                    m_Controller.ChangeCardCount(m_CurrentCardId, 1,true);
+                    break;
+                case DeckGestionContext.Token:
+                    m_Controller.AddToken(m_CurrentCardId);
+                    break;
+            }
         }
     }
 }

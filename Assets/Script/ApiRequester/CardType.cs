@@ -13,5 +13,6 @@ namespace Script
         Battle = 7,
         Planeswalker = 8,
         LegendaryCreature = 9,
+        Token = 10,
     }
 }

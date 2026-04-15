@@ -55,29 +55,44 @@ namespace Script.UI
         public DeckType DeckType;
         public Sprite DeckBackCard;
         public List<CardCount> DeckCards;
+        public List<CardCount> TokenCards;
 
         public DeckData(string deckName, DeckType deckType, string deckBackPath, Sprite deckBackCard,
-            List<CardCount> deckCards)
+            List<CardCount> deckCards, List<CardCount> tokenCards)
         {
             DeckName = deckName;
             DeckBackPath = deckBackPath;
             DeckType = deckType;
             DeckBackCard = deckBackCard;
             DeckCards = deckCards;
+            TokenCards = tokenCards;
         }
 
         public string[] ToFile()
         {
-            string[] fileLines = new string[4 + DeckCards.Count];
+            string[] fileLines = new string[7 + DeckCards.Count + TokenCards.Count];
 
             fileLines[0] = DeckName;
             fileLines[1] = DeckBackPath;
             fileLines[2] = ((int)DeckType).ToString();
+            fileLines[3] = "Deck";
 
             for (int i = 0; i < DeckCards.Count; i++)
             {
                 fileLines[i + 4] = DeckCards[i].Count + "|" + DeckCards[i].CardId;
             }
+            
+            fileLines[4 + DeckCards.Count] = "EndDeck";
+
+            fileLines[5 + DeckCards.Count] = "Token";
+            int startToken = 6 + DeckCards.Count;
+            
+            for (int i = 0; i < TokenCards.Count; i++)
+            {
+                fileLines[i + startToken] = TokenCards[i].Count + "|" + TokenCards[i].CardId;
+            }
+            
+            fileLines[startToken + TokenCards.Count] = "EndToken";
 
             return fileLines;
         }

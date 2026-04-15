@@ -21,13 +21,29 @@ namespace Script.Helper
             DeckType deckType = (DeckType)int.Parse(deckLines[2]);
 
             List<CardCount> cardCounts = new List<CardCount>();
-            for (int i = 4; i < deckLines.Length; i++)
+            List<CardCount> tokenCounts = new List<CardCount>();
+
+            int startDeckIndex = Array.IndexOf(deckLines,"Deck");
+            
+            for (int i = startDeckIndex + 1; i < deckLines.Length; i++)
             {
+                if(deckLines[i] == "EndDeck")
+                    break;
                 string[] splits = deckLines[i].Split('|');
                 cardCounts.Add(new CardCount(int.Parse(splits[0]), splits[1]));
             }
+            
+            int startTokenIndex = Array.IndexOf(deckLines,"Token");
 
-            return new DeckData(deckName, deckType,deckBackPath, backCardImage,cardCounts);
+            for (int i = startTokenIndex + 1; i < deckLines.Length; i++)
+            {
+                if(deckLines[i] == "EndToken")
+                    break;
+                string[] splits = deckLines[i].Split('|');
+                tokenCounts.Add(new CardCount(int.Parse(splits[0]), splits[1]));
+            }
+
+            return new DeckData(deckName, deckType,deckBackPath, backCardImage,cardCounts,tokenCounts);
         }
         
         public static bool Contains(this string source, string toCheck, StringComparison comp)

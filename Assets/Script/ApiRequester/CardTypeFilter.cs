@@ -83,6 +83,8 @@ namespace Script
                     return "artifact";
                 case CardType.LegendaryCreature:
                     return "creature+type:legendary";
+                case CardType.Token:
+                    return "token";
                 default:
                     return "";
             }
