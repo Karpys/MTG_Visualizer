@@ -1673,7 +1673,7 @@ MonoBehaviour:
   m_EnchantementHolder: {fileID: 1936348664}
   m_JetonHolder: {fileID: 1076107524}
   m_DisplayHandCards: 1
-  m_DeckScriptable: {fileID: 11400000, guid: e66e555810610491495bd2ae8589b453, type: 2}
+  m_DeckScriptable: {fileID: 11400000, guid: 0e1a3038f5e0f40caa9d3f3fad5ff621, type: 2}
   m_CardsOnBoards: []
 --- !u!4 &974478096
 Transform:

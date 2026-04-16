@@ -1,16 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Script.Helper;
-using Script.UI;
-using TMPro;
-using UnityEngine;
-using UnityEngine.UI;
-
 namespace Script.Manager
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using UI;
+    using TMPro;
+    using UnityEngine;
     using System.Collections;
-    using KarpysDev.KarpysUtils;
 
     public struct CardDisplayData
     {
@@ -137,6 +133,9 @@ namespace Script.Manager
             int endIndex = Math.Min(m_CurrentCardsToDisplay.Count, startIndex + CARD_COUNT_DISPLAY);
 
             int y = 0;
+
+            ApplyAlphabeticalFilter();
+            
             for (int i = startIndex; i < endIndex; i++,y++)
             {
                 m_CardDisplayer[y].gameObject.SetActive(true);
@@ -150,7 +149,12 @@ namespace Script.Manager
                 m_CardDisplayer[y].gameObject.SetActive(false);
             }
         }
-        
+
+        private void ApplyAlphabeticalFilter()
+        {
+            m_CurrentCardsToDisplay.Sort((a,b) => string.Compare(a.CardName,b.CardName,StringComparison.Ordinal));
+        }
+
         private void ApplyNameFilter(string filter)
         {
             m_CurrentCardsToDisplay.Clear();

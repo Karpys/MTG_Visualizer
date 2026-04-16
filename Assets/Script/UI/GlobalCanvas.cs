@@ -20,6 +20,7 @@ namespace Script.UI
 
         private void Awake()
         {
+            UpdateCardData.Update();
             m_MenuLibrary.InitializeDictionary();
         }
 

@@ -13,20 +13,25 @@ namespace Script.UI
         private JObject m_CardObject;
         private ApiCardData m_CardData;
         private DownloadCardButton m_ButtonTransform = null;
+        private DownloadCardUIController m_Controller = null;
+        private int m_Position = 0;
         
         public ApiCardData CardData => m_CardData;
 
-        public void Initialize(JObject cardObject,ApiCardData cardData, DownloadCardButton downloadButtonTransform)
+        public void Initialize(JObject cardObject, ApiCardData cardData, DownloadCardButton downloadButtonTransform,
+            DownloadCardUIController downloadCardUIController, int position)
         {
             m_CardObject = cardObject;
             m_CardData = cardData;
             m_ButtonTransform = downloadButtonTransform;
             m_Image.sprite = cardData.m_FrontCardSprite;
+            m_Controller = downloadCardUIController;
+            m_Position = position;
         }
         
         public override void OnRightClick()
         {
-            GlobalCanvas.Instance.DisplayCardViewer(CardData.m_FrontCardSprite, CardData.m_BackCardSprite);
+            m_Controller.DisplayCard(m_Position);
         }
 
         public override void OnLeftClick()

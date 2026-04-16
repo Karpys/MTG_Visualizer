@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 namespace Script.UI
 {
+    using System;
+    using System.Collections.Generic;
     using Newtonsoft.Json.Linq;
 
     public class DownloadCardUIController : MonoBehaviour
@@ -12,12 +14,27 @@ namespace Script.UI
         [SerializeField] private TMP_Text m_CardFoundText = null;
         [SerializeField] private Transform m_DisplayButton = null;
         [SerializeField] private DownloadCardButton m_DownloadButtonTransform = null;
+        [SerializeField] private GlobalCanvas m_GlobalCanvas = null;
 
         [Header("Card Layout")] 
         [SerializeField] private Transform m_CardLayout = null;
         [SerializeField] private DownLoadCardDataPointer m_CardDataPointer = null;
-      
+
+        private int m_CurrentPosition = 0;
         public string GetCardName => m_CardField.text;
+
+        private List<DownLoadCardDataPointer> m_CardDisplay = new List<DownLoadCardDataPointer>();
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                Next();
+            }else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                Previous();
+            }
+        }
 
         public void DisplayDisplayContainer(int cardCount = 0)
         {
@@ -43,11 +60,12 @@ namespace Script.UI
             m_CardLayout.gameObject.SetActive(false);
         }
 
-        public void AddCard(Sprite sprite, ApiCardData cardDatas, JObject cardObject)
+        public void AddCard(ApiCardData cardDatas, JObject cardObject)
         {
             m_CardLayout.gameObject.SetActive(true);
             DownLoadCardDataPointer card = Instantiate(m_CardDataPointer, m_CardLayout);
-            card.Initialize(cardObject,cardDatas,m_DownloadButtonTransform);
+            m_CardDisplay.Add(card);
+            card.Initialize(cardObject,cardDatas,m_DownloadButtonTransform,this,m_CardDisplay.Count);
         }
 
         public void Clear()
@@ -60,7 +78,30 @@ namespace Script.UI
                 Destroy(child.gameObject);
             }
             
+            m_CardDisplay.Clear();
             m_DownloadButtonTransform.gameObject.SetActive(false);
+            m_CurrentPosition = 0;
+        }
+
+        public void DisplayCard(int position)
+        {
+            if(m_CardDisplay.Count == 0)
+                return;
+            m_CurrentPosition = position;
+            m_GlobalCanvas.DisplayCardViewer(m_CardDisplay[position].CardData.m_FrontCardSprite,
+                m_CardDisplay[position].CardData.m_BackCardSprite);
+        }
+
+        private void Next()
+        {
+            int nextPosition = Math.Min(m_CardDisplay.Count - 1, m_CurrentPosition + 1);
+            DisplayCard(nextPosition);
+        }
+
+        private void Previous()
+        {
+            int previousPosition = Math.Max(0, m_CurrentPosition - 1);
+            DisplayCard(previousPosition);
         }
     }
 }

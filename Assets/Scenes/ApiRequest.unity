@@ -1543,6 +1543,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -25
       objectReference: {fileID: 0}
+    - target: {fileID: 978951078869720477, guid: 8388f9c8068fcaf49a1c1418abff1c87, type: 3}
+      propertyPath: m_GlobalCanvas
+      value: 
+      objectReference: {fileID: 1404155687}
     - target: {fileID: 978951078869720479, guid: 8388f9c8068fcaf49a1c1418abff1c87, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

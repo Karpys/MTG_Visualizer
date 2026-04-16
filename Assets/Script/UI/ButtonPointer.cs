@@ -1,5 +1,12 @@
 namespace Script.UI
 {
+    public static class UpdateCardData
+    {
+        public static void Update()
+        {
+        }
+    }
+    
     public abstract class ButtonPointer : UIPointer
     {
         protected override void OnEnter()

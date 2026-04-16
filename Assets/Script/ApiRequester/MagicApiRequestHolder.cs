@@ -65,7 +65,7 @@ namespace Script
         {
             Sprite sprite = cardDatas.m_FrontCardSprite;
             cardDatas.m_FrontCardSprite = sprite;
-            m_UIController.AddCard(sprite,cardDatas,cardObject);
+            m_UIController.AddCard(cardDatas,cardObject);
         }
 
         public void TryFindCard()

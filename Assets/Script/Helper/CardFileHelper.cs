@@ -72,21 +72,16 @@ namespace Script
             string libraryCardDataPath = GetCardsLibraryCardDataPath();
             string libraryImagePath = GetCardsLibraryPath();
             List<string> cardsFiles = Directory.GetFiles(libraryCardDataPath).Where(s => s.Contains(".card")).ToList();
-
-            char[] separator = new char[2];
-            separator[0] = '~';
-            separator[1] = '.';
             
             for (int i = 0; i < cardsFiles.Count; i++)
             {
                 string cardFileName = cardsFiles[i].ToFileName();
-                string[] cardSplit = cardFileName.Split(separator);
                 string[] cardData = File.ReadLines(cardsFiles[i]).ToArray();
 
                 string imageCardPath = libraryImagePath + cardData[1] + ".jpg";
                 bool isDualCard = cardData[2] != "False";
-                LibraryCardData libraryCardData = new LibraryCardData(cardSplit[0],cardSplit[1],cardFileName,cardsFiles[i],imageCardPath,isDualCard);
-                m_CardNameLibrary.Add(cardSplit[1],libraryCardData);
+                LibraryCardData libraryCardData = new LibraryCardData(cardData[0],cardData[1],cardFileName,cardsFiles[i],imageCardPath,isDualCard);
+                m_CardNameLibrary.Add(cardData[1],libraryCardData);
             }
         }
 
@@ -201,7 +196,7 @@ namespace Script
             cardData[1] = cardObject.m_CardId;
             cardData[2] = cardObject.m_IsDualCard.ToString();
             string filePath = GetCardsLibraryCardDataPath();
-            filePath += cardObject.m_CardSaveName+".card";
+            filePath += cardObject.m_CardId+".card";
             File.WriteAllLines(filePath, cardData);
         }
 
