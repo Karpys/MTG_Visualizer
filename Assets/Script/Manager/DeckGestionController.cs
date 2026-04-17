@@ -37,7 +37,7 @@ namespace Script.Manager
 
         private Dictionary<string, CardDisplayData> m_CardsSprite = new Dictionary<string, CardDisplayData>();
         private List<LibraryCardData> m_CurrentCardsToDisplay = null;
-        private DeckGestionContext m_DeckGestionContext = DeckGestionContext.Token;
+        private DeckGestionContext m_DeckGestionContext = DeckGestionContext.Deck;
         
         private List<LibraryCardData> m_CardsInLibrary = null;
 

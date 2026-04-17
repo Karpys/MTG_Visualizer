@@ -151,7 +151,7 @@ namespace Script
             }
         }
 
-        public static void DownloadToLibrary(JObject cardObject, ApiCardData cardData,Color borderColor,Vector2Int borderSize)
+        public static void DownloadToLibrary(ApiCardData cardData,Color borderColor,Vector2Int borderSize)
         {
             byte[] pixels = cardData.ToPixels(borderColor, borderSize);
             string filePath = GetCardsLibraryPath();

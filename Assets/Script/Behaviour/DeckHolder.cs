@@ -8,7 +8,6 @@ namespace MTG
 {
     public class DeckHolder:Holder
     {
-
         public override void RemoveCard(CardHolder card)
         {
             base.RemoveCard(card);

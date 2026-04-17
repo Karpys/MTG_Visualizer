@@ -14,7 +14,7 @@ namespace Script.UI
         [SerializeField] private TMP_Text m_CardFoundText = null;
         [SerializeField] private Transform m_DisplayButton = null;
         [SerializeField] private DownloadCardButton m_DownloadButtonTransform = null;
-        [SerializeField] private GlobalCanvas m_GlobalCanvas = null;
+        [SerializeField] private ApiResearchDisplayCardViewer m_CardViewer = null;
 
         [Header("Card Layout")] 
         [SerializeField] private Transform m_CardLayout = null;
@@ -64,8 +64,8 @@ namespace Script.UI
         {
             m_CardLayout.gameObject.SetActive(true);
             DownLoadCardDataPointer card = Instantiate(m_CardDataPointer, m_CardLayout);
-            m_CardDisplay.Add(card);
             card.Initialize(cardObject,cardDatas,m_DownloadButtonTransform,this,m_CardDisplay.Count);
+            m_CardDisplay.Add(card);
         }
 
         public void Clear()
@@ -88,8 +88,7 @@ namespace Script.UI
             if(m_CardDisplay.Count == 0)
                 return;
             m_CurrentPosition = position;
-            m_GlobalCanvas.DisplayCardViewer(m_CardDisplay[position].CardData.m_FrontCardSprite,
-                m_CardDisplay[position].CardData.m_BackCardSprite);
+            m_CardViewer.DisplayApiCard(m_CardDisplay[position].CardData);
         }
 
         private void Next()

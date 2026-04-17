@@ -36,7 +36,7 @@ namespace Script.UI
         public void OpenVisualizerScene()
         {
             DeckDataHolder.DeckData = m_DeckData;
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("Visualizer");
         }
 
         public void DeleteDeck()

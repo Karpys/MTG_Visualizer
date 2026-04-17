@@ -123,10 +123,14 @@ namespace Script.UI
         private void CreateDeckFile(string deckName,int deckType,string deckBackFileName)
         {
             string path = CardFileHelper.GetDeckPath() + deckName + ".deck";
-            string[] deckData = new string[3];
+            string[] deckData = new string[7];
             deckData[0] = deckName;
             deckData[1] = deckBackFileName;
             deckData[2] = deckType.ToString();
+            deckData[3] = "Deck";
+            deckData[4] = "EndDeck";
+            deckData[5] = "Token";
+            deckData[6] = "EndToken";
             File.WriteAllLines(path,deckData);
         }
 

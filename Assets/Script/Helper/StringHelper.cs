@@ -24,7 +24,7 @@ namespace Script.Helper
             List<CardCount> tokenCounts = new List<CardCount>();
 
             int startDeckIndex = Array.IndexOf(deckLines,"Deck");
-            
+
             for (int i = startDeckIndex + 1; i < deckLines.Length; i++)
             {
                 if(deckLines[i] == "EndDeck")
@@ -45,7 +45,7 @@ namespace Script.Helper
 
             return new DeckData(deckName, deckType,deckBackPath, backCardImage,cardCounts,tokenCounts);
         }
-        
+
         public static bool Contains(this string source, string toCheck, StringComparison comp)
         {
             return source?.IndexOf(toCheck, comp) >= 0;

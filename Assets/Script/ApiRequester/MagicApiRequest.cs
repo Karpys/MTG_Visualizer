@@ -47,7 +47,8 @@ namespace Script
             if (response.IsSuccessStatusCode)
             {
                 string responseContent = await response.Content.ReadAsStringAsync();
-                var cardJson = JObject.FromObject(JObject.Parse(responseContent)["data"][0]);
+                responseContent.Log("Response");
+                JObject cardJson = JObject.FromObject(JObject.Parse(responseContent)["data"][0]);
                 OnCardFound?.Invoke(cardJson);
                 Debug.Log("card found");
             }

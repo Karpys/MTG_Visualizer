@@ -5,21 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/DownloadGroupOfCardViaDeck.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/DownloadGroupOfCardViaDeck.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/ApiResearchDisplayCardViewer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/ApiResearchDisplayCardViewer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/ApiRequest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ApiRequest.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Visualizer.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Visualizer.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequestHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequestHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/DownloadGroupOfCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/DownloadGroupOfCard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Behaviour/DeckHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Behaviour/DeckHolder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Helper/CardFileHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Helper/CardFileHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Helper/FileHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Helper/FileHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Helper/StringHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Helper/StringHelper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DeckGestionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckGestionController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/ButtonPointer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/ButtonPointer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DeckCreationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DeckCreationController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DeckDefinedContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DeckDefinedContainer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DownLoadCardDataPointer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DownLoadCardDataPointer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DownloadCardButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DownloadCardButton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DownloadCardUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DownloadCardUIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/GlobalCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/GlobalCanvas.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Socket/SocketToHand.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Socket/SocketToHand.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +76,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../Builds/MTG\MTG_Visualizer.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../Builds/MTG_Urtet\MTG_Visualizer.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\Unity\Builds\MTG" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -103,10 +109,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="15716">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="28840">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="15716" />
+      <option name="pid" value="28840" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -149,6 +155,8 @@
       <workItem from="1776243849200" duration="7101000" />
       <workItem from="1776260956661" duration="3685000" />
       <workItem from="1776343257091" duration="4924000" />
+      <workItem from="1776359810131" duration="7288000" />
+      <workItem from="1776377468318" duration="4190000" />
     </task>
     <servers />
   </component>

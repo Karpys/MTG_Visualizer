@@ -16,6 +16,7 @@ namespace Script.Helper
     {
         Text,
         Jpg,
+        Deck,
     }
     public static class FileHelper
     {
@@ -51,6 +52,8 @@ namespace Script.Helper
                     return "txt";
                 case FilterType.Jpg:
                     return "jpg";
+                case FilterType.Deck:
+                    return "deck";
                 default:
                     return "";
             }
@@ -63,6 +66,8 @@ namespace Script.Helper
                         return "(*.txt)|*.txt";
                     case FilterType.Jpg:
                         return "(*.jpg)|*.jpg";
+                    case FilterType.Deck:
+                        return "(*.deck)|*.deck";
                     default:
                         return "";
                 }

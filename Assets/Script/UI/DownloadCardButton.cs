@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace Script.UI
 {
+    using System;
+    using Helper;
     using Newtonsoft.Json.Linq;
 
     public class DownloadCardButton : MonoBehaviour
@@ -23,9 +25,9 @@ namespace Script.UI
 
         public void DownloadCard()
         {
-            CardFileHelper.DownloadToLibrary(m_CardObject,m_CardData,m_BorderColor,m_BorderSize);
+            CardFileHelper.DownloadToLibrary(m_CardData,m_BorderColor,m_BorderSize);
         }
-
+        
         public void SetAttach(Transform attach)
         {
             m_Attach.SetAttach(attach);
