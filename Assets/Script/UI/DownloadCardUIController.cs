@@ -27,6 +27,8 @@ namespace Script.UI
 
         private void Update()
         {
+            if(!m_CardViewer.InDisplay)
+                return;
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 Next();

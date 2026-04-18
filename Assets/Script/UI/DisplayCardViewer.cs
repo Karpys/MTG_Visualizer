@@ -12,6 +12,7 @@ namespace Script.UI
         private bool m_DisplayFront = true;
         private Sprite m_FrontSprite = null;
         private Sprite m_BackSprite = null;
+        public bool InDisplay => m_CardViewer.gameObject.activeSelf;
         
         public void Display(Sprite cardFrontSprite,Sprite cardBackSprite)
         {

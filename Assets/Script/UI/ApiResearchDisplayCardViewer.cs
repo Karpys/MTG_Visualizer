@@ -13,7 +13,7 @@ namespace Script.UI
         [SerializeField] private TMP_Text m_ResultDeckFound = null;
         
         private ApiCardData m_CardData;
-        
+
         public void DisplayApiCard(ApiCardData apiCardData)
         {
             m_CardData = apiCardData;
