@@ -5,28 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckGestionCardViewerController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckGestionCardViewerController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/InDeckDisplayCardViewer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/InDeckDisplayCardViewer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/NotifLogHolder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/NotifLogHolder.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/DeckCreation/===Deck_Gestion_UI===.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/DeckCreation/===Deck_Gestion_UI===.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/DeckCreation/DeckDefinedPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/DeckCreation/DeckDefinedPrefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/TokenInDeckUIHolder.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/TokenInDeckUIHolder.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/ApiRequest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ApiRequest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Helper/StringHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Helper/StringHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DeckGestionContextDisplayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckGestionContextDisplayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DeckGestionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckGestionController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/CardDisplayerPointer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/CardDisplayerPointer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/CardInDeckHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/CardInDeckHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/CardInLibraryPointer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/CardInLibraryPointer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DeckDefinedContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DeckDefinedContainer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/TokenInDeckHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/SingleInDeckHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/TokenInDeckHolder.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/SingleInDeckHolder.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Socket/SocketToHand.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Socket/SocketToHand.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deck/Urtet.deck" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/Urtet.deck" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/DownloadGroupOfCardViaDeck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/DownloadGroupOfCardViaDeck.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -159,6 +142,7 @@
       <workItem from="1776359810131" duration="7288000" />
       <workItem from="1776377468318" duration="4190000" />
       <workItem from="1776672333348" duration="6352000" />
+      <workItem from="1776720155661" duration="354000" />
     </task>
     <servers />
   </component>

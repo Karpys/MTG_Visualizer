@@ -15,6 +15,7 @@ namespace Script
     {
         [SerializeField] private Color m_BorderColor = Color.black;
         [SerializeField] private Vector2Int m_BorderSize = new Vector2Int(10,10);
+        [SerializeField] private NotifLogHolder m_NotifLogHolder = null;
 
         private HttpClient m_Client = new HttpClient();
 
@@ -60,6 +61,7 @@ namespace Script
                     responseContent.Log("Response");
                     JObject cardObject = JObject.FromObject(JObject.Parse(responseContent));
                     cardObjects.Add(cardObject);
+                    m_NotifLogHolder.AddLog((string) cardObject["name"]);
                     cardId.Log("Found");
                 }
             }
