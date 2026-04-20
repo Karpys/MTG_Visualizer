@@ -12,7 +12,7 @@ namespace Script.UI
 
         public override void OnRightClick()
         {
-            GlobalCanvas.Instance.DisplayCardViewer(m_CardInDeckHolder.DisplayData.m_FrontSprite,m_CardInDeckHolder.DisplayData.m_BackSprite);
+            m_CardInDeckHolder.DisplayCard();
         }
 
         public override void OnLeftClick()

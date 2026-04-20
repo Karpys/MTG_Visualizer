@@ -36,5 +36,10 @@ namespace Script.UI
         {
             m_CardCount.text = cardCountCount.ToString();
         }
+
+        public void DisplayCard()
+        {
+            m_Controller.DisplayCardInDeck(m_CardDisplayData,m_CardId);
+        }
     }
 }

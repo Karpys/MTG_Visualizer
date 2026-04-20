@@ -22,6 +22,7 @@ namespace Script.Helper
 
             List<CardCount> cardCounts = new List<CardCount>();
             List<CardCount> tokenCounts = new List<CardCount>();
+            List<CardCount> commanderCounts = new List<CardCount>();
 
             int startDeckIndex = Array.IndexOf(deckLines,"Deck");
 
@@ -42,8 +43,19 @@ namespace Script.Helper
                 string[] splits = deckLines[i].Split('|');
                 tokenCounts.Add(new CardCount(int.Parse(splits[0]), splits[1]));
             }
+            
+            int startCommanderIndex = Array.IndexOf(deckLines,"Commander");
 
-            return new DeckData(deckName, deckType,deckBackPath, backCardImage,cardCounts,tokenCounts);
+            for (int i = startCommanderIndex + 1; i < deckLines.Length; i++)
+            {
+                if(deckLines[i] == "EndCommander")
+                    break;
+                string[] splits = deckLines[i].Split('|');
+                commanderCounts.Add(new CardCount(int.Parse(splits[0]), splits[1]));
+            }
+
+
+            return new DeckData(deckName, deckType,deckBackPath, backCardImage,cardCounts,tokenCounts,commanderCounts);
         }
 
         public static bool Contains(this string source, string toCheck, StringComparison comp)

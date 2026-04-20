@@ -18,6 +18,7 @@ namespace Script.Manager
     {
         Deck,
         Token,
+        Commander,
     }
 
     public class DeckGestionController : MonoBehaviour
@@ -28,12 +29,14 @@ namespace Script.Manager
         [SerializeField] private TMP_Text m_CardPageCount = null;
         [SerializeField] private TMP_InputField m_FilterInput = null;
         [SerializeField] private DeckGestionContextDisplayer m_DeckGestionContextDisplayer;
+        [SerializeField] private DeckGestionCardViewerController m_DeckCardViewerController = null;
 
         [Header("Card in Deck")] 
         [SerializeField] private Transform m_InDeckLayout = null;
         [SerializeField] private Transform m_TokenInDeckLayout = null;
         [SerializeField] private CardInDeckHolder m_CardInDeckUIHolder = null;
-        [SerializeField] private TokenInDeckHolder m_TokenInDeckUIHolder = null;
+        [SerializeField] private SingleInDeckHolder m_SingleInDeckUIHolder = null;
+        [SerializeField] private SingleInDeckHolder m_CommanderSingleUIHolder = null;
 
         private Dictionary<string, CardDisplayData> m_CardsSprite = new Dictionary<string, CardDisplayData>();
         private List<LibraryCardData> m_CurrentCardsToDisplay = null;
@@ -47,7 +50,8 @@ namespace Script.Manager
         private DeckData m_CurrentDeckData;
 
         private Dictionary<string,CardInDeckHolder> m_CurrentCardInDeck = new Dictionary<string,CardInDeckHolder>();
-        private Dictionary<string,TokenInDeckHolder> m_CurrentTokenInDeck = new Dictionary<string,TokenInDeckHolder>();
+        private Dictionary<string,SingleInDeckHolder> m_CurrentTokenInDeck = new Dictionary<string,SingleInDeckHolder>();
+        private Dictionary<string,SingleInDeckHolder> m_CurrentCommanderInDeck = new Dictionary<string,SingleInDeckHolder>();
 
         public DeckGestionContext DeckGestionContext => m_DeckGestionContext;
 
@@ -78,6 +82,8 @@ namespace Script.Manager
             UpdatePageUI();
             ClearInDeckCards();
             ClearInDeckToken();
+            ClearInDeckCommander();
+            DisplayCurrentCommanderCards();
             DisplayCurrentDeckCards();
             DisplayCurrentTokenCards();
             UpdateCardCountText();
@@ -92,6 +98,12 @@ namespace Script.Manager
         public void SetTokenContext()
         {
             m_DeckGestionContext = DeckGestionContext.Token;
+            m_DeckGestionContextDisplayer.Display(m_DeckGestionContext);
+        }
+
+        public void SetCommanderContext()
+        {
+            m_DeckGestionContext = DeckGestionContext.Commander;
             m_DeckGestionContextDisplayer.Display(m_DeckGestionContext);
         }
 
@@ -210,12 +222,22 @@ namespace Script.Manager
         
         private void ClearInDeckToken()
         {
-            foreach (TokenInDeckHolder token in m_CurrentTokenInDeck.Values)
+            foreach (SingleInDeckHolder token in m_CurrentTokenInDeck.Values)
             {
                 Destroy(token.gameObject);
             }
             
             m_CurrentTokenInDeck.Clear();
+        }
+        
+        private void ClearInDeckCommander()
+        {
+            foreach (SingleInDeckHolder commander in m_CurrentCommanderInDeck.Values)
+            {
+                Destroy(commander.gameObject);
+            }
+            
+            m_CurrentCommanderInDeck.Clear();
         }
         
         
@@ -235,6 +257,33 @@ namespace Script.Manager
             }
         }
 
+        private void DisplayCurrentCommanderCards()
+        {
+            for (int i = 0; i < m_CurrentDeckData.CommanderCards.Count; i++)
+            {
+                AddCommanderDisplayer(m_CurrentDeckData.CommanderCards[i].CardId);
+            }
+        }
+
+        public void AssignAsCommander(string id)
+        {
+            if(m_CurrentCardInDeck.TryGetValue(id, out CardInDeckHolder holder))
+            {
+                Destroy(holder.gameObject);
+                m_CurrentCardInDeck.Remove(id);
+
+                for (int i = 0; i < m_CurrentDeckData.DeckCards.Count; i++)
+                {
+                    if (m_CurrentDeckData.DeckCards[i].CardId == id)
+                        m_CurrentDeckData.DeckCards.RemoveAt(i);
+                }
+                
+                AddCommander(id);
+            }
+            
+            UpdateCardCountText();
+        }
+
         private void AddCardDisplayer(string id, int count)
         {
             if (m_CardsSprite.TryGetValue(id, out CardDisplayData cardDisplayData))
@@ -249,12 +298,38 @@ namespace Script.Manager
         {
             if (m_CardsSprite.TryGetValue(id, out CardDisplayData cardDisplayData))
             {
-                TokenInDeckHolder tokenInDeck = Instantiate(m_TokenInDeckUIHolder, m_TokenInDeckLayout);
-                tokenInDeck.Initialize(cardDisplayData,id,this);
-                m_CurrentTokenInDeck.Add(id,tokenInDeck);
+                SingleInDeckHolder singleInDeck = Instantiate(m_SingleInDeckUIHolder, m_TokenInDeckLayout);
+                singleInDeck.Initialize(cardDisplayData,id,this,DeckGestionContext.Token);
+                m_CurrentTokenInDeck.Add(id,singleInDeck);
             }
         }
 
+        private void AddCommanderDisplayer(string id)
+        {
+            if (m_CardsSprite.TryGetValue(id, out CardDisplayData cardDisplayData))
+            {
+                SingleInDeckHolder singleInDeck = Instantiate(m_CommanderSingleUIHolder, m_InDeckLayout);
+                singleInDeck.Initialize(cardDisplayData,id,this,DeckGestionContext.Commander);
+                m_CurrentCommanderInDeck.Add(id,singleInDeck);
+            }
+        }
+        
+        public void AddCardInDeck(string currentCardId)
+        {
+            switch (DeckGestionContext)
+            {
+                case DeckGestionContext.Deck:
+                    ChangeCardCount(currentCardId, 1, true);
+                    break;
+                case DeckGestionContext.Token:
+                    AddToken(currentCardId);
+                    break;
+                case DeckGestionContext.Commander:
+                    AddCommander(currentCardId);
+                    break;
+            }
+        }
+        
         public int ChangeCardCount(string cardId, int currentCount, bool updateDisplayer = false)
         {
             for (int i = 0; i < m_CurrentDeckData.DeckCards.Count; i++)
@@ -300,7 +375,7 @@ namespace Script.Manager
             UpdateCardCountText();
         }
 
-        public void AddToken(string tokenId)
+        private void AddToken(string tokenId)
         {
             if(m_CurrentTokenInDeck.ContainsKey(tokenId))
                 return;
@@ -309,14 +384,41 @@ namespace Script.Manager
             AddTokenDisplayer(tokenId);
         }
         
-        public void RemoveToken(string tokenId)
+        private void AddCommander(string cardId)
         {
-            if (m_CurrentTokenInDeck.TryGetValue(tokenId, out TokenInDeckHolder token))
+            if(m_CurrentCommanderInDeck.ContainsKey(cardId))
+                return;
+            
+            m_CurrentDeckData.CommanderCards.Add(new CardCount(1,cardId));
+            AddCommanderDisplayer(cardId);
+        }
+
+        
+        public void RemoveCard(string cardId, DeckGestionContext context)
+        {
+            switch (context)
             {
-                Destroy(token.gameObject);
-                m_CurrentTokenInDeck.Remove(tokenId);
-                m_CurrentDeckData.TokenCards.Remove(new CardCount(1, tokenId));
+                case DeckGestionContext.Token:
+                    
+                    if (m_CurrentTokenInDeck.TryGetValue(cardId, out SingleInDeckHolder token))
+                    {
+                        Destroy(token.gameObject);
+                        m_CurrentTokenInDeck.Remove(cardId);
+                        m_CurrentDeckData.TokenCards.Remove(new CardCount(1, cardId)); 
+                    }
+                    
+                    break;
+                case DeckGestionContext.Commander:
+                    
+                    if (m_CurrentCommanderInDeck.TryGetValue(cardId, out SingleInDeckHolder commander))
+                    {
+                        Destroy(commander.gameObject);
+                        m_CurrentCommanderInDeck.Remove(cardId);
+                        m_CurrentDeckData.CommanderCards.Remove(new CardCount(1, cardId)); 
+                    }
+                    break;
             }
+            
         }
 
         private void UpdateCardCountText()
@@ -335,6 +437,16 @@ namespace Script.Manager
         {
             string[] deckData = m_CurrentDeckData.ToFile();
             File.WriteAllLines(CardFileHelper.GetDeckPath() + m_CurrentDeckData.DeckName + ".deck",deckData);
+        }
+
+        public void DisplaySingleCard(CardDisplayData cardDisplayData)
+        {
+            m_DeckCardViewerController.DisplaySingle(cardDisplayData);
+        }
+
+        public void DisplayCardInDeck(CardDisplayData cardDisplayData, string cardId)
+        {
+            m_DeckCardViewerController.DisplayInDeck(this,cardDisplayData,cardId);
         }
     }
 

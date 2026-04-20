@@ -54,11 +54,12 @@ namespace Script.UI
         public string DeckBackPath;
         public DeckType DeckType;
         public Sprite DeckBackCard;
+        public List<CardCount> CommanderCards;
         public List<CardCount> DeckCards;
         public List<CardCount> TokenCards;
 
         public DeckData(string deckName, DeckType deckType, string deckBackPath, Sprite deckBackCard,
-            List<CardCount> deckCards, List<CardCount> tokenCards)
+            List<CardCount> deckCards, List<CardCount> tokenCards, List<CardCount> commanderCards)
         {
             DeckName = deckName;
             DeckBackPath = deckBackPath;
@@ -66,11 +67,12 @@ namespace Script.UI
             DeckBackCard = deckBackCard;
             DeckCards = deckCards;
             TokenCards = tokenCards;
+            CommanderCards = commanderCards;
         }
 
         public string[] ToFile()
         {
-            string[] fileLines = new string[7 + DeckCards.Count + TokenCards.Count];
+            string[] fileLines = new string[9 + DeckCards.Count + TokenCards.Count + CommanderCards.Count];
 
             fileLines[0] = DeckName;
             fileLines[1] = DeckBackPath;
@@ -93,6 +95,17 @@ namespace Script.UI
             }
             
             fileLines[startToken + TokenCards.Count] = "EndToken";
+
+            fileLines[startToken + TokenCards.Count + 1] = "Commander";
+            int startCommander = startToken + TokenCards.Count + 2;
+            
+            for (int i = 0; i < CommanderCards.Count; i++)
+            {
+                fileLines[i + startCommander] = CommanderCards[i].Count + "|" + CommanderCards[i].CardId;
+            }
+            
+            fileLines[startCommander + CommanderCards.Count] = "EndCommander";
+
 
             return fileLines;
         }

@@ -2,7 +2,6 @@ Urtet
 Urtetjpg.jpg
 1
 Deck
-1|7aa01ab4-26b0-49dc-8514-b3850d355a21
 1|e8d2180b-f54c-47a9-9458-28e7a19e35ee
 1|323efe27-da58-4207-9c0c-dba5031bfa04
 1|0f5712cf-c6a9-4a2e-90db-8ca17c621724
@@ -94,3 +93,6 @@ Token
 1|bdb4fa32-18dd-4530-a529-5477e45413dd
 1|f4ef9889-e61d-4733-b27c-9e78aea8e84b
 EndToken
+Commander
+1|7aa01ab4-26b0-49dc-8514-b3850d355a21
+EndCommander
