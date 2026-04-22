@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using DG.Tweening;
 using Manager;
 using UnityEngine;
@@ -24,6 +22,11 @@ namespace MTG
         protected override Vector3 GetPosition(CardHolder card,int index)
         {
             return Vector3.zero;
+        }
+
+        public void Shuffle()
+        {
+            m_Cards.Shuffle();
         }
     }
 }

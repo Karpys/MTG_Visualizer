@@ -45,6 +45,7 @@ public class NotifLogHolder : MonoBehaviour
     private IEnumerator ResetState()
     {
         yield return new WaitForSeconds(0.25f);
+        m_NotifLogHolder.transform.position = m_Start.position;
         m_IsReady = true;
     }
 }

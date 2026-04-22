@@ -32,6 +32,7 @@ namespace MTG
 
         public Sprite DefaultSprite => m_DeckData.DeckBackCard ? m_DeckData.DeckBackCard : m_DeckScriptable.m_CardBackSprite;
         public bool DisplayHandCards => m_DisplayHandCards;
+        public DeckHolder DeckHolder => m_DeckHolder;
         private void Start()
         {
             m_DeckData = DeckDataHolder.DeckData;
@@ -324,11 +325,12 @@ namespace MTG
             }else if (Input.GetKeyDown(KeyCode.S))
             {
                 SelectCard();
-                m_SelectedCard.SwapVisual();
+                if(m_SelectedCard)
+                    m_SelectedCard.SwapVisual();
             }
         }
 
-        private CardState GetState(KeyCode inputCommand)
+        public CardState GetState(KeyCode inputCommand)
         {
             switch (inputCommand)
             {

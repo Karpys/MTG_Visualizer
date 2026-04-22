@@ -27,7 +27,6 @@ namespace MTG
         }
         public void DisplayCard(List<CardHolder> holders,CardState zone)
         {
-            Debug.Log(zone);
             m_Display.gameObject.SetActive(true);
             InDisplay = true;
             UpdateDisplay(holders,zone);
