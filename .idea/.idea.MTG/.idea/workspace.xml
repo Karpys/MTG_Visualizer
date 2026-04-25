@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/HelperMenu.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/HelperMenu.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/CardViewer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/CardViewer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Visualizer.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Visualizer.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Behaviour/DeckHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Behaviour/DeckHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/CardUIDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/CardUIDisplay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/HolderManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/HolderManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/NotifLogHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/NotifLogHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DeckCreationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DeckCreationController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Socket/SocketToHand.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Socket/SocketToHand.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deck/Urtet.deck" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/Urtet.deck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
@@ -152,7 +144,8 @@
       <workItem from="1776672333348" duration="6352000" />
       <workItem from="1776720155661" duration="1062000" />
       <workItem from="1776723979035" duration="1684000" />
-      <workItem from="1776872280217" duration="2588000" />
+      <workItem from="1776872280217" duration="3368000" />
+      <workItem from="1777130264199" duration="571000" />
     </task>
     <servers />
   </component>
