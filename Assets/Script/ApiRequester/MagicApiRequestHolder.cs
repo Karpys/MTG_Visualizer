@@ -89,6 +89,13 @@ namespace Script
             _ = m_ApiRequest.FindAbstractCards(GetFilters());
         }
 
+        public void TryFindArtCard(JObject cardObject)
+        {
+            m_UIController.Clear();
+            CancelMultipleDownload();
+            _ = m_ApiRequest.FindCardArts(cardObject);
+        }
+
         private Task m_CurrentPreviewCardsTask = null;
         private CancellationTokenSource m_CancellationTokenSource = null;
 

@@ -90,7 +90,7 @@ namespace Script.UI
             if(m_CardDisplay.Count == 0)
                 return;
             m_CurrentPosition = position;
-            m_CardViewer.DisplayApiCard(m_CardDisplay[position].CardData);
+            m_CardViewer.DisplayApiCard(m_CardDisplay[position].CardData,m_CardDisplay[position].CardObject);
         }
 
         private void Next()

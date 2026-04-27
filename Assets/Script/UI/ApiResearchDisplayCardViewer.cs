@@ -2,6 +2,7 @@ namespace Script.UI
 {
     using System.IO;
     using Helper;
+    using Newtonsoft.Json.Linq;
     using TMPro;
     using UnityEngine;
 
@@ -11,12 +12,15 @@ namespace Script.UI
         [SerializeField] private Color m_BorderColor = Color.black;
         [SerializeField] private TMP_InputField m_DeckNameInputField = null;
         [SerializeField] private TMP_Text m_ResultDeckFound = null;
+        [SerializeField] private MagicApiRequestHolder m_ApiRequestHolder = null;
         
         private ApiCardData m_CardData;
+        private JObject m_CardObject;
 
-        public void DisplayApiCard(ApiCardData apiCardData)
+        public void DisplayApiCard(ApiCardData apiCardData, JObject cardObject)
         {
             m_CardData = apiCardData;
+            m_CardObject = cardObject;
             Display(apiCardData.m_FrontCardSprite,apiCardData.m_BackCardSprite);
             m_ResultDeckFound.text = "";
         }
@@ -57,6 +61,11 @@ namespace Script.UI
             
             deckLines = deckData.ToFile();
             File.WriteAllLines(CardFileHelper.GetDeckPath() + deckName + ".deck",deckLines);
+        }
+
+        public void SearchArts()
+        {
+            m_ApiRequestHolder.TryFindArtCard(m_CardObject);
         }
 
         private bool DeckExist(string deckName)

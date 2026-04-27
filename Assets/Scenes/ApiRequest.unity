@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1404155686}
     m_Modifications:
+    - target: {fileID: 2804313876862629492, guid: 8a859e80369c8814ba3b2907ef8adf1e, type: 3}
+      propertyPath: m_ApiRequestHolder
+      value: 
+      objectReference: {fileID: 978951077957099265}
     - target: {fileID: 5750106570984818471, guid: 8a859e80369c8814ba3b2907ef8adf1e, type: 3}
       propertyPath: m_Name
       value: ApiCardViewer
@@ -2690,6 +2694,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 978951078869720479, guid: 8388f9c8068fcaf49a1c1418abff1c87, type: 3}
   m_PrefabInstance: {fileID: 978951077957099263}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &978951077957099265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7840237141864342461, guid: 8388f9c8068fcaf49a1c1418abff1c87, type: 3}
+  m_PrefabInstance: {fileID: 978951077957099263}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a04b6e395d549cfa0577261408d4c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3395887712697347985 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6105586151100967443, guid: a49a28bc8bc72374c90ae3984fe72403, type: 3}

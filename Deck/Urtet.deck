@@ -82,10 +82,10 @@ Deck
 1|3983a11e-8a8a-4d9d-868b-13e0c3719abb
 1|f2a3107d-bb96-45c6-97ac-b6c6b84cbad4
 1|8e45cd37-bf97-4742-978d-96f96ed653cd
-1|0be4e5f6-a1fc-4a91-aafe-f963878cd1b3
-1|ab499df5-ed76-43ad-81b3-70afd0487ccd
 1|b3c2d68d-690b-41e7-99ed-2d20c7e0a9b4
 1|9ad98263-9fe6-4766-a9fb-4776e570c250
+1|dc53b1af-0f4a-4475-a131-27cb5d5b0cf1
+1|40b8bf3a-1cb5-4ce2-ac25-9410f17130de
 EndDeck
 Token
 1|159ba2ca-1972-4bf8-9dbd-8bed5f33bfb7
@@ -95,5 +95,5 @@ Token
 1|b4f61b5e-9c53-40b1-b93e-3ffa351ff052
 EndToken
 Commander
-1|7aa01ab4-26b0-49dc-8514-b3850d355a21
+1|79afcfb3-7483-491c-87df-f8ce01c37eb0
 EndCommander

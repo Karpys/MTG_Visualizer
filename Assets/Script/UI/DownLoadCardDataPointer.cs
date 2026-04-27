@@ -17,6 +17,7 @@ namespace Script.UI
         private int m_Position = 0;
         
         public ApiCardData CardData => m_CardData;
+        public JObject CardObject => m_CardObject;
 
         public void Initialize(JObject cardObject, ApiCardData cardData, DownloadCardButton downloadButtonTransform,
             DownloadCardUIController downloadCardUIController, int position)

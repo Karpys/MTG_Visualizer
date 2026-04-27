@@ -6,10 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DeckCreationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DeckCreationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Socket/SocketToHand.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Socket/SocketToHand.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/ApiCardViewer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/ApiCardViewer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ApiRequest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ApiRequest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequestHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequestHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/ApiResearchDisplayCardViewer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/ApiResearchDisplayCardViewer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DownLoadCardDataPointer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DownLoadCardDataPointer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DownloadCardUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DownloadCardUIController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,10 +96,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="14272">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="14272" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -146,6 +149,7 @@
       <workItem from="1776723979035" duration="1684000" />
       <workItem from="1776872280217" duration="3368000" />
       <workItem from="1777130264199" duration="571000" />
+      <workItem from="1777324417036" duration="1446000" />
     </task>
     <servers />
   </component>

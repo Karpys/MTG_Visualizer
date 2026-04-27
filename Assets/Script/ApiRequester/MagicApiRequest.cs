@@ -116,6 +116,33 @@ namespace Script
             }
         }
 
+        public async Task FindCardArts(JObject cardObject)
+        {
+            string request = cardObject["prints_search_uri"].ToString();
+            HttpResponseMessage response = await m_Client.GetAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                string responseContent = await response.Content.ReadAsStringAsync();
+                JObject cardsJson = JObject.Parse(responseContent);
+                int totalCards = (int)cardsJson["total_cards"];
+
+                totalCards = Mathf.Min(MAX_CARDS, totalCards);
+                JObject[] cards = new JObject[totalCards];
+                
+                for (int i = 0; i < totalCards; i++)
+                {
+                    cards[i] = JObject.FromObject(cardsJson["data"][i]);
+                }
+                
+                OnCardsFound?.Invoke(cards);
+            }
+            else
+            {
+                OnFailCardFound?.Invoke();
+            }
+        }
+
         public async Task PreviewCards(List<JObject> cards, CancellationTokenSource cancellationTokenSource)
         {
             for (int i = 0; i < cards.Count; i++)
