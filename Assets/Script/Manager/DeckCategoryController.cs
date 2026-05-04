@@ -2,10 +2,11 @@ namespace Script.Manager
 {
     using KarpysDev.KarpysUtils.EditorUtils.ButtonAttribute;
     using UnityEngine;
+    using UnityEngine.UI;
 
     public class DeckCategoryController : MonoBehaviour
     {
-        [SerializeField] private DeckGestionController m_DeckGestionController = null;
+        [SerializeField] private GridLayoutGroup m_GridLayout = null;
         [SerializeField] private DeckCategoryInDeckHolder m_CategoryDeckHolderPrefab = null;
         [SerializeField] private Transform m_CategoryParentHolder = null;
         [SerializeField] private Vector2Int m_Debug = Vector2Int.zero;
@@ -14,7 +15,7 @@ namespace Script.Manager
         public void Initialize()
         {
             DeckCategoryInDeckHolder categoryInDeckHolder = Instantiate(m_CategoryDeckHolderPrefab, m_CategoryParentHolder);
-            categoryInDeckHolder.Initialize(m_Debug,"Creature");
+            categoryInDeckHolder.Initialize(m_Debug,"Creature",m_GridLayout);
         }
     }
 }

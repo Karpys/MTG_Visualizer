@@ -1,5 +1,42 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &186014423348842540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1783826321286272239}
+  m_Layer: 0
+  m_Name: Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1783826321286272239
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186014423348842540}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 8288346746085061793}
+  - {fileID: 3722553634914736612}
+  m_Father: {fileID: 9141543372326731933}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &460917326215201236
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95161eda99c5474c8759c33c6133b93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ScrollContent: {fileID: 3722553634914736612}
+  m_ScrollContent: {fileID: 1783826321286272239}
   m_ScrollClamp: {x: 0, y: 3000}
   m_MoveForce: 300
 --- !u!114 &1317988164842890992
@@ -183,12 +220,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9141543372326731933}
+  m_Father: {fileID: 1783826321286272239}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -40, y: -20}
+  m_AnchoredPosition: {x: 0, y: 5}
+  m_SizeDelta: {x: -40, y: -30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4709785267480174859
 MonoBehaviour:
@@ -320,8 +357,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 8288346746085061793}
-  - {fileID: 3722553634914736612}
+  - {fileID: 1783826321286272239}
   m_Father: {fileID: 3691950117904918815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2715,12 +2751,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 9141543372326731933}
+  m_Father: {fileID: 1783826321286272239}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4894055510028116104
 GameObject:
@@ -3929,7 +3965,7 @@ MonoBehaviour:
   m_DeckGestionContextDisplayer: {fileID: 1961829257435931605}
   m_DeckCardViewerController: {fileID: 6237522541017077478}
   m_InDeckLayout: {fileID: 3722553634914736612}
-  m_TokenInDeckLayout: {fileID: 4764526926245035639}
+  m_TokenInDeckLayout: {fileID: 8786960812860086290}
   m_CardInDeckUIHolder: {fileID: 5778324490778464095, guid: 046fbea964f8aab4584bc164a7699ab9, type: 3}
   m_SingleInDeckUIHolder: {fileID: -2864657266837298460, guid: c7dcc3eb6fc15d54db87e6937cbd735f, type: 3}
   m_CommanderSingleUIHolder: {fileID: -2864657266837298460, guid: 4757c01c9a1979d4bbe64225661edfc3, type: 3}
@@ -3946,7 +3982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: MainAssembly::Script.Manager.DeckGestionContextDisplayer
   m_DeckHolder: {fileID: 3691950117904918815}
-  m_TokenHolder: {fileID: 6241543062463774685}
+  m_TokenHolder: {fileID: 4764526926245035639}
 --- !u!114 &6237522541017077478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3973,7 +4009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec63231cec7743a7aef109dc25ee9f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: MainAssembly::Script.Manager.DeckCategoryController
-  m_DeckGestionController: {fileID: 7776059110171932851}
+  m_GridLayout: {fileID: 4709785267480174859}
   m_CategoryDeckHolderPrefab: {fileID: 2010613413906826775, guid: 086605da49cb4ca42810e7466389ea40, type: 3}
   m_CategoryParentHolder: {fileID: 8288346746085061793}
   m_Debug: {x: 0, y: 1}

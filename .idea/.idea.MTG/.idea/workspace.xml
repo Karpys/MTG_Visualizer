@@ -5,23 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Script/KarpysUtils/EditorUtils/ButtonAttribute.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/KarpysUtils/EditorUtils/ButtonAttribute/ButtonAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/KarpysUtils/EditorUtils/ButtonAttribute/ButtonAttribute.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/KarpysUtils/EditorUtils/ButtonAttribute/Editor.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/KarpysUtils/EditorUtils/ButtonAttribute/Editor/ButtonAttributeEditor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/KarpysUtils/EditorUtils/ButtonAttribute/Editor/ButtonAttributeEditor.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryInDeckHolder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryInDeckHolder.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/ApiCardViewer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/ApiCardViewer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/CardViewer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/CardViewer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/CategoryContainerUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/CategoryContainerUI.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/DeckCreation/===Deck_Gestion_UI===.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/DeckCreation/===Deck_Gestion_UI===.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/KarpysUtils" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/KarpysUtils" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/KarpysUtils/UI/OffsetContentSizeFitter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/KarpysUtils/UI/OffsetContentSizeFitter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/CardGridSetter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/CardGridSetter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryInDeckHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryInDeckHolder.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +153,7 @@
       <workItem from="1777324417036" duration="1446000" />
       <workItem from="1777820305037" duration="829000" />
       <workItem from="1777836771079" duration="1249000" />
-      <workItem from="1777904499782" duration="4223000" />
+      <workItem from="1777904499782" duration="7346000" />
     </task>
     <servers />
   </component>

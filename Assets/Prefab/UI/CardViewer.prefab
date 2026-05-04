@@ -374,7 +374,9 @@ GameObject:
   - component: {fileID: 5351152751285571208}
   - component: {fileID: 4315094357758458798}
   - component: {fileID: 7819659589679128225}
+  - component: {fileID: 2286010819962055417}
   - component: {fileID: 4132996169879588445}
+  - component: {fileID: 943081485040920636}
   m_Layer: 0
   m_Name: CardViewer
   m_TagString: Untagged
@@ -441,6 +443,29 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!223 &2286010819962055417
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6171676864566340698}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 2
+  m_TargetDisplay: 0
 --- !u!114 &4132996169879588445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,6 +481,23 @@ MonoBehaviour:
   m_CardViewer: {fileID: 5351152751285571208}
   m_Image: {fileID: 7570491732891264477}
   m_SwapButton: {fileID: 8194175359556802051}
+--- !u!114 &943081485040920636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6171676864566340698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &7841633177876216573
 GameObject:
   m_ObjectHideFlags: 0
