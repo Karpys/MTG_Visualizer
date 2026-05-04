@@ -5,14 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Script/KarpysUtils/EditorUtils/ButtonAttribute.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/KarpysUtils/EditorUtils/ButtonAttribute/ButtonAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/KarpysUtils/EditorUtils/ButtonAttribute/ButtonAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/KarpysUtils/EditorUtils/ButtonAttribute/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/KarpysUtils/EditorUtils/ButtonAttribute/Editor/ButtonAttributeEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/KarpysUtils/EditorUtils/ButtonAttribute/Editor/ButtonAttributeEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryInDeckHolder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryInDeckHolder.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/ApiCardViewer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/ApiCardViewer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ApiRequest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ApiRequest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequestHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequestHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/ApiResearchDisplayCardViewer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/ApiResearchDisplayCardViewer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DownLoadCardDataPointer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DownLoadCardDataPointer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DownloadCardUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DownloadCardUIController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/DeckCreation/===Deck_Gestion_UI===.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/DeckCreation/===Deck_Gestion_UI===.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/KarpysUtils" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/KarpysUtils" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/KarpysUtils/UI/OffsetContentSizeFitter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/KarpysUtils/UI/OffsetContentSizeFitter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/CardGridSetter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/CardGridSetter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,12 +33,15 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Dropdown.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unity/Hub/Editor/6000.2.6f2/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.2d.tilemap/Editor/GridSelectionEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unity/Hub/Editor/6000.2.6f2/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.test-framework/UnityEditor.TestRunner/NUnitExtension/Attributes/TestPlayerBuildModifierAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unity/Hub/Editor/6000.2.6f2/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Tests/Runtime/UGUI/ScrollRect/ScrollRectScale.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b8172fcdd864e17924794813da717121f5e00/69/c1e78ce3/Sprite.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/84fcf9255ea045aab003a751cdb5a2f6573620/ae/81095c1b/Path.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/84fcf9255ea045aab003a751cdb5a2f6573620/f2/9636f0f1/Attribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ApiRequester/CardTypeFilter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@e375ff18e90f/Runtime/UGUI/UI/Core/Layout/CanvasScaler.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -63,7 +74,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../Builds/MTG_Urtet\MTG_Visualizer.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../Builds/MTG_Build\MTG_Visualizer.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\Unity\Builds\MTG" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -96,10 +107,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="14272">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="14272" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -150,6 +161,9 @@
       <workItem from="1776872280217" duration="3368000" />
       <workItem from="1777130264199" duration="571000" />
       <workItem from="1777324417036" duration="1446000" />
+      <workItem from="1777820305037" duration="829000" />
+      <workItem from="1777836771079" duration="1249000" />
+      <workItem from="1777904499782" duration="4223000" />
     </task>
     <servers />
   </component>

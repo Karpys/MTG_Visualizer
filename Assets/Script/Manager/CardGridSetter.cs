@@ -25,6 +25,7 @@ public class CardGridSetter : MonoBehaviour
             gridSize.x -= 1;
         }
         
-        m_CardCount = gridSize.x * gridSize.y;
+        //todo : Fix force clamp
+        m_CardCount = Math.Min(20 , gridSize.x * gridSize.y);
     }
 }
