@@ -7,7 +7,7 @@ namespace Script.Manager
     public class DeckCategoryController : MonoBehaviour
     {
         [SerializeField] private GridLayoutGroup m_GridLayout = null;
-        [SerializeField] private DeckCategoryInDeckHolder m_CategoryDeckHolderPrefab = null;
+        [SerializeField] private DeckCategoryInDeckHolderGroup categoryDeckHolderGroupPrefab = null;
         [SerializeField] private Transform m_CategoryParentHolder = null;
         [SerializeField] private Vector2Int m_Debug = Vector2Int.zero;
         [SerializeField] private RectTransform m_MaskRect = null;
@@ -15,8 +15,8 @@ namespace Script.Manager
         [Button("Create Category Holder")]
         public void Initialize()
         {
-            DeckCategoryInDeckHolder categoryInDeckHolder = Instantiate(m_CategoryDeckHolderPrefab, m_CategoryParentHolder);
-            categoryInDeckHolder.Initialize(m_Debug,"Creature",m_GridLayout,m_MaskRect);
+            DeckCategoryInDeckHolderGroup categoryInDeckHolderGroup = Instantiate(categoryDeckHolderGroupPrefab, m_CategoryParentHolder);
+            categoryInDeckHolderGroup.Initialize(m_Debug,"Creature",m_GridLayout,m_MaskRect);
         }
     }
 }
