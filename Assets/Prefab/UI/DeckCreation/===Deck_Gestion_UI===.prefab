@@ -4013,6 +4013,7 @@ MonoBehaviour:
   m_CategoryDeckHolderPrefab: {fileID: 2010613413906826775, guid: 086605da49cb4ca42810e7466389ea40, type: 3}
   m_CategoryParentHolder: {fileID: 8288346746085061793}
   m_Debug: {x: 0, y: 1}
+  m_MaskRect: {fileID: 9141543372326731933}
 --- !u!114 &3884841064249261257
 MonoBehaviour:
   m_ObjectHideFlags: 0

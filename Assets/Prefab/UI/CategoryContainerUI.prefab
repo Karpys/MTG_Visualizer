@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5923948974845214782}
   - component: {fileID: 2943453650113732926}
   - component: {fileID: 670600704908649326}
+  - component: {fileID: 2923511977839866296}
   m_Layer: 0
   m_Name: Expand Right
   m_TagString: Untagged
@@ -96,6 +97,19 @@ MonoBehaviour:
   m_LeftClickUnityAction:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2923511977839866296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424283348863928083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c828fa827010498491b14c6a60f57cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MainAssembly::Script.UI.ClipRectToTarget
+  target: {fileID: 0}
 --- !u!1 &760920400608442573
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +223,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: MainAssembly::Script.Manager.DeckCategoryInDeckHolder
   m_Rect: {fileID: 8833681846186551508}
   m_CategoryName: {fileID: 1662959717084553057}
+  m_RectToTarget:
+  - {fileID: 2923511977839866296}
+  - {fileID: 626502667432294004}
+  - {fileID: 8412168202133391927}
+  - {fileID: 40159816156936720}
+  - {fileID: 6651432093825693043}
+  - {fileID: 6129033946383176877}
 --- !u!1 &1263079463631759161
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +241,7 @@ GameObject:
   - component: {fileID: 5614047281891740956}
   - component: {fileID: 1020929911502379467}
   - component: {fileID: 7968457593687624277}
+  - component: {fileID: 6651432093825693043}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -345,6 +367,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6651432093825693043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263079463631759161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c828fa827010498491b14c6a60f57cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MainAssembly::Script.UI.ClipRectToTarget
+  target: {fileID: 0}
 --- !u!1 &2408492517507862280
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +391,7 @@ GameObject:
   - component: {fileID: 6145058529603423155}
   - component: {fileID: 8696132933117724806}
   - component: {fileID: 8552440874822692959}
+  - component: {fileID: 6129033946383176877}
   m_Layer: 0
   m_Name: Outer
   m_TagString: Untagged
@@ -420,6 +456,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 6.6
+--- !u!114 &6129033946383176877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408492517507862280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c828fa827010498491b14c6a60f57cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MainAssembly::Script.UI.ClipRectToTarget
+  target: {fileID: 0}
 --- !u!1 &2555544919822764305
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +480,7 @@ GameObject:
   - component: {fileID: 7763626113346519387}
   - component: {fileID: 1544556049809867190}
   - component: {fileID: 4045997783045322314}
+  - component: {fileID: 626502667432294004}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -556,6 +606,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &626502667432294004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2555544919822764305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c828fa827010498491b14c6a60f57cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MainAssembly::Script.UI.ClipRectToTarget
+  target: {fileID: 0}
 --- !u!1 &3284416354134246333
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,6 +828,7 @@ GameObject:
   - component: {fileID: 390014731735740789}
   - component: {fileID: 1269930196498334510}
   - component: {fileID: 4760864687294423195}
+  - component: {fileID: 40159816156936720}
   m_Layer: 0
   m_Name: Expand Left
   m_TagString: Untagged
@@ -849,6 +913,19 @@ MonoBehaviour:
   m_LeftClickUnityAction:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &40159816156936720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4390268009322506253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c828fa827010498491b14c6a60f57cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MainAssembly::Script.UI.ClipRectToTarget
+  target: {fileID: 0}
 --- !u!1 &6409037763835930296
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,6 +1013,7 @@ GameObject:
   - component: {fileID: 2117718130532490731}
   - component: {fileID: 1638430941163923651}
   - component: {fileID: 2115863856860986610}
+  - component: {fileID: 8412168202133391927}
   m_Layer: 0
   m_Name: Outer
   m_TagString: Untagged
@@ -1000,3 +1078,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 6.6
+--- !u!114 &8412168202133391927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7170769961342965822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c828fa827010498491b14c6a60f57cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MainAssembly::Script.UI.ClipRectToTarget
+  target: {fileID: 0}

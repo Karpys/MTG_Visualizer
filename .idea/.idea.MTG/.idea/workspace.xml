@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/ClipRectToTarget.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/ClipRectToTarget.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/ApiCardViewer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/ApiCardViewer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/CardViewer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/CardViewer.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/CategoryContainerUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/CategoryContainerUI.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/DeckCreation/===Deck_Gestion_UI===.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/DeckCreation/===Deck_Gestion_UI===.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryInDeckHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryInDeckHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +30,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b8172fcdd864e17924794813da717121f5e00/69/c1e78ce3/Sprite.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/84fcf9255ea045aab003a751cdb5a2f6573620/ae/81095c1b/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/84fcf9255ea045aab003a751cdb5a2f6573620/f2/9636f0f1/Attribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93a11a8a6c1b4abda08f981ce568a97ea200/c1/26039795/CanvasRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Téléchargement/7279636--879745--ClipRectToTarget.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ApiRequester/CardTypeFilter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@e375ff18e90f/Runtime/UGUI/UI/Core/Layout/CanvasScaler.cs" root0="SKIP_HIGHLIGHTING" />
@@ -153,7 +156,8 @@
       <workItem from="1777324417036" duration="1446000" />
       <workItem from="1777820305037" duration="829000" />
       <workItem from="1777836771079" duration="1249000" />
-      <workItem from="1777904499782" duration="7346000" />
+      <workItem from="1777904499782" duration="7940000" />
+      <workItem from="1777998016382" duration="2933000" />
     </task>
     <servers />
   </component>
