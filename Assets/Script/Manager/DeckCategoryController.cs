@@ -16,7 +16,12 @@ namespace Script.Manager
         public void Initialize()
         {
             DeckCategoryInDeckHolderGroup categoryInDeckHolderGroup = Instantiate(categoryDeckHolderGroupPrefab, m_CategoryParentHolder);
-            categoryInDeckHolderGroup.Initialize(m_Debug,"Creature",m_GridLayout,m_MaskRect);
+            categoryInDeckHolderGroup.BaseInitialize(m_Debug,"Creature",m_GridLayout,m_MaskRect);
+        }
+
+        public void DisplayAddCategoryMenu()
+        {
+            
         }
     }
 }

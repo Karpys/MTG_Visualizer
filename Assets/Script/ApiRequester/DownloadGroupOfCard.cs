@@ -13,6 +13,7 @@ using File = System.IO.File;
 namespace Script
 {
     using System.Linq;
+    using KarpysDev.KarpysUtils;
 
     public class DownloadGroupOfCard : MonoBehaviour
     {

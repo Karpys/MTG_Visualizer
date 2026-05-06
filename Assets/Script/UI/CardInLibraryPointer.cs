@@ -9,9 +9,13 @@ namespace Script.UI
     {
         [SerializeField] private DeckGestionController m_Controller = null;
         [SerializeField] private Image m_Image = null;
+        [SerializeField] private CardInLibraryDraggable m_Draggable = null;
 
         private CardDisplayData m_CardDisplayData;
         private string m_CurrentCardId = String.Empty;
+        public Sprite CardSprite => m_Image.sprite;
+        public IUIDraggable Draggable => m_Draggable;
+
         public void Initialize(string cardId,CardDisplayData cardDisplayData)
         {
             m_CurrentCardId = cardId;
@@ -30,7 +34,7 @@ namespace Script.UI
 
         public override void OnLeftClick()
         {
-            m_Controller.AddCardInDeck(m_CurrentCardId);
+            // m_Controller.AddCardInDeck(m_CurrentCardId);
         }
     }
 }

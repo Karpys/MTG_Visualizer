@@ -49,3 +49,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: MainAssembly::Script.Manager.DeckCategoryInDeckHolderGroup
   m_Holder: {fileID: 4505486553239440596, guid: 086605da49cb4ca42810e7466389ea40, type: 3}
+  m_OverflowHolder: {fileID: 4505486553239440596, guid: e37167d89926cd043840ae1b0e568a2b, type: 3}

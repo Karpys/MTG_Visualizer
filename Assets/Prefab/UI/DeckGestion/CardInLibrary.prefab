@@ -1,23 +1,11 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &6101160178660026838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4423208118287908786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Image: {fileID: 744726144599425837}
 --- !u!1001 &5216784289260332073
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6645551007648463966, guid: b149ad938fa5d0e4fb85503216614fe7, type: 3}
@@ -106,15 +94,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8432948464658144155, guid: b149ad938fa5d0e4fb85503216614fe7, type: 3}
       propertyPath: m_Name
-      value: CardDeckGestionUIHolder
+      value: CardInLibrary
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8432948464658144155, guid: b149ad938fa5d0e4fb85503216614fe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6101160178660026838}
+    - targetCorrespondingSourceObject: {fileID: 8432948464658144155, guid: b149ad938fa5d0e4fb85503216614fe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1954124439773155541}
   m_SourcePrefab: {fileID: 100100000, guid: b149ad938fa5d0e4fb85503216614fe7, type: 3}
---- !u!1 &4423208118287908786 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8432948464658144155, guid: b149ad938fa5d0e4fb85503216614fe7, type: 3}
-  m_PrefabInstance: {fileID: 5216784289260332073}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &744726144599425837 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4769437144776763140, guid: b149ad938fa5d0e4fb85503216614fe7, type: 3}
@@ -126,3 +118,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1467048426143438967 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6645551007648463966, guid: b149ad938fa5d0e4fb85503216614fe7, type: 3}
+  m_PrefabInstance: {fileID: 5216784289260332073}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4423208118287908786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8432948464658144155, guid: b149ad938fa5d0e4fb85503216614fe7, type: 3}
+  m_PrefabInstance: {fileID: 5216784289260332073}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6101160178660026838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4423208118287908786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6323990f825a485280cf2908f02ddaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Controller: {fileID: 0}
+  m_Image: {fileID: 744726144599425837}
+  m_Draggable: {fileID: 1954124439773155541}
+--- !u!114 &1954124439773155541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4423208118287908786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3c185860a7462ca679c0f99cf01d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MainAssembly::Script.UI.CardInLibraryDraggable
+  m_RectTransform: {fileID: 1467048426143438967}
+  m_CardInLibraryPointer: {fileID: 6101160178660026838}
+  m_CardShadowPrefab: {fileID: 611863585180190268, guid: d63c3697172da2a46948072cb746e08c, type: 3}

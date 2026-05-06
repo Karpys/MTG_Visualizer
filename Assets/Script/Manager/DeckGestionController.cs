@@ -30,6 +30,7 @@ namespace Script.Manager
         [SerializeField] private TMP_InputField m_FilterInput = null;
         [SerializeField] private DeckGestionContextDisplayer m_DeckGestionContextDisplayer;
         [SerializeField] private DeckGestionCardViewerController m_DeckCardViewerController = null;
+        [SerializeField] private UIDragController m_DragController = null;
 
         [Header("Card in Deck")] 
         [SerializeField] private Transform m_InDeckLayout = null;
@@ -147,6 +148,8 @@ namespace Script.Manager
             int y = 0;
 
             ApplyAlphabeticalFilter();
+
+            List<IUIDraggable> draggables = new List<IUIDraggable>();
             
             for (int i = startIndex; i < endIndex; i++,y++)
             {
@@ -154,7 +157,10 @@ namespace Script.Manager
 
                 m_CardsSprite.TryGetValue(m_CurrentCardsToDisplay[i].CardId, out CardDisplayData cardDisplayData);
                 m_CardDisplayer[y].Initialize(m_CurrentCardsToDisplay[i].CardId,cardDisplayData);
+                draggables.Add(m_CardDisplayer[y].Draggable);
             }
+            
+            m_DragController.SetDraggable(draggables);
 
             for (; y < m_CardDisplayer.Length; y++)
             {

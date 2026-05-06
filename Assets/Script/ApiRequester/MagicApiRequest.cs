@@ -10,6 +10,8 @@ using UnityEngine;
 
 namespace Script
 {
+    using KarpysDev.KarpysUtils;
+
     public class MagicApiRequest
     {
         private HttpClient m_Client = new HttpClient();

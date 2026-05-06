@@ -5,14 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d53a358-7f82-49af-b478-2141f3755207" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryHolder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryHolder.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/CardInLibraryDraggable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/CardInLibraryDraggable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/CardShadow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/CardShadow.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/IUIDraggable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/IUIDraggable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/UIDragController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/UIDragController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MTG/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/CategoryContainerUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/CategoryContainerUI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/CardDeckGestionUIHolder.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/CardDeckGestionUIHolder.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/CategoryContainerUI.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/CategoryContainerUI.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/CategoryHolder.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/CategoryHolder.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/DeckCreation/===Deck_Gestion_UI===.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/DeckCreation/===Deck_Gestion_UI===.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ApiRequest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ApiRequest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/DownloadGroupOfCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/DownloadGroupOfCard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApiRequester/MagicApiRequest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryInDeckHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryInDeckHolderGroup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryInDeckHolder.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryInDeckHolderGroup.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryInDeckHolderGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckCategoryInDeckHolderGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DeckGestionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DeckGestionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/Logger.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/Logger.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/ApiResearchDisplayCardViewer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/ApiResearchDisplayCardViewer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/CardInLibraryPointer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/CardInLibraryPointer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Socket/SocketToHand.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Socket/SocketToHand.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -161,6 +184,9 @@
       <workItem from="1777998016382" duration="2933000" />
       <workItem from="1778007270142" duration="719000" />
       <workItem from="1778010830200" duration="3847000" />
+      <workItem from="1778021120173" duration="2207000" />
+      <workItem from="1778084618015" duration="1502000" />
+      <workItem from="1778088689384" duration="3193000" />
     </task>
     <servers />
   </component>
