@@ -31,6 +31,7 @@ namespace Script.Manager
         [SerializeField] private DeckGestionContextDisplayer m_DeckGestionContextDisplayer;
         [SerializeField] private DeckGestionCardViewerController m_DeckCardViewerController = null;
         [SerializeField] private UIDragController m_DragController = null;
+        [SerializeField] private RectTransform m_DeckRect = null;
 
         [Header("Card in Deck")] 
         [SerializeField] private Transform m_InDeckLayout = null;
@@ -55,6 +56,7 @@ namespace Script.Manager
         private Dictionary<string,SingleInDeckHolder> m_CurrentCommanderInDeck = new Dictionary<string,SingleInDeckHolder>();
 
         public DeckGestionContext DeckGestionContext => m_DeckGestionContext;
+        public RectTransform DeckRect => m_DeckRect;
 
         private void Awake()
         {

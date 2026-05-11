@@ -25,6 +25,14 @@ namespace Script.UI
         {
             if (m_CardShadowCreated)
             {
+                //Check if rect is inside deck rect
+
+                if (RectTransformUtility.RectangleContainsScreenPoint(m_CardInLibraryPointer.Controller.DeckRect,
+                        Input.mousePosition))
+                {
+                    m_CardInLibraryPointer.AddInDeck();
+                }
+                
                 Destroy(m_CardShadowCreated.gameObject);
             }
         }

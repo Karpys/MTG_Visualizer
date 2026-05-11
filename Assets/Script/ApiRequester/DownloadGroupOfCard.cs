@@ -2,12 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
 using Script.Helper;
-using Script.Manager;
 using UnityEngine;
-using UnityEngine.Windows;
 using File = System.IO.File;
 
 namespace Script
@@ -17,10 +14,17 @@ namespace Script
 
     public class DownloadGroupOfCard : MonoBehaviour
     {
+        [SerializeField] private NotifLogHolder m_NotifLogHolder = null;
         [SerializeField] private Color m_BorderColor = Color.black;
         [SerializeField] private Vector2Int m_BorderSize = new Vector2Int(10,10);
 
         private HttpClient m_Client = new HttpClient();
+
+        private void Awake()
+        {
+            m_Client.DefaultRequestHeaders.Add("User-Agent", "MonApplication/1.0");
+            m_Client.DefaultRequestHeaders.Add("Accept", "application/json");
+        }
 
         public void OpenFileSelection()
         {
@@ -43,9 +47,13 @@ namespace Script
 
             for (int i = 0; i < cards.Length; i++)
             {
+                if (cards[i].Length == 0)
+                    continue;
+                
                 string request = "https://api.scryfall.com/cards/search?q=lang:any+!" + "\"" + cards[i] + "\"";
                 HttpResponseMessage response = await m_Client.GetAsync(request);
-
+                await Task.Delay(500);
+                
                 if (response.IsSuccessStatusCode)
                 {
                     string responseContent = await response.Content.ReadAsStringAsync();
@@ -62,13 +70,17 @@ namespace Script
                     var cardObject = JObject.FromObject(dataArray[0]);
                     cardObjects.Add(cardObject);
                     cards[i].Log("Found");
+                    m_NotifLogHolder.AddLog((string) cardObject["name"] + " found");
+                }
+                else
+                {
+                    response.StatusCode.Log("Status Code");
                 }
             }
 
             foreach (JObject cardObject in cardObjects)
             {
                 ApiCardData cardData = await cardObject.ToPreviewCardData();
-                //Todo : Add notif log
                 cardData.m_CardSaveName.Log("Save");
                 CardFileHelper.DownloadToLibrary(cardData,m_BorderColor,m_BorderSize);
             }

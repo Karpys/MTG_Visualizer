@@ -1696,6 +1696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df1742806c3645f8b71116850a5e4a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_NotifLogHolder: {fileID: 1127288268}
   m_BorderColor: {r: 0, g: 0, b: 0, a: 1}
   m_BorderSize: {x: 10, y: 10}
 --- !u!1 &1500171204

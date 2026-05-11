@@ -15,7 +15,7 @@ namespace Script.UI
         private string m_CurrentCardId = String.Empty;
         public Sprite CardSprite => m_Image.sprite;
         public IUIDraggable Draggable => m_Draggable;
-
+        public DeckGestionController Controller => m_Controller;
         public void Initialize(string cardId,CardDisplayData cardDisplayData)
         {
             m_CurrentCardId = cardId;
@@ -35,6 +35,11 @@ namespace Script.UI
         public override void OnLeftClick()
         {
             // m_Controller.AddCardInDeck(m_CurrentCardId);
+        }
+
+        public void AddInDeck()
+        {
+            m_Controller.AddCardInDeck(m_CurrentCardId);
         }
     }
 }
