@@ -34,6 +34,7 @@ namespace Script.Manager
         [SerializeField] private DeckGestionCardViewerController m_DeckCardViewerController = null;
         [SerializeField] private UIDragController m_DragController = null;
         [SerializeField] private RectTransform m_DeckRect = null;
+        [SerializeField] private float m_MinDistanceInsert = 1f;
 
         [Header("Card in Deck")] 
         [SerializeField] private Transform m_InDeckLayout = null;
@@ -294,15 +295,20 @@ namespace Script.Manager
             UpdateCardCountText();
         }
 
-        private void AddCardDisplayer(string id, int count)
+        private CardInDeckHolder AddCardDisplayer(string id, int count)
         {
             if (m_CardsSprite.TryGetValue(id, out CardDisplayData cardDisplayData))
             {
                 CardInDeckHolder cardInDeck = Instantiate(m_CardInDeckUIHolder, m_InDeckLayout);
                 cardInDeck.InitializeBaseCard(cardDisplayData,id,this);
                 cardInDeck.Initialize(count);
+                cardInDeck.name = id;
                 m_CurrentCardInDeck.Add(id,cardInDeck);
+
+                return cardInDeck;
             }
+
+            return null;
         }
 
         private void AddTokenDisplayer(string id)
@@ -327,12 +333,12 @@ namespace Script.Manager
             }
         }
         
-        public void AddCardInDeck(string currentCardId)
+        private void AddCardInDeck(string currentCardId)
         {
             switch (DeckGestionContext)
             {
                 case DeckGestionContext.Deck:
-                    ChangeCardCount(currentCardId, 1, true);
+                    AddDeckCard(currentCardId);
                     break;
                 case DeckGestionContext.Token:
                     AddToken(currentCardId);
@@ -343,21 +349,68 @@ namespace Script.Manager
             }
         }
 
-        private void InsertCardViaPosition(Vector3 position, string cardId)
+        private void InsertDeckCard(string id, int positionInsert, DeckGestionContext context)
         {
-            List<IPosition> cardInDeck = new List<IPosition>();
+            switch (context)
+            {
+                case DeckGestionContext.Deck:
+
+                    if (m_CurrentDeckData.DeckCards.Count == 0)
+                    {
+                        m_CurrentDeckData.DeckCards.Add(new CardCount(1, id));
+                        return;
+                    }
+                    
+                    m_CurrentDeckData.DeckCards.Insert(positionInsert - 1, new CardCount(1,id));
+                    break;
+                case DeckGestionContext.Token:
+                    
+                    if (m_CurrentDeckData.TokenCards.Count == 0)
+                    {
+                        m_CurrentDeckData.TokenCards.Add(new CardCount(1, id));
+                        return;
+                    }
+
+                    m_CurrentDeckData.TokenCards.Insert(positionInsert - 1, new CardCount(1,id));
+                    break;
+                case DeckGestionContext.Commander:
+                    
+                    if (m_CurrentDeckData.CommanderCards.Count == 0)
+                    {
+                        m_CurrentDeckData.CommanderCards.Add(new CardCount(1, id));
+                        return;
+                    }
+
+                    m_CurrentDeckData.CommanderCards.Insert(positionInsert - 1, new CardCount(1,id));
+                    break;
+            }
+        }
+
+        private void InsertCardViaPosition(Vector3 position, BaseCardInDeckUI card, out int idPosition)
+        {
+            List<Transform> cardInDeck = new List<Transform>();
+            int lowestSiblingIndex = 1000;
             
             foreach (KeyValuePair<string, CardInDeckHolder> cardInDeckHolder in m_CurrentCardInDeck)
             {
-                cardInDeck.Add(cardInDeckHolder.Value);    
+                cardInDeck.Add(cardInDeckHolder.Value.transform);
+                int siblingIndex = cardInDeckHolder.Value.transform.GetSiblingIndex();
+
+                if (siblingIndex < lowestSiblingIndex)
+                    lowestSiblingIndex = siblingIndex;
             }
 
-            //Todo : Check actual start sibling index and check for min dist and if not min dist place at the end 
-            
-            int closest = cardInDeck.GetClosestViaId(position);
+            Transform closest = cardInDeck.GetClosest(position);
 
-            BaseCardInDeckUI targetCard = GetCard(cardId, DeckGestionContext);
-            targetCard.transform.SetSiblingIndex(closest);
+            if (Vector3.Distance(closest.position, position) >= m_MinDistanceInsert)
+            {
+                idPosition = -1;
+            }
+            else
+            {
+                card.transform.SetSiblingIndex(closest.GetSiblingIndex());
+                idPosition = closest.GetSiblingIndex() - lowestSiblingIndex;
+            }
         }
 
         private BaseCardInDeckUI GetCard(string cardId, DeckGestionContext context)
@@ -391,8 +444,6 @@ namespace Script.Manager
                     }
                     
                     break;
-                default:
-                    break;
             }
 
             return null;
@@ -405,11 +456,26 @@ namespace Script.Manager
                 case DeckGestionContext.Deck:
 
                     bool cardExist = CardExist(cardId, DeckGestionContext.Deck);
-                    ChangeCardCount(cardId, 1, true);
                     
                     if (!cardExist)
                     {
-                        InsertCardViaPosition(mousePosition, cardId);
+                        CardInDeckHolder card = AddCardDisplayer(cardId,1);
+                        InsertCardViaPosition(mousePosition, card, out int idPosition);
+
+                        if (idPosition == -1)
+                        {
+                            m_CurrentDeckData.DeckCards.Add(new CardCount(1,cardId));
+                        }
+                        else
+                        {
+                            InsertDeckCard(cardId, idPosition, DeckGestionContext.Deck);
+                        }
+                        
+                        UpdateCardCountText();
+                    }
+                    else
+                    {
+                        ChangeCardCount(cardId, 1, true);
                     }
                     
                     break;
@@ -510,6 +576,12 @@ namespace Script.Manager
             
             m_CurrentDeckData.TokenCards.Add(new CardCount(1,tokenId));
             AddTokenDisplayer(tokenId);
+        }
+        
+        private void AddDeckCard(string id)
+        {
+            m_CurrentDeckData.DeckCards.Add(new CardCount(1,id));
+            AddCardDisplayer(id,1);
         }
         
         private void AddCommander(string cardId)

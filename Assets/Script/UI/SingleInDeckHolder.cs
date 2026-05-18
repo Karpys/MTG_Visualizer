@@ -10,7 +10,6 @@ namespace Script.UI
         [SerializeField] private Image m_CardSprite = null;
         
         private DeckGestionContext m_Context = DeckGestionContext.Token;
-        public CardDisplayData DisplayData => m_CardDisplayData;
         
         public void Initialize(DeckGestionContext context)
         {

@@ -21,7 +21,7 @@ namespace Script.Helper
             
             foreach (Transform transform in transforms)
             {
-                float dist = Vector2.Distance(position, closest.position); 
+                float dist = Vector2.Distance(position, transform.position); 
                 
                 if (dist <= closestDist)
                 {

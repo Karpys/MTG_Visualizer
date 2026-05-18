@@ -53,8 +53,6 @@ namespace Script.UI
             {
                 float dist = Vector2.Distance(mousePosition, draggable.RectTransform.position); 
                 
-                draggable.RectTransform.position.Log("Draggable Pos");
-                
                 if (dist <= closestDist)
                 {
                     m_CurrentDrag = draggable;

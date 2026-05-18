@@ -38,10 +38,5 @@ namespace Script.UI
         {
             // m_Controller.AddCardInDeck(m_CurrentCardId);
         }
-
-        public void AddInDeck()
-        {
-            m_Controller.AddCardInDeck(m_CurrentCardId);
-        }
     }
 }

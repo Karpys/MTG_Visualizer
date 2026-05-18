@@ -4273,6 +4273,7 @@ MonoBehaviour:
   m_DeckCardViewerController: {fileID: 6237522541017077478}
   m_DragController: {fileID: 4578806534747970252}
   m_DeckRect: {fileID: 3691950117904918815}
+  m_MinDistanceInsert: 124.8
   m_InDeckLayout: {fileID: 3722553634914736612}
   m_TokenInDeckLayout: {fileID: 8786960812860086290}
   m_CardInDeckUIHolder: {fileID: 5778324490778464095, guid: 046fbea964f8aab4584bc164a7699ab9, type: 3}
