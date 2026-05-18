@@ -1,29 +1,19 @@
-using System;
-using Script.Manager;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Script.UI
 {
-    public class CardInDeckHolder : MonoBehaviour
+    using Helper;
+
+    public class CardInDeckHolder : BaseCardInDeckUI, IPosition
     {
         [SerializeField] private TMP_Text m_CardCount = null;
-        [SerializeField] private Image m_CardSprite = null;
 
-        private CardDisplayData m_CardDisplayData;
-        private string m_CardId = String.Empty;
-        private DeckGestionController m_Controller = null;
+        public Vector3 Position => transform.position;
 
-        public CardDisplayData DisplayData => m_CardDisplayData;
-        
-        public void Initialize(CardDisplayData displayData, int cardCount,string cardId, DeckGestionController controller)
+        public void Initialize(int cardCount)
         {
-            m_CardDisplayData = displayData;
-            m_CardSprite.sprite = displayData.m_FrontSprite;
             m_CardCount.text = cardCount.ToString();
-            m_CardId = cardId;
-            m_Controller = controller;
         }
 
         public void ChangeCardCount(int count)
