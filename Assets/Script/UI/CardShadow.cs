@@ -7,11 +7,8 @@ namespace Script.UI
     {
         [SerializeField] private Image m_Image = null;
 
-        private CardInLibraryPointer m_CardInLibrary = null;
-        
-        public void Initialize(Sprite sprite, CardInLibraryPointer cardInLibrary)
+        public void Initialize(Sprite sprite)
         {
-            m_CardInLibrary = cardInLibrary;
             m_Image.sprite = sprite;
         }
     }

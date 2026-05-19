@@ -8,8 +8,10 @@ namespace Script.UI
     public class CardInDeckHolder : BaseCardInDeckUI, IPosition
     {
         [SerializeField] private TMP_Text m_CardCount = null;
+        [SerializeField] private CardInDeckDraggable m_CardInDeckDraggable = null;
 
         public Vector3 Position => transform.position;
+        public IUIDraggable Draggable => m_CardInDeckDraggable;
 
         public void Initialize(int cardCount)
         {

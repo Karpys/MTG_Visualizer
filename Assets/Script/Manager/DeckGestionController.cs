@@ -57,6 +57,9 @@ namespace Script.Manager
         private Dictionary<string,CardInDeckHolder> m_CurrentCardInDeck = new Dictionary<string,CardInDeckHolder>();
         private Dictionary<string,SingleInDeckHolder> m_CurrentTokenInDeck = new Dictionary<string,SingleInDeckHolder>();
         private Dictionary<string,SingleInDeckHolder> m_CurrentCommanderInDeck = new Dictionary<string,SingleInDeckHolder>();
+        
+        private List<IUIDraggable> m_CardDeckHolderDraggable = new List<IUIDraggable>();
+        
 
         public DeckGestionContext DeckGestionContext => m_DeckGestionContext;
         public RectTransform DeckRect => m_DeckRect;
@@ -83,15 +86,15 @@ namespace Script.Manager
         {
             yield return new WaitForSeconds(0.1f);
             GenerateCardsSprite();
-            DisplayCards();
-            UpdateMaxPageCount();
-            UpdatePageUI();
             ClearInDeckCards();
             ClearInDeckToken();
             ClearInDeckCommander();
             DisplayCurrentCommanderCards();
             DisplayCurrentDeckCards();
             DisplayCurrentTokenCards();
+            DisplayCards();
+            UpdateMaxPageCount();
+            UpdatePageUI();
             UpdateCardCountText();
         }
 
@@ -154,7 +157,7 @@ namespace Script.Manager
 
             ApplyAlphabeticalFilter();
 
-            List<IUIDraggable> draggables = new List<IUIDraggable>();
+            List<IUIDraggable> draggables = new List<IUIDraggable>(m_CardDeckHolderDraggable);
             
             for (int i = startIndex; i < endIndex; i++,y++)
             {
@@ -228,6 +231,7 @@ namespace Script.Manager
                 Destroy(cardInDeckHolder.gameObject);
             }
             
+            m_CardDeckHolderDraggable.Clear();
             m_CurrentCardInDeck.Clear();
         }
         
@@ -304,7 +308,7 @@ namespace Script.Manager
                 cardInDeck.Initialize(count);
                 cardInDeck.name = id;
                 m_CurrentCardInDeck.Add(id,cardInDeck);
-
+                m_CardDeckHolderDraggable.Add(cardInDeck.Draggable);
                 return cardInDeck;
             }
 
@@ -564,6 +568,7 @@ namespace Script.Manager
             {
                 Destroy(card.gameObject);
                 m_CurrentCardInDeck.Remove(id);
+                m_CardDeckHolderDraggable.Remove(card.Draggable);
             }
             
             UpdateCardCountText();

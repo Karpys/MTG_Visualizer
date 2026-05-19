@@ -17,6 +17,7 @@ namespace Script.UI
         public Vector3 Position => transform.position;
         public CardDisplayData DisplayData => m_CardDisplayData;
         public string Id => m_CardId;
+        public Sprite CardSprite => m_CardSprite.sprite;
 
         public void InitializeBaseCard(CardDisplayData cardDisplayData, string cardId,
             DeckGestionController gestionController)
