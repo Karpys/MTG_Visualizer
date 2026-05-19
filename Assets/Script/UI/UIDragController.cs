@@ -52,6 +52,7 @@ namespace Script.UI
             foreach (IUIDraggable draggable in m_UIDraggables)
             {
                 float dist = Vector2.Distance(mousePosition, draggable.RectTransform.position); 
+                
                 if (dist <= closestDist)
                 {
                     m_CurrentDrag = draggable;

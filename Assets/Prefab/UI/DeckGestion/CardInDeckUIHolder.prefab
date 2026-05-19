@@ -634,7 +634,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CardInDeckHolder: {fileID: 5778324490778464095}
-  m_Image: {fileID: 2744748029847014103}
 --- !u!1 &8140286643586785405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,6 +1102,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8432948464658144155, guid: b149ad938fa5d0e4fb85503216614fe7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5778324490778464095}
+    - targetCorrespondingSourceObject: {fileID: 8432948464658144155, guid: b149ad938fa5d0e4fb85503216614fe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 976419071472431766}
   m_SourcePrefab: {fileID: 100100000, guid: b149ad938fa5d0e4fb85503216614fe7, type: 3}
 --- !u!1 &1234239086002910792 stripped
 GameObject:
@@ -1121,8 +1123,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b92eb342114653b1e9df5ed3c10b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CardCount: {fileID: 6202700697668456101}
   m_CardSprite: {fileID: 2744748029847014103}
+  m_CardCount: {fileID: 6202700697668456101}
+  m_CardInDeckDraggable: {fileID: 976419071472431766}
+--- !u!114 &976419071472431766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234239086002910792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c524eba567434fa1419a4d6043573a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MainAssembly::Script.UI.CardInDeckDraggable
+  m_CardInDeck: {fileID: 5778324490778464095}
+  m_RectTransform: {fileID: 4043811853722505613}
+  m_CardShadowPrefab: {fileID: 611863585180190268, guid: d63c3697172da2a46948072cb746e08c, type: 3}
 --- !u!114 &2744748029847014103 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4769437144776763140, guid: b149ad938fa5d0e4fb85503216614fe7, type: 3}

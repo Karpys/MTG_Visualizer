@@ -2,10 +2,10 @@ namespace Script.UI
 {
     using UnityEngine;
 
-    public class CardInLibraryDraggable : MonoBehaviour, IUIDraggable
+    public class CardInDeckDraggable : MonoBehaviour , IUIDraggable
     {
+        [SerializeField] private CardInDeckHolder m_CardInDeck = null;
         [SerializeField] private RectTransform m_RectTransform = null;
-        [SerializeField] private CardInLibraryPointer m_CardInLibraryPointer = null;
         [SerializeField] private CardShadow m_CardShadowPrefab = null;
         public RectTransform RectTransform => m_RectTransform;
 
@@ -18,21 +18,13 @@ namespace Script.UI
         public void OnDragSelect()
         {
             m_CardShadowCreated = Instantiate(m_CardShadowPrefab, transform.parent.parent);
-            m_CardShadowCreated.Initialize(m_CardInLibraryPointer.CardSprite);
+            m_CardShadowCreated.Initialize(m_CardInDeck.CardSprite);
         }
 
         public void ReleaseDrag()
         {
             if (m_CardShadowCreated)
-            {
-                if (RectTransformUtility.RectangleContainsScreenPoint(m_CardInLibraryPointer.Controller.DeckRect,
-                        Input.mousePosition))
-                {
-                    m_CardInLibraryPointer.Controller.InsertCardInDeckAt(Input.mousePosition, m_CardInLibraryPointer.Id);
-                }
-                
                 Destroy(m_CardShadowCreated.gameObject);
-            }
         }
     }
 }
