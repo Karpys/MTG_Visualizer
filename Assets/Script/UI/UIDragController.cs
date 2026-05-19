@@ -1,8 +1,6 @@
 namespace Script.UI
 {
     using System.Collections.Generic;
-    using KarpysDev.KarpysUtils;
-    using Manager;
     using UnityEngine;
 
     public class UIDragController : MonoBehaviour
@@ -48,7 +46,7 @@ namespace Script.UI
             Vector2 mousePosition = Input.mousePosition;
             m_CurrentDrag = m_UIDraggables[0];
             float closestDist = Vector2.Distance(mousePosition, m_UIDraggables[0].RectTransform.position);
-            
+
             foreach (IUIDraggable draggable in m_UIDraggables)
             {
                 float dist = Vector2.Distance(mousePosition, draggable.RectTransform.position); 

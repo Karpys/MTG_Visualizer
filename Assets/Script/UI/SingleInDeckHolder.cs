@@ -7,8 +7,6 @@ namespace Script.UI
 
     public class SingleInDeckHolder : BaseCardInDeckUI
     {
-        [SerializeField] private Image m_CardSprite = null;
-        
         private DeckGestionContext m_Context = DeckGestionContext.Token;
         
         public void Initialize(DeckGestionContext context)

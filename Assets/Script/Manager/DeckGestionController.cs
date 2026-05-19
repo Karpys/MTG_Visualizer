@@ -58,7 +58,8 @@ namespace Script.Manager
         private Dictionary<string,SingleInDeckHolder> m_CurrentTokenInDeck = new Dictionary<string,SingleInDeckHolder>();
         private Dictionary<string,SingleInDeckHolder> m_CurrentCommanderInDeck = new Dictionary<string,SingleInDeckHolder>();
         
-        private List<IUIDraggable> m_CardDeckHolderDraggable = new List<IUIDraggable>();
+        private List<IUIDraggable> m_CardDeckHolderDraggables = new List<IUIDraggable>();
+        private List<IUIDraggable> m_CardInLibraryDraggables = new List<IUIDraggable>();
         
 
         public DeckGestionContext DeckGestionContext => m_DeckGestionContext;
@@ -96,6 +97,7 @@ namespace Script.Manager
             UpdateMaxPageCount();
             UpdatePageUI();
             UpdateCardCountText();
+            UpdateDraggables();
         }
 
         public void SetDeckContext()
@@ -157,7 +159,7 @@ namespace Script.Manager
 
             ApplyAlphabeticalFilter();
 
-            List<IUIDraggable> draggables = new List<IUIDraggable>(m_CardDeckHolderDraggable);
+            List<IUIDraggable> draggables = new List<IUIDraggable>(m_CardDeckHolderDraggables);
             
             for (int i = startIndex; i < endIndex; i++,y++)
             {
@@ -167,13 +169,32 @@ namespace Script.Manager
                 m_CardDisplayer[y].Initialize(m_CurrentCardsToDisplay[i].CardId,cardDisplayData);
                 draggables.Add(m_CardDisplayer[y].Draggable);
             }
-            
-            m_DragController.SetDraggable(draggables);
 
+            m_CardInLibraryDraggables = draggables;
+            
             for (; y < m_CardDisplayer.Length; y++)
             {
                 m_CardDisplayer[y].gameObject.SetActive(false);
             }
+
+            UpdateDraggables();
+        }
+
+        private void UpdateDraggables()
+        {
+            List<IUIDraggable> draggables = new List<IUIDraggable>();
+
+            foreach (IUIDraggable draggable in m_CardDeckHolderDraggables)
+            {
+                draggables.Add(draggable);
+            }
+            
+            foreach (IUIDraggable draggable in m_CardInLibraryDraggables)
+            {
+                draggables.Add(draggable);
+            }
+            
+            m_DragController.SetDraggable(draggables);
         }
 
         private void ApplyAlphabeticalFilter()
@@ -231,7 +252,7 @@ namespace Script.Manager
                 Destroy(cardInDeckHolder.gameObject);
             }
             
-            m_CardDeckHolderDraggable.Clear();
+            m_CardDeckHolderDraggables.Clear();
             m_CurrentCardInDeck.Clear();
         }
         
@@ -308,7 +329,8 @@ namespace Script.Manager
                 cardInDeck.Initialize(count);
                 cardInDeck.name = id;
                 m_CurrentCardInDeck.Add(id,cardInDeck);
-                m_CardDeckHolderDraggable.Add(cardInDeck.Draggable);
+                m_CardDeckHolderDraggables.Add(cardInDeck.Draggable);
+                UpdateDraggables();
                 return cardInDeck;
             }
 
@@ -562,15 +584,44 @@ namespace Script.Manager
             return 0;
         }
 
+        public int TempRemoveCardCount(string cardId)
+        {
+            for (int i = 0; i < m_CurrentDeckData.DeckCards.Count; i++)
+            {
+                CardCount cardCount = m_CurrentDeckData.DeckCards[i];
+                if (cardCount.CardId == cardId)
+                {
+                    cardCount.Count -= 1;
+                    
+                    if (cardCount.Count == 0)
+                    {
+                        m_CurrentDeckData.DeckCards.RemoveAt(i);
+                        TempRemoveCardFromDeck(cardId);
+                        return cardCount.Count;
+                    }
+
+                    m_CurrentCardInDeck.TryGetValue(cardId, out CardInDeckHolder cardInDeck);
+                    if (cardInDeck != null) cardInDeck.UpdateCoutUI(cardCount.Count);
+                    
+                    m_CurrentDeckData.DeckCards[i] = cardCount;
+                    UpdateCardCountText();
+                    return cardCount.Count;
+                }
+            }
+            
+            return 0;
+        }
+
         private void RemoveCardDisplayer(string id)
         {
             if (m_CurrentCardInDeck.TryGetValue(id, out CardInDeckHolder card))
             {
-                Destroy(card.gameObject);
+                m_CardDeckHolderDraggables.Remove(card.Draggable);
                 m_CurrentCardInDeck.Remove(id);
-                m_CardDeckHolderDraggable.Remove(card.Draggable);
+                Destroy(card.gameObject);
             }
             
+            UpdateDraggables();
             UpdateCardCountText();
         }
 
@@ -622,8 +673,24 @@ namespace Script.Manager
                         m_CurrentDeckData.CommanderCards.Remove(new CardCount(1, cardId)); 
                     }
                     break;
+                
+                case DeckGestionContext.Deck:
+                    RemoveCardDisplayer(cardId);
+                    break;
+            }
+        }
+
+        private void TempRemoveCardFromDeck(string cardId)
+        {
+            if (m_CurrentCardInDeck.TryGetValue(cardId, out CardInDeckHolder card))
+            {
+                card.gameObject.SetActive(false);
+                m_CurrentCardInDeck.Remove(cardId);
+                m_CardDeckHolderDraggables.Remove(card.Draggable);
             }
             
+            UpdateDraggables();
+            UpdateCardCountText();
         }
 
         private void UpdateCardCountText()
