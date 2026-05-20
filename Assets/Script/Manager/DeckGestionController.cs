@@ -327,6 +327,7 @@ namespace Script.Manager
                 CardInDeckHolder cardInDeck = Instantiate(m_CardInDeckUIHolder, m_InDeckLayout);
                 cardInDeck.InitializeBaseCard(cardDisplayData,id,this);
                 cardInDeck.Initialize(count);
+                cardInDeck.InitializeDragg();
                 cardInDeck.name = id;
                 m_CurrentCardInDeck.Add(id,cardInDeck);
                 m_CardDeckHolderDraggables.Add(cardInDeck.Draggable);
@@ -380,7 +381,6 @@ namespace Script.Manager
             switch (context)
             {
                 case DeckGestionContext.Deck:
-
                     if (m_CurrentDeckData.DeckCards.Count == 0)
                     {
                         m_CurrentDeckData.DeckCards.Add(new CardCount(1, id));
@@ -584,19 +584,22 @@ namespace Script.Manager
             return 0;
         }
 
-        public int TempRemoveCardCount(string cardId)
+        public int RemoveCardCount(string cardId,int count, out bool hasRemove)
         {
+            hasRemove = false;
+            
             for (int i = 0; i < m_CurrentDeckData.DeckCards.Count; i++)
             {
                 CardCount cardCount = m_CurrentDeckData.DeckCards[i];
                 if (cardCount.CardId == cardId)
                 {
-                    cardCount.Count -= 1;
+                    cardCount.Count -= count;
                     
                     if (cardCount.Count == 0)
                     {
                         m_CurrentDeckData.DeckCards.RemoveAt(i);
-                        TempRemoveCardFromDeck(cardId);
+                        RemoveCardDisplayer(cardId);
+                        hasRemove = true;
                         return cardCount.Count;
                     }
 
@@ -719,6 +722,17 @@ namespace Script.Manager
         public void DisplayCardInDeck(CardDisplayData cardDisplayData, string cardId)
         {
             m_DeckCardViewerController.DisplayInDeck(this,cardDisplayData,cardId);
+        }
+
+        public int GetCardCount(string id)
+        {
+            foreach (CardCount cardCount in m_CurrentDeckData.DeckCards)
+            {
+                if (cardCount.CardId == id)
+                    return cardCount.Count;
+            }
+
+            return 0;
         }
     }
 

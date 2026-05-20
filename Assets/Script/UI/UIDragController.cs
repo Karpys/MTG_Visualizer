@@ -49,6 +49,9 @@ namespace Script.UI
 
             foreach (IUIDraggable draggable in m_UIDraggables)
             {
+                if(draggable.RectTransform == null)
+                    continue;
+                
                 float dist = Vector2.Distance(mousePosition, draggable.RectTransform.position); 
                 
                 if (dist <= closestDist)
@@ -83,7 +86,7 @@ namespace Script.UI
 
         private void TryReleaseDraggable()
         {
-            if(m_CurrentDrag == null)
+            if (m_CurrentDrag == null)
                 return;
             
             m_CurrentDrag.ReleaseDrag();
