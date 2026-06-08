@@ -710,8 +710,7 @@ namespace Script.Manager
 
         public void SaveDeck()
         {
-            string[] deckData = m_CurrentDeckData.ToFile();
-            File.WriteAllLines(CardFileHelper.GetDeckPath() + m_CurrentDeckData.DeckName + ".deck",deckData);
+            m_CurrentDeckData.SaveDeck();
         }
 
         public void DisplaySingleCard(CardDisplayData cardDisplayData)

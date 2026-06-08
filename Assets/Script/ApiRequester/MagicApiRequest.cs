@@ -10,6 +10,7 @@ using UnityEngine;
 
 namespace Script
 {
+    using System.Net.NetworkInformation;
     using KarpysDev.KarpysUtils;
 
     public class MagicApiRequest
@@ -39,7 +40,7 @@ namespace Script
             
             m_Lang = "lang:"+lang;
         }
-
+        
         public async Task FindCard(string cardName)
         {
             string request = "https://api.scryfall.com/cards/search?q=" + m_Lang + "+!" + "\"" + cardName + "\"";

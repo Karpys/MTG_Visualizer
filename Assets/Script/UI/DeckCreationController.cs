@@ -105,7 +105,7 @@ namespace Script.UI
         {
             CloseDeckCreationPopup();
             CreateBackCardImage();
-            CreateDeckFile(m_DeckNameText.text,m_DeckTypeDropDown.value,m_CurrentBackCardPath.ToFileName());
+            DeckHelper.CreateDeckFile(m_DeckNameText.text,m_DeckTypeDropDown.value,m_CurrentBackCardPath.ToFileName());
             UpdateContainers();
         }
 
@@ -118,22 +118,6 @@ namespace Script.UI
             
             string path = CardFileHelper.GetDeckBackCardPath()+m_CurrentBackCardPath.ToFileName();
             File.WriteAllBytes(path,texture.EncodeToJPG());
-        }
-
-        private void CreateDeckFile(string deckName,int deckType,string deckBackFileName)
-        {
-            string path = CardFileHelper.GetDeckPath() + deckName + ".deck";
-            string[] deckData = new string[9];
-            deckData[0] = deckName;
-            deckData[1] = deckBackFileName;
-            deckData[2] = deckType.ToString();
-            deckData[3] = "Deck";
-            deckData[4] = "EndDeck";
-            deckData[5] = "Token";
-            deckData[6] = "EndToken";
-            deckData[7] = "Commander";
-            deckData[8] = "EndCommander";
-            File.WriteAllLines(path,deckData);
         }
 
         private bool CanCreateDeck()

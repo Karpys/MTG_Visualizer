@@ -10,7 +10,7 @@ namespace MTG
         public static bool IsCreated(bool search = false)
         {
             if (search)
-                _instance = (T)FindObjectOfType(typeof(T));
+                _instance = (T)FindFirstObjectByType(typeof(T));
             return _instance != null;
         }
 
@@ -26,15 +26,7 @@ namespace MTG
                 {
                     if (_instance == null)
                     {
-                        _instance = (T)FindObjectOfType(typeof(T));
-
-                        if (FindObjectsOfType(typeof(T)).Length > 1)
-                        {
-                            Debug.LogWarning("[Singleton] Something went really wrong with " + typeof(T) +
-                                " - there should never be more than 1 singleton!" +
-                                " Reopening the scene might fix it.");
-                            return _instance;
-                        }
+                        _instance = (T)FindFirstObjectByType(typeof(T));
                     }
                     return _instance;
                 }

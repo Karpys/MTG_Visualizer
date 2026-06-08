@@ -4,6 +4,20 @@ using KarpysDev.KarpysUtils.TweenCustom;
 using TMPro;
 using UnityEngine;
 
+public struct NotifLogData
+{
+    private string _message;
+    private float _duration;
+    
+    public float Duration => _duration;
+    public string Message => _message;
+
+    public NotifLogData(string message, float duration)
+    {
+        _message = message;
+        _duration = duration;
+    }
+}
 public class NotifLogHolder : MonoBehaviour
 {
     [SerializeField] private Transform m_NotifLogHolder = null;
@@ -12,7 +26,7 @@ public class NotifLogHolder : MonoBehaviour
     [SerializeField] private Transform m_End = null;
 
     private bool m_IsReady = true;
-    private Queue<string> m_MessageQueue = new Queue<string>();
+    private Queue<NotifLogData> m_MessageQueue = new Queue<NotifLogData>();
 
     public bool IsReady => m_IsReady;
     public void Update()
@@ -23,28 +37,28 @@ public class NotifLogHolder : MonoBehaviour
         }
     }
 
-    public void AddLog(string message)
+    public void AddLog(string message, float duration = 0.25f)
     {
-        m_MessageQueue.Enqueue(message);
+        m_MessageQueue.Enqueue(new NotifLogData(message, duration));
     }
 
     private void LaunchLog()
     {
         m_IsReady = false;
         m_NotifLogHolder.transform.position = m_Start.position;
-        m_NotifLogHolder.DoMove(m_End.position, 0.15f).OnComplete(ResetReady);
-        string message = m_MessageQueue.Dequeue();
-        m_NotifLogText.text = message;
+        NotifLogData notifLog = m_MessageQueue.Dequeue();
+        m_NotifLogHolder.DoMove(m_End.position, 0.15f).OnComplete(() => ResetReady(notifLog.Duration));
+        m_NotifLogText.text = notifLog.Message;
     }
 
-    private void ResetReady()
+    private void ResetReady(float duration)
     {
-        StartCoroutine(ResetState());
+        StartCoroutine(ResetState(duration));
     }
 
-    private IEnumerator ResetState()
+    private IEnumerator ResetState(float duration)
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(duration);
         m_NotifLogHolder.transform.position = m_Start.position;
         m_IsReady = true;
     }

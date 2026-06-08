@@ -8,7 +8,7 @@ using Ookii.Dialogs;
 
 namespace Script.Helper
 {
-    #if UNITY_STANDALONE_OSX
+#if UNITY_STANDALONE_OSX
     using SFB;
     #endif
     
@@ -18,6 +18,7 @@ namespace Script.Helper
         Jpg,
         Deck,
     }
+
     public static class FileHelper
     {
         
